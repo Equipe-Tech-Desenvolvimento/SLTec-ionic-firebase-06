@@ -15,6 +15,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
+// 3.1) Importar 'Async local storage for Angular'
+import { StorageMap } from '@ngx-pwa/local-storage';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -31,7 +34,10 @@ import { environment } from '../environments/environment';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+
+    // 3.2) Incluir service no aplicativo
+    StorageMap
   ],
   bootstrap: [AppComponent]
 })
