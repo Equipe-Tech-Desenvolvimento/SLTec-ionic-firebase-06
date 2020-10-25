@@ -20,3 +20,5 @@ Os 'branches' abaixo são incrementais, ou seja, os mais recentes implementam os
 - `01_Ajustes_iniciais` --> Criação das páginas gerais e mínimos ajustes visuais
 - `02_Conexao_com_Firebase` --> Configuração do App do Firebase
 - `03_Autenticao_e_guard` --> Autenticação usando Firebase Authentication
+
+*EOF*
