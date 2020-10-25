@@ -23,13 +23,13 @@ Instruções para executar as atividades deste 'branch':
 
 4) Editar páginas criadas
 
-	- Edite 'app/pages/contacts/contacts.page.html' --> botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
-	- Edite 'app/pages/e404/e404.page.html' --> botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
-	- Edite 'app/pages/home/home.page.html' --> botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
-	- Edite 'app/pages/info/info.page.html' --> botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
-	- Edite 'app/pages/test01/test01.page.html' --> botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
-	- Edite 'app/pages/test02/test02.page.html' --> botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
-	- Edite 'global.scss' --> 'Remove margin do primeiro elemento de bloco'
+	- Edite 'app/pages/contacts/contacts.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
+	- Edite 'app/pages/e404/e404.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
+	- Edite 'app/pages/home/home.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
+	- Edite 'app/pages/info/info.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
+	- Edite 'app/pages/test01/test01.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
+	- Edite 'app/pages/test02/test02.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
+	- Edite 'global.scss' &rarr; 'Remove margin do primeiro elemento de bloco'
 
 5) Editar menu principal
 
