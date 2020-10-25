@@ -2,3 +2,12 @@
 ************************
 
 1) Instalar dependências
+
+    ng add @angular/fire
+
+2) Configuração do App do Firebase
+
+    Editar 'environments/environments.ts' --> 1
+    Editar 'app/app.module.ts' --> 1 à 2
+
+EOF
