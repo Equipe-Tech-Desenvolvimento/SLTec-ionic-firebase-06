@@ -8,7 +8,7 @@ Instruções para executar as atividades deste 'branch':
 
 1) Instalar dependências
 
-  + ` `ng add @ngx-pwa/local-storage` ` &rarr;
+  + ` ` ng add @ngx-pwa/local-storage ` `
     -  Referências: https://github.com/cyrilletuzi/angular-async-local-storage
 
 2) Criar páginas de gestão de usuários
@@ -29,10 +29,10 @@ Instruções para executar as atividades deste 'branch':
 
 5) Editar view de gestão de usuários
 
-  + Edite 'app/user/login/login.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
-  + Edite 'app/user/logout/logout.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
-  + Edite 'app/user/new/new.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
-  + Edite 'app/user/profile/profile.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
+  + Edite 'app/user/login/login.page.html' &rarr; botão 'menu', '&lt; ion-title&gt; ' e '&lt; ion-content&gt; '
+  + Edite 'app/user/logout/logout.page.html' &rarr; botão 'menu', '&lt; ion-title&gt; ' e '&lt; ion-content&gt; '
+  + Edite 'app/user/new/new.page.html' &rarr; botão 'menu', '&lt; ion-title&gt; ' e '&lt; ion-content&gt; '
+  + Edite 'app/user/profile/profile.page.html' &rarr; botão 'menu', '&lt; ion-title&gt; ' e '&lt; ion-content&gt; '
 
 6) Criar funcionalidades de login
 
@@ -48,7 +48,7 @@ Instruções para executar as atividades deste 'branch':
 
 8) Exibir opções corretas no menu
 
-  + ` `ionic generate service services/events` `
+  + ` ` ionic generate service services/events ` `
   + Editar 'app/services/events.service' &rarr; 1 à 4
   + Editar 'app/app.component.ts' &rarr; 1 à 5
   + Editar 'app/user/login/login.page.ts' &rarr; 6
