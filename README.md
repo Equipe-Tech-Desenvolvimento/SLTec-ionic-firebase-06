@@ -6,5 +6,5 @@ Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimen
 
 Este branch só contém o aplicativo ionic recém criado com o comando:
 
- `ionic start SLTec-ionic-firebase-06 sidemeny --type=angular --capacitor`
+ `ionic start SLTec-ionic-firebase-06 sidemenu --type=angular --capacitor`
 *EOF*
