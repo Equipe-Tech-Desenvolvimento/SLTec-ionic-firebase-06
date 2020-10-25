@@ -28,4 +28,14 @@ Os 'branches' abaixo são incrementais, ou seja, os mais recentes implementam os
 * `02_Conexao_com_Firebase` &rarr; Configuração do App do Firebase
 * `03_Autenticao_e_guard` &rarr; Autenticação usando Firebase Authentication
 
+    *Novos branches, em breve!*
+
+## Contribuições
+
+Gostou da idéia e deseja colaborar no desenvolvimento deste aplicativo? Clone, dê um objetivo "real" para ele e siga em frente.
+
+Aproveite para enviar suas observações, correções e sugestões.
+
+Nós, estudantes, agradecemos!
+
 *EOF*
