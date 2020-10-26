@@ -128,7 +128,7 @@ export class LoginPage implements OnInit {
                   this.router.navigate(['/user/new']);
                 }
               })
-              .catch((error) => { console.error(error); })
+              .catch((error) => { console.error(error); });
           },
           error: (error) => { console.error(error); }
         });
