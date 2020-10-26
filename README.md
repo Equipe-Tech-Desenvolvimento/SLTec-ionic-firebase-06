@@ -13,11 +13,11 @@ Instruções para executar as atividades deste 'branch':
 
 2) Criar páginas de gestão de usuários
 
-  + ionic generate page user/login --spec=false
-  + ionic generate page user/logout --spec=false
-  + ionic generate page user/new --spec=false
-  + ionic generate page user/profile --spec=false
-  + ionic generate service services/app
+     + ionic generate page user/login --spec=false
+     + ionic generate page user/logout --spec=false
+     + ionic generate page user/new --spec=false
+     + ionic generate page user/profile --spec=false
+     + ionic generate service services/app
 
 3) Implementando o Guards
 
