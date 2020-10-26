@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageMap } from '@ngx-pwa/local-storage';
+
+//
+import { AppService } from '../../services/app.service';
 
 @Component({
   selector: 'app-new',
@@ -7,9 +11,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewPage implements OnInit {
 
-  constructor() { }
+  userData: any;
+
+  constructor(
+
+    //
+    public app: AppService,
+    private storage: StorageMap, // Armazenamento local
+  ) { }
 
   ngOnInit() {
-  }
 
+    // Obtém dados do usuário
+    const st = this.storage.get('userData', { type: 'string' }).subscribe(
+      (data) => {
+        this.userData = JSON.parse(data);
+        st.unsubscribe();
+
+        // Exibe alerta e vai para a rota '/user/new'
+        this.app.myAlert(
+          `Olá ${this.userData.displayName}`,
+          `Você precisa completar seu cadastro para usar todos os recursos do aplicativo.`
+        );
+      }
+    );
+  }
 }
