@@ -4,6 +4,8 @@ Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimen
 
 ## Branch '01_Ajustes_iniciais'
 
+Neste 'branch' vamos criar a estrutura básica do aplicativo, com algumas páginas genéricas.
+
 Instruções para executar as atividades deste 'branch':
 
 1) Criar as páginas de uso geral e para alguns testes
@@ -14,7 +16,7 @@ Instruções para executar as atividades deste 'branch':
     - ` ` ionic generate page pages/contacts ` `
     - ` ` ionic generate page pages/test01 ` `
     - ` ` ionic generate page pages/test02 ` `
-2) Editar rotas
+2) Editar rotas e definir a 'página inicial' e a 'página 404'
 
     - Edite 'app/app-routing.module.ts' &rarr; Organizar rotas iniciais
 
@@ -22,7 +24,7 @@ Instruções para executar as atividades deste 'branch':
 
     - Edite 'index.html' &rarr; 'lang' e '&lt;title&gt;'
 
-4) Editar páginas criadas
+4) Editar páginas criadas para melhorar o visual
 
     - Edite 'app/pages/contacts/contacts.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
     - Edite 'app/pages/e404/e404.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
