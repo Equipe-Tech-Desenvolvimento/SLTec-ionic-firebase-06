@@ -8,12 +8,12 @@ Instruções para executar as atividades deste 'branch':
 
 1) Criar as páginas de uso geral e para alguns testes
 
-    - ` ` ionic generate page pages/home --spec=false ` `
-    - ` ` ionic generate page pages/e404 --spec=false ` `
-    - ` ` ionic generate page pages/info --spec=false ` `
-    - ` ` ionic generate page pages/contacts --spec=false ` `
-    - ` ` ionic generate page pages/test01 --spec=false ` `
-    - ` ` ionic generate page pages/test02 --spec=false ` `
+    - ` ` ionic generate page pages/home ` `
+    - ` ` ionic generate page pages/e404 ` `
+    - ` ` ionic generate page pages/info ` `
+    - ` ` ionic generate page pages/contacts ` `
+    - ` ` ionic generate page pages/test01 ` `
+    - ` ` ionic generate page pages/test02 ` `
 2) Editar rotas
 
     - Edite 'app/app-routing.module.ts' &rarr; Organizar rotas iniciais
