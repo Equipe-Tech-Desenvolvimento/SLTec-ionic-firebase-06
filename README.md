@@ -24,7 +24,7 @@ Instruções para executar as atividades deste 'branch':
 
     - Edite 'app/user/new/new.page.html' &rarr; 1
 
-5) Troque a chamada do 'popup' de cadastro de perfil para o 'cadastro de perfil'
+5) Troque a chamada do 'popup de cadastro de perfil' para a página 'cadastro de perfil'
 
     - Edite 'app/user/login/login.page.ts' &rarr; 1
     - Edite 'app/user/new/new.page.ts' &rarr; 1 à 4
