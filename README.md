@@ -8,7 +8,6 @@ Instruções para executar as atividades deste 'branch':
 1) Instalar dependências
 
     - ` ` ng add @angular/fire ` `
-
 2) Configuração do App do Firebase
 
     - Editar 'environments/environments.ts' &rarr; 1
