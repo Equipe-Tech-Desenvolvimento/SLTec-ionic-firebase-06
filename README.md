@@ -22,17 +22,18 @@ Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimen
 
 Os 'branches' abaixo são incrementais, ou seja, os mais recentes implementam os recursos dos anteriores.
 
-* `master` &rarr; Aplicativo finalizado (Em andamento)
-* `00_Aplicativo_Ionic_criado` &rarr; Aplicativo recém criado, sem alterações
-* `01_Ajustes_iniciais` &rarr; Criação das páginas gerais e mínimos ajustes visuais
-* `02_Conexao_com_Firebase` &rarr; Configuração do App do Firebase
-* `03_Autenticao_e_guard` &rarr; Autenticação usando Firebase Authentication
+ - `master` &rarr; Aplicativo finalizado (Em andamento)
+ - `00_Aplicativo_Ionic_criado` &rarr; Aplicativo recém criado, sem alterações
+ - `01_Ajustes_iniciais` &rarr; Criação das páginas gerais e mínimos ajustes visuais
+ - `02_Conexao_com_Firebase` &rarr; Configuração do App do Firebase
+ - `03_Autenticao_e_guard` &rarr; Autenticação usando Firebase Authentication
+ - `04_Somente_com_perfil` &rarr; Permite acesso a determinadas páginas somente se o usuário cadastrou o perfil completo
 
     *Novos branches, em breve!*
 
 ## Contribuições
 
-Gostou da idéia e deseja colaborar no desenvolvimento deste aplicativo? Clone, dê um objetivo "real" para ele e siga em frente.
+Gostou da idéia e deseja colaborar no desenvolvimento deste aplicativo? Clone este repositório, dê um objetivo "real" para ele e siga em frente.
 
 Aproveite para enviar suas observações, correções e sugestões.
 
