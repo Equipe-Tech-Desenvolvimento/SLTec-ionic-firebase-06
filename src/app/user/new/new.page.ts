@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 // 4.1) Importa dependências 
 import { AppService } from '../../services/app.service';
 import { StorageMap } from '@ngx-pwa/local-storage';
-import { timeStamp } from 'console';
 
 @Component({
   selector: 'app-new',
