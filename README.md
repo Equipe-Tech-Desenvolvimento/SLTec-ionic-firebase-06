@@ -11,6 +11,10 @@ Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimen
 	 - Authentication
 	 - Cloud Firestore
 
+## Exemplo
+
+Você pode ver a versão mais recente deste aplicativo funcionando em https://luferat.github.io/SLTec-ionic-firebase-06/
+
 ## Obtendo e instalando
 
  1. Clone este repositório
