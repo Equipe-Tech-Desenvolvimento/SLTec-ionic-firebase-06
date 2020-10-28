@@ -29,7 +29,7 @@ export class NewPage implements OnInit {
       (data) => {
         this.userData = JSON.parse(data);
 
-        // Exibe caixa de alerta
+        // 4.5) Exibe caixa de alerta
         this.app.myAlert(
           `Olá ${this.userData.displayName}`,
           `Você precisa completar seu cadastro para usar todos os recursos do aplicativo.`
