@@ -16,4 +16,8 @@ Instruções para executar as atividades deste 'branch':
     - Editar 'environments/environments.ts' &rarr; 1
     - Editar 'app/app.module.ts' &rarr; 1 à 2
 
+3) Conclusão
+
+Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
+
 *EOF*
