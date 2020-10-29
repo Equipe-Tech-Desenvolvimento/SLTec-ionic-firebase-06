@@ -1,6 +1,6 @@
 # SLTec-ionic-firebase-06
 
-Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.
+__*Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.*__
 
 ## Branch '01_Ajustes_iniciais'
 
@@ -16,6 +16,7 @@ Instruções para executar as atividades deste 'branch':
     - Execute ` ` ionic generate page pages/contacts ` `
     - Execute ` ` ionic generate page pages/test01 ` `
     - Execute ` ` ionic generate page pages/test02 ` `
+
 2) Editar rotas e definir a 'página inicial' e a 'página 404'
 
     - Edite 'app/app-routing.module.ts' &rarr; Organizar rotas iniciais
