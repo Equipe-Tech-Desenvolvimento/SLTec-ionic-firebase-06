@@ -2,58 +2,55 @@
 
 Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.
 
-## Branch '03_Autenticacao_e_guard'
+## Sobre este aplicativo
 
-Neste 'branch' veremos como implementar o login usando com o login social do 'Firebase Authentication'.
+Este é uma aplicativo básico, para servir de exemplo para outros, desenvolvidos pelos estudantes das disciplinas de **desenvolvimento de aplicativos híbridos** dos cursos de T.I.
 
-Instruções para executar as atividades deste 'branch':
+Este aplicativo não tem um objetivo específico, tendo apenas recursos genéricos que podem ser implementados na maioria dos aplicativos desenvolvidos nos projetos integradores, por exemplo.
 
-1) Instalar dependências
+### Características e recursos:
 
-    - Comande ``ng add @ngx-pwa/local-storage``
-        - Fonte: https://github.com/cyrilletuzi/angular-async-local-storage
+- Plataforma:
+  - Node 12.19.0 LTS
+- Front-end:
+  - Ionic 6.12.0
+  - Angular 10.0.8
+  - ionic Capacitor 6.12.0
+  - Template: sidemenu
+- Back-end:
+  - API do Firebase.com 
 
-2) Criar páginas de gestão de usuários
+## Branches
 
-    - Comande ``ionic generate page user/login``
-    - Comande ``ionic generate page user/logout``
-    - Comande ``ionic generate page user/new``
-    - Comande ``ionic generate page user/profile``
-    - Comande ``ionic generate service services/app``
+Para facilitar o desenvolvimento do aplicativo durante o andamento do curso, cada etapa (ou aula) está desenvolvida em um "branch" separado que, após a conclusão e testes, deve ser concatenada (nerge) com o branch "master".
 
-3) Implementando o Guards
+### Branches:
+- ``master`` &rarr; Aplicativo funcional, até o branch mais recente e pronto para compilar para Web e mobile;
+- ``00_Aplicativo_Ionic_criado`` &rarr; Aplicativo base criado pelo comando ``ionic start``;
+- ``01_Ajustes_iniciais`` &rarr; Criação de algumas páginas estáticas, definição das rotas e menu principal;
+- ``02_Conexao_com_firebase`` &rarr; Configuração de um novo App no Firebase.com e conexão com o aplicativo Ionic;
+- ``03_Autenticacao_e_guard`` &rarr; Autenticação de usuários usando *Firebase Authentication* e armazenamento local;
+- ``04_Somente_com_perfil`` &rarr; Obriga o usuário autenticado a criar um perfil no aplicativo, caso não tenha feito antes;
+- ...
 
-    - Edite 'app/app-routing.module.ts' &rarr; 1 à 9
+  * *Novos "branches" são disponibilizados à medida que são desenvolvidos e testados.*
 
-4) Adicionar 'login' no menu principal
+## Versão "compilada"
 
-    - Edite 'app/app.component.html' &rarr; 1
+Você pode ver a versão Web do aplicativo que está em desenvolvimento no endereço abaixo. Lembre-se que, por estar e desenvolvimento, nem todas as funcionalidades estão implementadas e existem riscos de segurança e privacidade dos dados armazenados.
 
-5) Editar view de gestão de usuários
+    https://luferat.github.io/SLTec-ionic-firebase-06/
 
-    - Edite 'app/user/login/login.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;' 
-    - Edite 'app/user/logout/logout.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;' 
-    - Edite 'app/user/new/new.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;' 
-    - Edite 'app/user/profile/profile.page.html' &rarr; botão 'menu', '&lt;ion-title&gt;' e '&lt;ion-content&gt;'
+    * *Use dados "fake" para testar o aplicativo em desenvolvimento.
 
-6) Criar funcionalidades de login
+## Colabore
 
-    - Editar 'app/service/app.service.ts' &rarr; 1 à 3
-    - Editar 'app/user/login/login.page.ts' &rarr; 1 à 5
-    - Editar 'app/user/login/login.page.html' &rarr; 1
-    - Editar 'app/user/login/login.page.scss' &rarr; 1
+Gostaria de colaborar com este projeto ou partir para um projeto próprio com base neste? Faça seu "fork", dê um objetivo claro para o aplicativo e segue em frente! 
 
-7) Criar funcionalidades de logout
+Visite os "branches", leia os tutoriais que estão no arquivo *README.md* de cada branch, "debugue", otimize, incremente...
 
-    - Editar 'app/user/logout/logout.page.ts' &rarr; 1 à 3
-    - Editar 'app/user/logout/logout.page.html' &rarr; 1
+Só não deixe de compartilhar suas descobertas conosco, ok?
 
-8) Exibir opções corretas no menu
+Estudantes e professores, agradecem...
 
-    - Comande ``ionic generate service services/events``
-    - Editar 'app/services/events.service' &rarr; 1 à 4
-    - Editar 'app/app.component.ts' &rarr; 1 à 5
-    - Editar 'app/user/login/login.page.ts' &rarr; 6
-    - Editar 'app/user/logout/logout.page.ts' &rarr; 4
-
-EOF
+*EOF*
