@@ -20,7 +20,7 @@ Este aplicativo não tem um objetivo específico, tendo apenas recursos genéric
 - Back-end:
   - API do Firebase.com 
 
-## Branches
+## Aulas x Branches
 
 Para facilitar o desenvolvimento do aplicativo durante o andamento do curso, cada etapa (ou aula) está desenvolvida em um "branch" separado que, após a conclusão e testes, deve ser concatenada (nerge) com o branch "master".
 
@@ -52,5 +52,9 @@ Visite os "branches", leia os tutoriais que estão no arquivo *README.md* de cad
 Só não deixe de compartilhar suas descobertas conosco, ok?
 
 Estudantes e professores, agradecem...
+
+## Quando vai ficar pronto?
+
+**_Nunca!_** Este aplicativo nunca terá uma versão final, talvez apenas os "forks" e "clones" dele...
 
 *EOF*
