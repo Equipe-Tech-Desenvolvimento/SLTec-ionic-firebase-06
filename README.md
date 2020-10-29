@@ -56,6 +56,49 @@ https://luferat.github.io/SLTec-ionic-firebase-06/
 
 *Dica: use dados "fake" para testar o aplicativo em desenvolvimento.*
 
+### Como rodar o aplicativo no meu PC
+
+Se você gostou da idéia, siga os passos para baixar e testar este aplicativo:
+
+1) No GitHub.com, faça um "fork" deste repositório na sua conta; 
+2) "Clone" o repositório remoto do seu GitHub.com para seu PC; 
+3) Abra um "Node.js command prompt"; 
+4) Mude para o diretório no seu PC, onde você clonou o repositório remoto; 
+5) Comande ` `npm install` ` para baixar e instalar todas as dependências; 
+6) Teste o aplicativo no navegador padrão, comandando ` `ionic serve` `; 
+
+Lembre-se que nem todas as funcionalidades estão implementadas ainda, aproveite então para melhorar o aplicativo removendo "bugs", otimizando o código e fazendo novas implementações...
+
+### Como rodar meu aplicativo na Internet
+
+Esses são passos "simples" para publicar este aplicativo como um "aplicativo Web", no serviço de hospedagem "GitHub Pages":
+
+1) Preparando o repositório remoto:
+
+* Vá nas configurações do repositório do aplicativo (fork) no seu GitHub.com; 
+* Localize a seção "GitHub Pages"; 
+* Em "Source", selecione o "Branch: master" e o diretório "/docs"; 
+* Clique no botão [Save]; 
+* Após a página recarregar, anote (ou copie) o URL da mensagem "Your site is published at ..."; 
+
+2) No seu PC (localhost):
+
+* Se o aplicativo está rodando no servidor local (localhost), encerre-o; 
+* Edite o arquivo "angular.json" que está na raiz do projeto; 
+* Localize a chave "projects > app > architect > build > options"; 
+* Acicione no início dela, a chave ``"baseHref": "_endereço_github_pages_",``, sem esquecer da vírgula o final; 
+* Troque "_endereço_github_pages_" pelo endereço do aplicativo obtido nas configurações do GtiHub.com; 
+* Localize a chave "projects > app > architect > serve > options"; 
+* Acicione no início dela, a chave ``"baseHref": "/",``, sem esquecer da vírgula o final; 
+* Salve e feche todos os arquivos abertos no editor; 
+* No "Node.js command prompt" que está aberto no diretório do seu aplicativo, comande ``ionic build``; 
+* Na conclusão, localize o diretório "www" na raiz do projeto e renomeie para "docs"; 
+* Faça o "push" do branch master para o repositório remoto; 
+
+Acesse o endereço do seu aplicativo no GitHub Pages e ele já deve estar funcionando lá!
+
+Repita os passos da etapa 2 sempre que quise publicar novas alterações no aplicativo.
+
 ## Colabore
 
 Gostaria de colaborar com este projeto ou partir para um projeto próprio com base neste? Faça seu "fork", dê um objetivo claro para o aplicativo e segue em frente!
