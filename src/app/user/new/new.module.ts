@@ -8,13 +8,25 @@ import { NewPageRoutingModule } from './new-routing.module';
 
 import { NewPage } from './new.page';
 
+// 5.1) Importa dependências
+import { ProfileComponent } from '../../components/profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NewPageRoutingModule
+    NewPageRoutingModule,
+
+    // 5.2) Injeta dependências
+    ReactiveFormsModule,
   ],
-  declarations: [NewPage]
+  declarations: [
+    NewPage,
+
+    // 5.3) Declara componente importado
+    ProfileComponent,
+  ]
 })
 export class NewPageModule {}
