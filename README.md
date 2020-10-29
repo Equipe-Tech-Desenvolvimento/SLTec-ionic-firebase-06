@@ -51,9 +51,9 @@ Para facilitar o desenvolvimento do aplicativo durante o andamento do curso, cad
 
 Você pode ver a versão Web do aplicativo que está em desenvolvimento no endereço abaixo. Lembre-se que, por estar e desenvolvimento, nem todas as funcionalidades estão implementadas e existem riscos de segurança e privacidade dos dados armazenados.
 
-    https://luferat.github.io/SLTec-ionic-firebase-06/
+    [https://luferat.github.io/SLTec-ionic-firebase-06/]
 
-    * *Use dados "fake" para testar o aplicativo em desenvolvimento.*
+*Dica: use dados "fake" para testar o aplicativo em desenvolvimento.*
 
 ## Colabore
 
