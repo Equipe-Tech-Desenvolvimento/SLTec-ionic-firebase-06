@@ -1,10 +1,10 @@
 # SLTec-ionic-firebase-06
 
-Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.
+__*Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.*__
 
 ## Branch '03_Autenticacao_e_guard'
 
-Neste 'branch' veremos como implementar o login usando com o login social do 'Firebase Authentication'.
+Neste 'branch' veremos como implementar o login usando o _social login_ do "Firebase Authentication".
 
 Instruções para executar as atividades deste 'branch':
 
@@ -55,5 +55,9 @@ Instruções para executar as atividades deste 'branch':
     - Editar 'app/app.component.ts' &rarr; 1 à 5
     - Editar 'app/user/login/login.page.ts' &rarr; 6
     - Editar 'app/user/logout/logout.page.ts' &rarr; 4
+
+9) Conclusão
+
+Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
 
 EOF
