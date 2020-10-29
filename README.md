@@ -1,6 +1,6 @@
 # SLTec-ionic-firebase-06
 
-Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.
+**_Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos._**
 
 ## Branch '04_Somente_com_perfil'
 
@@ -28,5 +28,9 @@ Instruções para executar as atividades deste 'branch':
 
     - Edite 'app/user/login/login.page.ts' &rarr; 1
     - Edite 'app/user/new/new.page.ts' &rarr; 1 à 5
+
+6) Conclusão
+
+Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
 
 *EOF*
