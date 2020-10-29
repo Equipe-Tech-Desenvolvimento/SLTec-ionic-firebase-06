@@ -77,25 +77,25 @@ Esses são passos "simples" para publicar este aplicativo como um "aplicativo We
 
 1) Preparando o repositório remoto:
 
-  + Vá nas configurações do repositório do aplicativo (fork) no seu GitHub.com; 
-  + Localize a seção "GitHub Pages"; 
-  + Em "Source", selecione o "Branch: master" e o diretório "/docs"; 
-  + Clique no botão [Save]; 
-  + Após a página recarregar, anote (ou copie) o URL da mensagem "Your site is published at ..."; 
+  - Vá nas configurações do repositório do aplicativo (fork) no seu GitHub.com; 
+  - Localize a seção "GitHub Pages"; 
+  - Em "Source", selecione o "Branch: master" e o diretório "/docs"; 
+  - Clique no botão [Save]; 
+  - Após a página recarregar, anote (ou copie) o URL da mensagem "Your site is published at ..."; 
 
 2) No seu PC (localhost):
 
-  + Se o aplicativo está rodando no servidor local (localhost), encerre-o; 
-  + Edite o arquivo "angular.json" que está na raiz do projeto; 
-  + Localize a chave "projects > app > architect > build > options"; 
-  + Acicione no início dela, a chave `"baseHref": "_endereço_github_pages_",`, sem esquecer da vírgula o final; 
-  + Troque "_endereço_github_pages_" pelo endereço do aplicativo obtido nas configurações do GtiHub.com; 
-  + Localize a chave "projects > app > architect > serve > options"; 
-  + Acicione no início dela, a chave `"baseHref": "/",`, sem esquecer da vírgula o final; 
-  + Salve e feche todos os arquivos abertos no editor; 
-  + No "Node.js command prompt" que está aberto no diretório do seu aplicativo, comande `ionic build`; 
-  + Na conclusão, localize o diretório "www" na raiz do projeto e renomeie para "docs"; 
-  + Faça o "push" do branch master para o repositório remoto; 
+  - Se o aplicativo está rodando no servidor local (localhost), encerre-o; 
+  - Edite o arquivo "angular.json" que está na raiz do projeto; 
+  - Localize a chave "projects > app > architect > build > options"; 
+  - Acicione no início dela, a chave `"baseHref": "_endereço_github_pages_",`, sem esquecer da vírgula o final; 
+  - Troque "_endereço_github_pages_" pelo endereço do aplicativo obtido nas configurações do GtiHub.com; 
+  - Localize a chave "projects > app > architect > serve > options"; 
+  - Acicione no início dela, a chave `"baseHref": "/",`, sem esquecer da vírgula o final; 
+  - Salve e feche todos os arquivos abertos no editor; 
+  - No "Node.js command prompt" que está aberto no diretório do seu aplicativo, comande `ionic build`; 
+  - Na conclusão, localize o diretório "www" na raiz do projeto e renomeie para "docs"; 
+  - Faça o "push" do branch master para o repositório remoto; 
 
 Acesse o endereço do seu aplicativo no GitHub Pages e ele já deve estar funcionando lá!
 
