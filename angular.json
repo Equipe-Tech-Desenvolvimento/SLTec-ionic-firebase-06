@@ -14,6 +14,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "baseHref": "https://luferat.github.io/SLTec-ionic-firebase-06/",
             "outputPath": "www",
             "index": "src/index.html",
             "main": "src/main.ts",
