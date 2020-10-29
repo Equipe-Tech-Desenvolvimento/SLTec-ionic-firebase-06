@@ -42,4 +42,8 @@ Instruções para executar as atividades deste 'branch':
     - Edite 'app/app.component.html' &rarr; *
     - Edite 'app/app.component.scss' &rarr; 1 à 4
 
+6) Conclusão
+
+Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
+
 *EOF*
