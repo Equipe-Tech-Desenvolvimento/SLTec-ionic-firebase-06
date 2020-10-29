@@ -2,6 +2,18 @@
 
 __*Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.*__
 
+## Índice
+
+- [SLTec-ionic-firebase-06](#sltec-ionic-firebase-06)
+  - [Índice](#índice)
+  - [Sobre este aplicativo](#sobre-este-aplicativo)
+    - [Características e recursos:](#características-e-recursos)
+  - [Aulas x Branches](#aulas-x-branches)
+    - [Branches:](#branches)
+  - [Versão "compilada"](#versão-compilada)
+  - [Colabore](#colabore)
+  - [Quando vai ficar pronto?](#quando-vai-ficar-pronto)
+
 ## Sobre este aplicativo
 
 Este é uma aplicativo básico, para servir de exemplo para outros, desenvolvidos pelos estudantes das disciplinas de **desenvolvimento de aplicativos híbridos** dos cursos de T.I.
