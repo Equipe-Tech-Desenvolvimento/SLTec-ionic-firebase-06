@@ -118,11 +118,11 @@ export class LoginPage implements OnInit {
                   // Se não tem perfil
                 } else {
 
-                  // Exibe alerta e vai para a rota '/user/new'
-                  this.app.myAlert(
-                    `Olá ${this.userData.displayName}`,
-                    `Você precisa completar seu cadastro para usar todos os recursos do aplicativo.`
-                  );
+                  // 4.1) COMENTE --> Exibe alerta e vai para a rota '/user/new'
+                  // this.app.myAlert(
+                  //   `Olá ${this.userData.displayName}`,
+                  //   `Você precisa completar seu cadastro para usar todos os recursos do aplicativo.`
+                  // );
 
                   // Vai para o cadatro de novo perfil
                   this.router.navigate(['/user/new']);

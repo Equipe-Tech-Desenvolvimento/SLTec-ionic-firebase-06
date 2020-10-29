@@ -9,7 +9,5 @@ export class Test02Page implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }
