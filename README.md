@@ -10,12 +10,12 @@ Instruções para executar as atividades deste 'branch':
 
 1) Criar as páginas de uso geral e para alguns testes
 
-    - Execute ` ` ionic generate page pages/home ` `
-    - Execute ` ` ionic generate page pages/e404 ` `
-    - Execute ` ` ionic generate page pages/info ` `
-    - Execute ` ` ionic generate page pages/contacts ` `
-    - Execute ` ` ionic generate page pages/test01 ` `
-    - Execute ` ` ionic generate page pages/test02 ` `
+    - Execute ``ionic generate page pages/home``
+    - Execute ``ionic generate page pages/e404``
+    - Execute ``ionic generate page pages/info``
+    - Execute ``ionic generate page pages/contacts``
+    - Execute ``ionic generate page pages/test01``
+    - Execute ``ionic generate page pages/test02``
 
 2) Editar rotas e definir a 'página inicial' e a 'página 404'
 
