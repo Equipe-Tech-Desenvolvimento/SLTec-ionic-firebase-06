@@ -1,6 +1,6 @@
 # SLTec-ionic-firebase-06
 
-Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.
+__*Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.*__
 
 ## Branch '02_Conexao_com_Firebase'
 
@@ -9,7 +9,8 @@ Neste 'branch' faremos apenas a conexão com a API do 'Firebase.com'.
 Instruções para executar as atividades deste 'branch':
 1) Instalar dependências
 
-    - Execute ` ` ng add @angular/fire ` `
+    - Execute `` ng add @angular/fire ``
+
 2) Configuração do App do Firebase
 
     - Editar 'environments/environments.ts' &rarr; 1
