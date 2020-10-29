@@ -31,6 +31,6 @@ Instruções para executar as atividades deste 'branch':
 
 6) Conclusão
 
-Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
+    - Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
 
 *EOF*
