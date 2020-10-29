@@ -43,11 +43,4 @@ Aproveite para enviar suas observações, correções e sugestões.
 
 Nós, estudantes, agradecemos!
 
-
-## Branch '00_Aplicativo_Ionic_criado'
-
-Este branch só contém o aplicativo ionic recém criado com o comando:
-
- `ionic start SLTec-ionic-firebase-06 sidemenu --type=angular --capacitor`
-
 *EOF*
