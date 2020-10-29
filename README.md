@@ -1,6 +1,6 @@
 # SLTec-ionic-firebase-06
 
-Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.
+__*Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.*__
 
 ## Sobre este aplicativo
 
