@@ -161,7 +161,7 @@ export class ProfileComponent implements OnInit {
 
   // 5.6) Método que trata envio do formulário
   profileSubmit() {
-    console.log('foi');
+    console.log(this.profileForm.value);
   }
 
   // 5.7) Método que valida data de nascimento
