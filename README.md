@@ -17,6 +17,7 @@ Para executar as atividades deste "branch", siga os passos abaixo:
 
     - Criar coleção "select01" no Firebase Firestore com alguns documentos
 
+```JSON
         {
             select01: {
                 *id: { option: "Opção 01" },
@@ -26,6 +27,7 @@ Para executar as atividades deste "branch", siga os passos abaixo:
                 *id: { option: "Opção 05" }
             }
         }
+```
 
     - Editar 'app/componets/profile/profile.component.ts' &rarr; 2 à 6
     - Editar 'app/componets/profile/profile.component.html' &rarr; 2 à 3 
