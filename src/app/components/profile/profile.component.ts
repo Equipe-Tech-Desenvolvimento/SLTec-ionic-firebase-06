@@ -7,6 +7,9 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { StorageMap } from '@ngx-pwa/local-storage';
 import { Router } from '@angular/router';
 
+// 6.2) Importa dependências
+import { AngularFirestore } from '@angular/fire/firestore';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -20,6 +23,9 @@ export class ProfileComponent implements OnInit {
   // 5.9) Variável com dados do usuário logado
   userData: any;
 
+  // 6.3) Variável com a lista "select01"
+  select01Data: any;
+
   constructor(
 
     // 5.3) Injeta dependências
@@ -27,7 +33,10 @@ export class ProfileComponent implements OnInit {
 
     // 5.10) Injeta dependências
     public storage: StorageMap,
-    public router: Router
+    public router: Router,
+
+    // 6.4) Injeta dependências
+    public fbStore: AngularFirestore,
   ) {
 
     // 5.11) Obtém dados do usuário logado
@@ -38,6 +47,9 @@ export class ProfileComponent implements OnInit {
 
       // 5.13) Dados do usuário logado
       this.userData = JSON.parse(data);
+
+      // 6.5) Obtém lista "select01" do Firestore de forma assíncrona
+      this.select01Data = this.fbStore.collection('select01', ref => ref.orderBy('option')).valueChanges();
 
       // 5.4) Cria formulário
       this.profileFormCreate();
@@ -80,6 +92,16 @@ export class ProfileComponent implements OnInit {
         ])
       ],
 
+      // 6.7) Cria campo tipo 'radio'
+      gender: [
+        null,
+
+        // 6.8) Validando campo
+        Validators.compose([
+          Validators.required
+        ])
+      ],
+
       email: [
 
         // 5.16) Preenche o email do perfil em 'email'
@@ -108,6 +130,26 @@ export class ProfileComponent implements OnInit {
         Validators.compose([
           Validators.required,
           Validators.pattern(/^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/)
+        ])
+      ],
+
+      // 6.1) Cria campo tipo 'select'
+      selectStatic: [
+        'Opção 2',
+
+        // 6.9) Validando campo
+        Validators.compose([
+          Validators.required
+        ])
+      ],
+
+      // 6.6) Cria campo tipo 'select'
+      selectDynamic: [
+        null,
+
+        // 6.10) Validando campo
+        Validators.compose([
+          Validators.required
         ])
       ],
 

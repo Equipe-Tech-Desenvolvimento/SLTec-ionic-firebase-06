@@ -2,35 +2,40 @@
 
 __*Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.*__
 
-## Branch "05_Formulario_de_perfil"
+## Branch "06_Novos_campos"
 
-Vamos iniciar a criação da página de cadastro de novo perfil, acessível quando um usuário se loga pela primeira vez.
+Vamos criar novos tipos de campos no formulário.
 
 Para executar as atividades deste "branch", siga os passos abaixo:
 
-1) Gere o componente para o formulário de perfil
+1) Cria campo "select" com valores estáticos
 
-    - Comande `ionic generate component components/profile`
+    - Editar 'app/componets/profile/profile.component.ts' &rarr; 1 
+    - Editar 'app/componets/profile/profile.component.html' &rarr; 1 
 
-2) Importe o componente e o *ReactiveForms* na página de novo perfil 
+2) Criar campo "select" com valures "alimentados" pelo banco de dados
 
-    - Edite 'app/user/new/new.module.ts' &rarr; 1 à 3
-    - Edite 'app/user/new/new.module.html' &rarr; 1
+    - Criar coleção "select01" no Firebase Firestore com alguns documentos
 
-3) Inicie a criação do formulário de cadastro de perfil
+        {
+            select01: {
+                *id: { option: "Opção 01" },
+                *id: { option: "Opção 02" },
+                *id: { option: "Opção 03" },
+                *id: { option: "Opção 04" },
+                *id: { option: "Opção 05" }
+            }
+        }
 
-    - Edite 'app/componets/profile/profile.component.ts' &rarr; 1 à 7
-    - Edite 'app/componets/profile/profile.component.html' &rarr; *
+    - Editar 'app/componets/profile/profile.component.ts' &rarr; 2 à 6
+    - Editar 'app/componets/profile/profile.component.html' &rarr; 2 à 3 
 
-4) Exibir dados do usuário logado na view
+3) Cria campo "radio"
 
-    - Edite 'app/componets/profile/profile.component.ts' &rarr; 8 à 16
-    - Edite 'app/componets/profile/profile.component.html' &rarr; 1 à 2
+    - Editar 'app/componets/profile/profile.component.ts' &rarr; 7
+    - Editar 'app/componets/profile/profile.component.html' &rarr; 4
 
-5) Conclusão
+4) Validando campos adicionais
 
-    - Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
-
-No proximo "branch", vamos salvar os dados do formulário no Firebase Firestore e localmente.
-
-*EOF*
+    - Editar 'app/componets/profile/profile.component.ts' &rarr; 8 à 10
+    - Editar 'app/componets/profile/profile.component.html' &rarr; 5 à 7
