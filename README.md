@@ -42,7 +42,11 @@ Para executar as atividades deste "branch", siga os passos abaixo:
     - Editar 'app/componets/profile/profile.component.ts' &rarr; 8 à 10
     - Editar 'app/componets/profile/profile.component.html' &rarr; 5 à 7
 
-5) Conclusão
+5) Opcional: remover 'caixa de alerta' do cadastro de perfil
+
+    - Editar 'app/user/new/new.page.ts' &rarr; 1
+
+6) Conclusão
 
     - Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
 
