@@ -31,6 +31,6 @@ Para executar as atividades deste "branch", siga os passos abaixo:
 
     - Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
 
-No proximo "branch", vamos salvar os dados do formulário no Firebase Firestore e localmente.
+Nos proximos "branches", vamos adicionar novos campos e salvar os dados do formulário no Firebase Firestore e localmente.
 
 *EOF*
