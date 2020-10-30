@@ -27,7 +27,7 @@ Para executar as atividades deste "branch", siga os passos abaixo:
                 * id: { option: "Opção 05" }
             }
         }
-```
+        ```
 
     - Editar 'app/componets/profile/profile.component.ts' &rarr; 2 à 6
     - Editar 'app/componets/profile/profile.component.html' &rarr; 2 à 3 
