@@ -1,35 +1,7 @@
 (function () {
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["firebase-auth"], {
     /***/
-    "6nsN":
-    /*!******************************************************!*\
-      !*** ./node_modules/firebase/auth/dist/index.esm.js ***!
-      \******************************************************/
-
-    /*! no exports provided */
-
-    /***/
-    function nsN(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony import */
-
-
-      var _firebase_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! @firebase/auth */
-      "LOEa");
-      /* harmony import */
-
-
-      var _firebase_auth__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firebase_auth__WEBPACK_IMPORTED_MODULE_0__); //# sourceMappingURL=index.esm.js.map
-
-      /***/
-
-    },
-
-    /***/
-    "LOEa":
+    "./node_modules/@firebase/auth/dist/auth.js":
     /*!**************************************************!*\
       !*** ./node_modules/@firebase/auth/dist/auth.js ***!
       \**************************************************/
@@ -37,11 +9,11 @@
     /*! no static exports found */
 
     /***/
-    function LOEa(module, exports, __webpack_require__) {
+    function node_modulesFirebaseAuthDistAuthJs(module, exports, __webpack_require__) {
       (function () {
         var firebase = __webpack_require__(
         /*! @firebase/app */
-        "wj3C")["default"];
+        "./node_modules/@firebase/app/dist/index.cjs.js")["default"];
         /*
         Copyright The Closure Library Authors.
         SPDX-License-Identifier: Apache-2.0
@@ -10779,6 +10751,34 @@
       }).apply(typeof global !== 'undefined' ? global : typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : {}); //# sourceMappingURL=auth.js.map
 
       /***/
+    },
+
+    /***/
+    "./node_modules/firebase/auth/dist/index.esm.js":
+    /*!******************************************************!*\
+      !*** ./node_modules/firebase/auth/dist/index.esm.js ***!
+      \******************************************************/
+
+    /*! no exports provided */
+
+    /***/
+    function node_modulesFirebaseAuthDistIndexEsmJs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony import */
+
+
+      var _firebase_auth__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @firebase/auth */
+      "./node_modules/@firebase/auth/dist/auth.js");
+      /* harmony import */
+
+
+      var _firebase_auth__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_firebase_auth__WEBPACK_IMPORTED_MODULE_0__); //# sourceMappingURL=index.esm.js.map
+
+      /***/
+
     }
   }]);
 })();

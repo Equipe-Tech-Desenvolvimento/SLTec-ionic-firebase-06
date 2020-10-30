@@ -13,7 +13,7 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2], {
     /***/
-    "hgI1":
+    "./node_modules/@ionic/core/dist/esm/ion-app_8.entry.js":
     /*!**************************************************************!*\
       !*** ./node_modules/@ionic/core/dist/esm/ion-app_8.entry.js ***!
       \**************************************************************/
@@ -21,7 +21,7 @@
     /*! exports provided: ion_app, ion_buttons, ion_content, ion_footer, ion_header, ion_router_outlet, ion_title, ion_toolbar */
 
     /***/
-    function hgI1(module, __webpack_exports__, __webpack_require__) {
+    function node_modulesIonicCoreDistEsmIonApp_8EntryJs(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -78,43 +78,43 @@
 
       var _index_92848855_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! ./index-92848855.js */
-      "sxy2");
+      "./node_modules/@ionic/core/dist/esm/index-92848855.js");
       /* harmony import */
 
 
       var _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! ./ionic-global-23e7365a.js */
-      "N4tN");
+      "./node_modules/@ionic/core/dist/esm/ionic-global-23e7365a.js");
       /* harmony import */
 
 
       var _helpers_47d562d2_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! ./helpers-47d562d2.js */
-      "9t5z");
+      "./node_modules/@ionic/core/dist/esm/helpers-47d562d2.js");
       /* harmony import */
 
 
       var _index_96111fa9_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ./index-96111fa9.js */
-      "gN1R");
+      "./node_modules/@ionic/core/dist/esm/index-96111fa9.js");
       /* harmony import */
 
 
       var _cubic_bezier_685f606a_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! ./cubic-bezier-685f606a.js */
-      "PLvT");
+      "./node_modules/@ionic/core/dist/esm/cubic-bezier-685f606a.js");
       /* harmony import */
 
 
       var _theme_5641d27f_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./theme-5641d27f.js */
-      "sPtc");
+      "./node_modules/@ionic/core/dist/esm/theme-5641d27f.js");
       /* harmony import */
 
 
       var _framework_delegate_d1eb6504_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./framework-delegate-d1eb6504.js */
-      "NqGI");
+      "./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js");
 
       var appCss = "html.plt-mobile ion-app{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}ion-app.force-statusbar-padding{--ion-safe-area-top:20px}";
 
@@ -137,7 +137,7 @@
                   /*! import() | tap-click-9e4a1234-js */
                   "tap-click-9e4a1234-js").then(__webpack_require__.bind(null,
                   /*! ./tap-click-9e4a1234.js */
-                  "OEt5")).then(function (module) {
+                  "./node_modules/@ionic/core/dist/esm/tap-click-9e4a1234.js")).then(function (module) {
                     return module.startTapClick(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_1__["c"]);
                   });
                 }
@@ -147,7 +147,7 @@
                   /*! import() | status-tap-0b3e89c4-js */
                   "status-tap-0b3e89c4-js").then(__webpack_require__.bind(null,
                   /*! ./status-tap-0b3e89c4.js */
-                  "9r5H")).then(function (module) {
+                  "./node_modules/@ionic/core/dist/esm/status-tap-0b3e89c4.js")).then(function (module) {
                     return module.startStatusTap();
                   });
                 }
@@ -157,7 +157,7 @@
                   /*! import() | input-shims-ba28b23a-js */
                   "input-shims-ba28b23a-js").then(__webpack_require__.bind(null,
                   /*! ./input-shims-ba28b23a.js */
-                  "wSK7")).then(function (module) {
+                  "./node_modules/@ionic/core/dist/esm/input-shims-ba28b23a.js")).then(function (module) {
                     return module.startInputShims(_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_1__["c"]);
                   });
                 }
@@ -165,7 +165,7 @@
                 if (_ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_1__["c"].getBoolean('hardwareBackButton', isHybrid)) {
                   Promise.resolve().then(__webpack_require__.bind(null,
                   /*! ./hardware-back-button-7b6ede21.js */
-                  "x/Nk")).then(function (module) {
+                  "./node_modules/@ionic/core/dist/esm/hardware-back-button-7b6ede21.js")).then(function (module) {
                     return module.startHardwareBackButton();
                   });
                 }
@@ -175,7 +175,7 @@
                   /*! import() | keyboard-dd970efc-js */
                   "keyboard-dd970efc-js").then(__webpack_require__.bind(null,
                   /*! ./keyboard-dd970efc.js */
-                  "SLyW")).then(function (module) {
+                  "./node_modules/@ionic/core/dist/esm/keyboard-dd970efc.js")).then(function (module) {
                     return module.startKeyboardAssist(window);
                   });
                 }
@@ -184,7 +184,7 @@
                 /*! import() | focus-visible-15ada7f7-js */
                 "focus-visible-15ada7f7-js").then(__webpack_require__.bind(null,
                 /*! ./focus-visible-15ada7f7.js */
-                "uz1i")).then(function (module) {
+                "./node_modules/@ionic/core/dist/esm/focus-visible-15ada7f7.js")).then(function (module) {
                   return module.startFocusVisible();
                 });
               });
@@ -1230,7 +1230,7 @@
                       /*! import() | swipe-back-2c765762-js */
                       "swipe-back-2c765762-js").then(__webpack_require__.bind(null,
                       /*! ./swipe-back-2c765762.js */
-                      "3wQK"));
+                      "./node_modules/@ionic/core/dist/esm/swipe-back-2c765762.js"));
 
                     case 2:
                       this.gesture = _context6.sent.createSwipeBackGesture(this.el, function () {

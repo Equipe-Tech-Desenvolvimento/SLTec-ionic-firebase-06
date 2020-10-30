@@ -1,6 +1,136 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"],{
 
-/***/ "2c9M":
+/***/ "./node_modules/@ionic/core/dist/esm/button-active-5da929d4.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/button-active-5da929d4.js ***!
+  \*********************************************************************/
+/*! exports provided: c */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createButtonActiveGesture; });
+/* harmony import */ var _index_92848855_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-92848855.js */ "./node_modules/@ionic/core/dist/esm/index-92848855.js");
+/* harmony import */ var _index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index-eea61379.js */ "./node_modules/@ionic/core/dist/esm/index-eea61379.js");
+/* harmony import */ var _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./haptic-7b8ba70a.js */ "./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js");
+
+
+
+
+const createButtonActiveGesture = (el, isButton) => {
+    let currentTouchedButton;
+    let initialTouchedButton;
+    const activateButtonAtPoint = (x, y, hapticFeedbackFn) => {
+        if (typeof document === 'undefined') {
+            return;
+        }
+        const target = document.elementFromPoint(x, y);
+        if (!target || !isButton(target)) {
+            clearActiveButton();
+            return;
+        }
+        if (target !== currentTouchedButton) {
+            clearActiveButton();
+            setActiveButton(target, hapticFeedbackFn);
+        }
+    };
+    const setActiveButton = (button, hapticFeedbackFn) => {
+        currentTouchedButton = button;
+        if (!initialTouchedButton) {
+            initialTouchedButton = currentTouchedButton;
+        }
+        const buttonToModify = currentTouchedButton;
+        Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_0__["c"])(() => buttonToModify.classList.add('ion-activated'));
+        hapticFeedbackFn();
+    };
+    const clearActiveButton = (dispatchClick = false) => {
+        if (!currentTouchedButton) {
+            return;
+        }
+        const buttonToModify = currentTouchedButton;
+        Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_0__["c"])(() => buttonToModify.classList.remove('ion-activated'));
+        /**
+         * Clicking on one button, but releasing on another button
+         * does not dispatch a click event in browsers, so we
+         * need to do it manually here. Some browsers will
+         * dispatch a click if clicking on one button, dragging over
+         * another button, and releasing on the original button. In that
+         * case, we need to make sure we do not cause a double click there.
+         */
+        if (dispatchClick && initialTouchedButton !== currentTouchedButton) {
+            currentTouchedButton.click();
+        }
+        currentTouchedButton = undefined;
+    };
+    return Object(_index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__["createGesture"])({
+        el,
+        gestureName: 'buttonActiveDrag',
+        threshold: 0,
+        onStart: ev => activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["a"]),
+        onMove: ev => activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["b"]),
+        onEnd: () => {
+            clearActiveButton(true);
+            Object(_haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["h"])();
+            initialTouchedButton = undefined;
+        }
+    });
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js":
+/*!**************************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js ***!
+  \**************************************************************************/
+/*! exports provided: a, d */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return attachComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return detachComponent; });
+const attachComponent = async (delegate, container, component, cssClasses, componentProps) => {
+    if (delegate) {
+        return delegate.attachViewToDom(container, component, componentProps, cssClasses);
+    }
+    if (typeof component !== 'string' && !(component instanceof HTMLElement)) {
+        throw new Error('framework delegate is missing');
+    }
+    const el = (typeof component === 'string')
+        ? container.ownerDocument && container.ownerDocument.createElement(component)
+        : component;
+    if (cssClasses) {
+        cssClasses.forEach(c => el.classList.add(c));
+    }
+    if (componentProps) {
+        Object.assign(el, componentProps);
+    }
+    container.appendChild(el);
+    if (el.componentOnReady) {
+        await el.componentOnReady();
+    }
+    return el;
+};
+const detachComponent = (delegate, element) => {
+    if (element) {
+        if (delegate) {
+            const container = element.parentElement;
+            return delegate.removeViewFromDom(container, element);
+        }
+        element.remove();
+    }
+    return Promise.resolve();
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js":
 /*!**************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js ***!
   \**************************************************************/
@@ -124,7 +254,7 @@ const hapticImpact = (options) => {
 
 /***/ }),
 
-/***/ "6i10":
+/***/ "./node_modules/@ionic/core/dist/esm/spinner-configs-c78e170e.js":
 /*!***********************************************************************!*\
   !*** ./node_modules/@ionic/core/dist/esm/spinner-configs-c78e170e.js ***!
   \***********************************************************************/
@@ -248,48 +378,55 @@ const SPINNERS = spinners;
 
 /***/ }),
 
-/***/ "NqGI":
-/*!**************************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js ***!
-  \**************************************************************************/
-/*! exports provided: a, d */
+/***/ "./node_modules/@ionic/core/dist/esm/theme-5641d27f.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/theme-5641d27f.js ***!
+  \*************************************************************/
+/*! exports provided: c, g, h, o */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return attachComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return detachComponent; });
-const attachComponent = async (delegate, container, component, cssClasses, componentProps) => {
-    if (delegate) {
-        return delegate.attachViewToDom(container, component, componentProps, cssClasses);
-    }
-    if (typeof component !== 'string' && !(component instanceof HTMLElement)) {
-        throw new Error('framework delegate is missing');
-    }
-    const el = (typeof component === 'string')
-        ? container.ownerDocument && container.ownerDocument.createElement(component)
-        : component;
-    if (cssClasses) {
-        cssClasses.forEach(c => el.classList.add(c));
-    }
-    if (componentProps) {
-        Object.assign(el, componentProps);
-    }
-    container.appendChild(el);
-    if (el.componentOnReady) {
-        await el.componentOnReady();
-    }
-    return el;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createColorClasses; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getClassMap; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return hostContext; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return openURL; });
+const hostContext = (selector, el) => {
+    return el.closest(selector) !== null;
 };
-const detachComponent = (delegate, element) => {
-    if (element) {
-        if (delegate) {
-            const container = element.parentElement;
-            return delegate.removeViewFromDom(container, element);
-        }
-        element.remove();
+/**
+ * Create the mode and color classes for the component based on the classes passed in
+ */
+const createColorClasses = (color, cssClassMap) => {
+    return (typeof color === 'string' && color.length > 0) ? Object.assign({ 'ion-color': true, [`ion-color-${color}`]: true }, cssClassMap) : cssClassMap;
+};
+const getClassList = (classes) => {
+    if (classes !== undefined) {
+        const array = Array.isArray(classes) ? classes : classes.split(' ');
+        return array
+            .filter(c => c != null)
+            .map(c => c.trim())
+            .filter(c => c !== '');
     }
-    return Promise.resolve();
+    return [];
+};
+const getClassMap = (classes) => {
+    const map = {};
+    getClassList(classes).forEach(c => map[c] = true);
+    return map;
+};
+const SCHEME = /^[a-z][a-z0-9+\-.]*:/;
+const openURL = async (url, ev, direction, animation) => {
+    if (url != null && url[0] !== '#' && !SCHEME.test(url)) {
+        const router = document.querySelector('ion-router');
+        if (router) {
+            if (ev != null) {
+                ev.preventDefault();
+            }
+            return router.push(url, direction, animation);
+        }
+    }
+    return false;
 };
 
 
@@ -297,7 +434,7 @@ const detachComponent = (delegate, element) => {
 
 /***/ }),
 
-/***/ "OaWH":
+/***/ "./src/app/services/app.service.ts":
 /*!*****************************************!*\
   !*** ./src/app/services/app.service.ts ***!
   \*****************************************/
@@ -307,11 +444,11 @@ const detachComponent = (delegate, element) => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppService", function() { return AppService; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-pwa/local-storage */ "8YY3");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ngx-pwa/local-storage */ "./node_modules/@ngx-pwa/local-storage/__ivy_ngcc__/fesm2015/ngx-pwa-local-storage.js");
 /**
  * Serviços de uso geral
  *    Aqui estão alguns serviços usados em toda ou parte do aplicativo
@@ -381,143 +518,6 @@ AppService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         providedIn: 'root'
     })
 ], AppService);
-
-
-
-/***/ }),
-
-/***/ "U/uv":
-/*!*********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/button-active-5da929d4.js ***!
-  \*********************************************************************/
-/*! exports provided: c */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createButtonActiveGesture; });
-/* harmony import */ var _index_92848855_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-92848855.js */ "sxy2");
-/* harmony import */ var _index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index-eea61379.js */ "ItpF");
-/* harmony import */ var _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./haptic-7b8ba70a.js */ "2c9M");
-
-
-
-
-const createButtonActiveGesture = (el, isButton) => {
-    let currentTouchedButton;
-    let initialTouchedButton;
-    const activateButtonAtPoint = (x, y, hapticFeedbackFn) => {
-        if (typeof document === 'undefined') {
-            return;
-        }
-        const target = document.elementFromPoint(x, y);
-        if (!target || !isButton(target)) {
-            clearActiveButton();
-            return;
-        }
-        if (target !== currentTouchedButton) {
-            clearActiveButton();
-            setActiveButton(target, hapticFeedbackFn);
-        }
-    };
-    const setActiveButton = (button, hapticFeedbackFn) => {
-        currentTouchedButton = button;
-        if (!initialTouchedButton) {
-            initialTouchedButton = currentTouchedButton;
-        }
-        const buttonToModify = currentTouchedButton;
-        Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_0__["c"])(() => buttonToModify.classList.add('ion-activated'));
-        hapticFeedbackFn();
-    };
-    const clearActiveButton = (dispatchClick = false) => {
-        if (!currentTouchedButton) {
-            return;
-        }
-        const buttonToModify = currentTouchedButton;
-        Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_0__["c"])(() => buttonToModify.classList.remove('ion-activated'));
-        /**
-         * Clicking on one button, but releasing on another button
-         * does not dispatch a click event in browsers, so we
-         * need to do it manually here. Some browsers will
-         * dispatch a click if clicking on one button, dragging over
-         * another button, and releasing on the original button. In that
-         * case, we need to make sure we do not cause a double click there.
-         */
-        if (dispatchClick && initialTouchedButton !== currentTouchedButton) {
-            currentTouchedButton.click();
-        }
-        currentTouchedButton = undefined;
-    };
-    return Object(_index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__["createGesture"])({
-        el,
-        gestureName: 'buttonActiveDrag',
-        threshold: 0,
-        onStart: ev => activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["a"]),
-        onMove: ev => activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["b"]),
-        onEnd: () => {
-            clearActiveButton(true);
-            Object(_haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["h"])();
-            initialTouchedButton = undefined;
-        }
-    });
-};
-
-
-
-
-/***/ }),
-
-/***/ "sPtc":
-/*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/theme-5641d27f.js ***!
-  \*************************************************************/
-/*! exports provided: c, g, h, o */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createColorClasses; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getClassMap; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return hostContext; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return openURL; });
-const hostContext = (selector, el) => {
-    return el.closest(selector) !== null;
-};
-/**
- * Create the mode and color classes for the component based on the classes passed in
- */
-const createColorClasses = (color, cssClassMap) => {
-    return (typeof color === 'string' && color.length > 0) ? Object.assign({ 'ion-color': true, [`ion-color-${color}`]: true }, cssClassMap) : cssClassMap;
-};
-const getClassList = (classes) => {
-    if (classes !== undefined) {
-        const array = Array.isArray(classes) ? classes : classes.split(' ');
-        return array
-            .filter(c => c != null)
-            .map(c => c.trim())
-            .filter(c => c !== '');
-    }
-    return [];
-};
-const getClassMap = (classes) => {
-    const map = {};
-    getClassList(classes).forEach(c => map[c] = true);
-    return map;
-};
-const SCHEME = /^[a-z][a-z0-9+\-.]*:/;
-const openURL = async (url, ev, direction, animation) => {
-    if (url != null && url[0] !== '#' && !SCHEME.test(url)) {
-        const router = document.querySelector('ion-router');
-        if (router) {
-            if (ev != null) {
-                ev.preventDefault();
-            }
-            return router.push(url, direction, animation);
-        }
-    }
-    return false;
-};
-
 
 
 

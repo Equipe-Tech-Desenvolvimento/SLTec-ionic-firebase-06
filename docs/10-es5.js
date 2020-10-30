@@ -15,7 +15,7 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[10], {
     /***/
-    "/CAe":
+    "./node_modules/@ionic/core/dist/esm/ion-col_3.entry.js":
     /*!**************************************************************!*\
       !*** ./node_modules/@ionic/core/dist/esm/ion-col_3.entry.js ***!
       \**************************************************************/
@@ -23,7 +23,7 @@
     /*! exports provided: ion_col, ion_grid, ion_row */
 
     /***/
-    function CAe(module, __webpack_exports__, __webpack_require__) {
+    function node_modulesIonicCoreDistEsmIonCol_3EntryJs(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -50,13 +50,13 @@
 
       var _index_92848855_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! ./index-92848855.js */
-      "sxy2");
+      "./node_modules/@ionic/core/dist/esm/index-92848855.js");
       /* harmony import */
 
 
       var _ionic_global_23e7365a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! ./ionic-global-23e7365a.js */
-      "N4tN");
+      "./node_modules/@ionic/core/dist/esm/ionic-global-23e7365a.js");
 
       var SIZE_TO_MEDIA = {
         'xs': '(min-width: 0px)',

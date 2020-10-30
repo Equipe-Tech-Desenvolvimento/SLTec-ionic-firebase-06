@@ -1,61 +1,19 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["user-new-new-module"],{
 
-/***/ "55Cg":
-/*!**************************************!*\
-  !*** ./src/app/user/new/new.page.ts ***!
-  \**************************************/
-/*! exports provided: NewPage */
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/profile/profile.component.html":
+/*!*************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/profile/profile.component.html ***!
+  \*************************************************************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewPage", function() { return NewPage; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _raw_loader_new_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./new.page.html */ "BDVB");
-/* harmony import */ var _new_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./new.page.scss */ "vSwh");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _services_app_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../services/app.service */ "OaWH");
-/* harmony import */ var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngx-pwa/local-storage */ "8YY3");
-
-
-
-
-// 4.1) Importa dependências 
-
-
-let NewPage = class NewPage {
-    constructor(
-    // 4.3) Injeta dependências
-    app, storage) {
-        this.app = app;
-        this.storage = storage;
-    }
-    ngOnInit() {
-        // 4.4) Obtém dados do usuário logado
-        this.storage.get('userData', { type: 'string' }).subscribe((data) => {
-            this.userData = JSON.parse(data);
-            // 4.5) Exibe caixa de alerta
-            this.app.myAlert(`Olá ${this.userData.displayName}`, `Você precisa completar seu cadastro para usar todos os recursos do aplicativo.`);
-        });
-    }
-};
-NewPage.ctorParameters = () => [
-    { type: _services_app_service__WEBPACK_IMPORTED_MODULE_4__["AppService"] },
-    { type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_5__["StorageMap"] }
-];
-NewPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
-        selector: 'app-new',
-        template: _raw_loader_new_page_html__WEBPACK_IMPORTED_MODULE_1__["default"],
-        styles: [_new_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
-    })
-], NewPage);
-
-
+/* harmony default export */ __webpack_exports__["default"] = ("<!-- 5.1) Só exibe form se estiver logado -->\r\n<div *ngIf=\"userData\">\r\n\r\n  <!-- 5.2) Cumprimenta usuário logado -->\r\n  <h2>Olá {{ userData.displayName }}!</h2>\r\n\r\n  <p>Você precisa cadastrar seu perfil para ter acesso aos recursos do aplicativo de forma pesonalizada.</p>\r\n  <p class=\"ion-text-center\"><small>\r\n      <ion-text color=\"danger\">Preencha todos os campos.</ion-text>\r\n    </small></p>\r\n\r\n  <form [formGroup]=\"profileForm\" (ngSubmit)=\"profileSubmit()\">\r\n    <ion-input type=\"hidden\" id=\"id\" name=\"id\" formControlName=\"id\"></ion-input>\r\n\r\n    <ion-list lines=\"full\" id=\"profileList\" class=\"ion-no-padding\">\r\n\r\n      <div>Dados pessoais:</div>\r\n\r\n      <ion-item>\r\n        <ion-label for=\"name\" position=\"floating\" color=\"primary\">\r\n          Nome completo:\r\n          <ion-text color=\"danger\" *ngIf=\"profileForm.controls.name.errors\">\r\n            <small *ngIf=\"profileForm.controls.name.errors.required\">* Obrigatório</small>\r\n            <small *ngIf=\"profileForm.controls.name.errors.minlength\">* Inválido</small>\r\n          </ion-text>\r\n        </ion-label>\r\n        <ion-input type=\"text\" id=\"name\" name=\"name\" formControlName=\"name\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n        <ion-label for=\"birth\" position=\"floating\" color=\"primary\">\r\n          Nascimento:\r\n          <ion-text color=\"danger\" *ngIf=\"profileForm.controls.birth.errors\">\r\n            <small *ngIf=\"profileForm.controls.birth.errors.under14years\">* Deve ter 14 anos ou mais</small>\r\n          </ion-text>\r\n        </ion-label>\r\n        <ion-input type=\"date\" id=\"birth\" name=\"birth\" formControlName=\"birth\" placeholder=\"Exemplo: 27/11/1998\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n        <ion-label for=\"cpf\" position=\"floating\" color=\"primary\">\r\n          CPF:\r\n          <ion-text color=\"danger\" *ngIf=\"profileForm.controls.cpf.errors\">\r\n            <small *ngIf=\"profileForm.controls.cpf.errors.required\">* Obrigatório</small>\r\n            <small *ngIf=\"profileForm.controls.cpf.errors.pattern\">* Inválido</small>\r\n          </ion-text>\r\n        </ion-label>\r\n        <ion-input type=\"text\" id=\"cpf\" name=\"cpf\" formControlName=\"cpf\" placeholder=\"Somente números\"></ion-input>\r\n      </ion-item>\r\n\r\n      <hr>\r\n      <div>Contatos:</div>\r\n\r\n      <ion-item>\r\n        <ion-label for=\"email\" position=\"floating\" color=\"primary\">\r\n          E-mail:\r\n          <ion-text color=\"danger\" *ngIf=\"profileForm.controls.email.errors\">\r\n            <small *ngIf=\"profileForm.controls.email.errors.required\">* Obrigatório</small>\r\n            <small *ngIf=\"profileForm.controls.email.errors.email\">* Inválido</small>\r\n          </ion-text>\r\n        </ion-label>\r\n        <ion-input type=\"text\" id=\"email\" name=\"email\" formControlName=\"email\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n        <ion-label for=\"homePhone\" position=\"floating\" color=\"primary\">\r\n          Tel. residencial:\r\n          <ion-text color=\"danger\" *ngIf=\"profileForm.controls.homePhone.errors\">\r\n            <small *ngIf=\"profileForm.controls.homePhone.errors.required\">* Obrigatório</small>\r\n            <small *ngIf=\"profileForm.controls.homePhone.errors.pattern\">* Inválido</small>\r\n          </ion-text>\r\n        </ion-label>\r\n        <ion-input type=\"text\" id=\"homePhone\" name=\"homePhone\" formControlName=\"homePhone\" placeholder=\"Exemplo: (21) 2345-6789\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n        <ion-label for=\"cellPhone\" position=\"floating\" color=\"primary\">\r\n          Tel. celular:\r\n          <ion-text color=\"danger\" *ngIf=\"profileForm.controls.cellPhone.errors\">\r\n            <small *ngIf=\"profileForm.controls.cellPhone.errors.required\">* Obrigatório</small>\r\n            <small *ngIf=\"profileForm.controls.cellPhone.errors.pattern\">* Inválido</small>\r\n          </ion-text>\r\n        </ion-label>\r\n        <ion-input type=\"text\" id=\"cellPhone\" name=\"cellPhone\" formControlName=\"cellPhone\" placeholder=\"Exemplo: (21) 98765-4321\"></ion-input>\r\n      </ion-item>\r\n\r\n      <ion-item>\r\n        <ion-label for=\"whatsApp\" position=\"floating\" color=\"primary\">\r\n          WhatsApp:\r\n          <ion-text color=\"danger\" *ngIf=\"profileForm.controls.whatsApp.errors\">\r\n            <small *ngIf=\"profileForm.controls.whatsApp.errors.required\">* Obrigatório</small>\r\n            <small *ngIf=\"profileForm.controls.whatsApp.errors.pattern\">* Inválido</small>\r\n          </ion-text>\r\n        </ion-label>\r\n\r\n        <ion-input type=\"text\" id=\"whatsApp\" name=\"whatsApp\" formControlName=\"whatsApp\" placeholder=\"Exemplo: (21) 98765-4321\"></ion-input>\r\n\r\n      </ion-item>\r\n\r\n    </ion-list>\r\n\r\n    <ion-button type=\"submit\" expand=\"block\" class=\"ion-margin-vertical\" [disabled]=\"profileForm.invalid\">Cadastrar perfil\r\n    </ion-button>\r\n\r\n  </form>\r\n\r\n</div>");
 
 /***/ }),
 
-/***/ "BDVB":
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/user/new/new.page.html":
 /*!******************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user/new/new.page.html ***!
   \******************************************************************************/
@@ -64,53 +22,164 @@ NewPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <!-- 4.1) <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons> -->\r\n\r\n    <!-- 4.2) Botão para voltar para a raiz -->\r\n    <ion-button slot=\"start\" routerLink=\"/\" fill=\"clear\">\r\n      <ion-icon name=\"chevron-back-outline\"></ion-icon>\r\n    </ion-button>\r\n\r\n    <ion-title>Cadastro de Perfil</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <div class=\"ion-padding\">\r\n\r\n    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur recusandae harum temporibus officiis\r\n      maiores voluptas eligendi, neque quos voluptates ex laudantium fugiat nisi consequuntur saepe pariatur odit quae\r\n      ipsam excepturi?</p>\r\n\r\n  </div>\r\n\r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <!-- 4.1) <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons> -->\r\n\r\n    <!-- 4.2) Botão para voltar para a raiz -->\r\n    <ion-button slot=\"start\" routerLink=\"/\" fill=\"clear\">\r\n      <ion-icon name=\"chevron-back-outline\"></ion-icon>\r\n    </ion-button>\r\n\r\n    <ion-title>Cadastro de Perfil</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <div class=\"ion-padding\">\r\n\r\n    <!-- 5.1) Inclui seletor do componente do formulário de perfil -->\r\n    <app-profile></app-profile>\r\n\r\n  </div>\r\n\r\n</ion-content>");
 
 /***/ }),
 
-/***/ "Js6N":
-/*!****************************************!*\
-  !*** ./src/app/user/new/new.module.ts ***!
-  \****************************************/
-/*! exports provided: NewPageModule */
+/***/ "./src/app/components/profile/profile.component.scss":
+/*!***********************************************************!*\
+  !*** ./src/app/components/profile/profile.component.scss ***!
+  \***********************************************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewPageModule", function() { return NewPageModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
-/* harmony import */ var _new_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./new-routing.module */ "XtG9");
-/* harmony import */ var _new_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./new.page */ "55Cg");
+/* harmony default export */ __webpack_exports__["default"] = ("#profileList div {\n  padding: 1rem;\n  font-weight: bold;\n  background: #575717;\n}\n\n#profileList hr {\n  border: none;\n  padding: 0.5rem;\n  margin: 0;\n  background: inherit;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9wcm9maWxlL3Byb2ZpbGUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxhQUFBO0VBQ0EsaUJBQUE7RUFDQSxtQkFBQTtBQUNKOztBQUVBO0VBQ0ksWUFBQTtFQUNBLGVBQUE7RUFDQSxTQUFBO0VBQ0EsbUJBQUE7QUFDSiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcHJvZmlsZS9wcm9maWxlLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI3Byb2ZpbGVMaXN0IGRpdiB7XHJcbiAgICBwYWRkaW5nICAgIDogMXJlbTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgYmFja2dyb3VuZCA6IHJnYig4NywgODcsIDIzKTtcclxufVxyXG5cclxuI3Byb2ZpbGVMaXN0IGhyIHtcclxuICAgIGJvcmRlciAgICA6IG5vbmU7XHJcbiAgICBwYWRkaW5nICAgOiAuNXJlbTtcclxuICAgIG1hcmdpbiAgICA6IDA7XHJcbiAgICBiYWNrZ3JvdW5kOiBpbmhlcml0O1xyXG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/components/profile/profile.component.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/components/profile/profile.component.ts ***!
+  \*********************************************************/
+/*! exports provided: ProfileComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileComponent", function() { return ProfileComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-pwa/local-storage */ "./node_modules/@ngx-pwa/local-storage/__ivy_ngcc__/fesm2015/ngx-pwa-local-storage.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 
 
+// 5.1) Importa dependências
+
+// 5.8) Importa dependências
 
 
-
-
-
-let NewPageModule = class NewPageModule {
+let ProfileComponent = class ProfileComponent {
+    constructor(
+    // 5.3) Injeta dependências
+    formBuilder, 
+    // 5.10) Injeta dependências
+    storage, router) {
+        this.formBuilder = formBuilder;
+        this.storage = storage;
+        this.router = router;
+        // 5.11) Obtém dados do usuário logado
+        this.storage.get('userData', { type: 'string' }).subscribe((data) => {
+            // 5.12) Se não logou, vai para a raiz
+            if (!data)
+                this.router.navigate(['/']);
+            // 5.13) Dados do usuário logado
+            this.userData = JSON.parse(data);
+            // 5.4) Cria formulário
+            this.profileFormCreate();
+        });
+    }
+    ngOnInit() { }
+    // 5.6) Define campos do formulário e validações
+    profileFormCreate() {
+        this.profileForm = this.formBuilder.group({
+            id: [
+                // 5.14) Preenche o uid do perfil em 'id'
+                this.userData.uid
+            ],
+            name: [
+                // 5.15) Preenche o nome do perfil em 'name'
+                this.userData.displayName,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].minLength(3)
+                ])
+            ],
+            birth: [
+                null,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
+                    this.over14Years
+                ])
+            ],
+            cpf: [
+                null,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(/^\b\d{11}\b/g)
+                ])
+            ],
+            email: [
+                // 5.16) Preenche o email do perfil em 'email'
+                this.userData.email,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].email
+                ])
+            ],
+            homePhone: [
+                null,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(/^\(?[1-9]{2}\)? ?(?:[2-8]|8[1-9])[0-9]{3}\-?[0-9]{4}$/)
+                ])
+            ],
+            cellPhone: [
+                null,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(/^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/)
+                ])
+            ],
+            whatsApp: [
+                null,
+                _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required,
+                    _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(/^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/)
+                ])
+            ],
+            type: ['user'],
+            status: ['active']
+        });
+    }
+    // 5.6) Método que trata envio do formulário
+    profileSubmit() {
+        console.log('foi');
+    }
+    // 5.7) Método que valida data de nascimento
+    over14Years(control) {
+        const birth = control.value;
+        if (birth) {
+            const [year, month, day] = birth.split('-');
+            const today = new Date();
+            const dateBirth = new Date(year, month, day, 0, 0, 0);
+            const timeToTest = 1000 * 60 * 60 * 24 * 365 * 14; // 14 anos em milissegundos...
+            if (today.getTime() - dateBirth.getTime() >= timeToTest)
+                return null;
+        }
+        return { under14years: true };
+    }
 };
-NewPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [
-            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
-            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
-            _new_routing_module__WEBPACK_IMPORTED_MODULE_5__["NewPageRoutingModule"]
-        ],
-        declarations: [_new_page__WEBPACK_IMPORTED_MODULE_6__["NewPage"]]
+ProfileComponent.ctorParameters = () => [
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_3__["StorageMap"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
+];
+ProfileComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-profile',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./profile.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/profile/profile.component.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./profile.component.scss */ "./src/app/components/profile/profile.component.scss")).default]
     })
-], NewPageModule);
+], ProfileComponent);
 
 
 
 /***/ }),
 
-/***/ "XtG9":
+/***/ "./src/app/user/new/new-routing.module.ts":
 /*!************************************************!*\
   !*** ./src/app/user/new/new-routing.module.ts ***!
   \************************************************/
@@ -120,10 +189,10 @@ NewPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewPageRoutingModule", function() { return NewPageRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
-/* harmony import */ var _new_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./new.page */ "55Cg");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+/* harmony import */ var _new_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./new.page */ "./src/app/user/new/new.page.ts");
 
 
 
@@ -147,7 +216,59 @@ NewPageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
 
 /***/ }),
 
-/***/ "vSwh":
+/***/ "./src/app/user/new/new.module.ts":
+/*!****************************************!*\
+  !*** ./src/app/user/new/new.module.ts ***!
+  \****************************************/
+/*! exports provided: NewPageModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewPageModule", function() { return NewPageModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+/* harmony import */ var _new_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./new-routing.module */ "./src/app/user/new/new-routing.module.ts");
+/* harmony import */ var _new_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./new.page */ "./src/app/user/new/new.page.ts");
+/* harmony import */ var _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/profile/profile.component */ "./src/app/components/profile/profile.component.ts");
+
+
+
+
+
+
+
+// 5.1) Importa dependências
+
+
+let NewPageModule = class NewPageModule {
+};
+NewPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [
+            _angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
+            _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"],
+            _new_routing_module__WEBPACK_IMPORTED_MODULE_5__["NewPageRoutingModule"],
+            // 5.2) Injeta dependências
+            _angular_forms__WEBPACK_IMPORTED_MODULE_3__["ReactiveFormsModule"],
+        ],
+        declarations: [
+            _new_page__WEBPACK_IMPORTED_MODULE_6__["NewPage"],
+            // 5.3) Declara componente importado
+            _components_profile_profile_component__WEBPACK_IMPORTED_MODULE_7__["ProfileComponent"],
+        ]
+    })
+], NewPageModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/user/new/new.page.scss":
 /*!****************************************!*\
   !*** ./src/app/user/new/new.page.scss ***!
   \****************************************/
@@ -157,6 +278,57 @@ NewPageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])(
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvbmV3L25ldy5wYWdlLnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/user/new/new.page.ts":
+/*!**************************************!*\
+  !*** ./src/app/user/new/new.page.ts ***!
+  \**************************************/
+/*! exports provided: NewPage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewPage", function() { return NewPage; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+/* harmony import */ var _services_app_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/app.service */ "./src/app/services/app.service.ts");
+/* harmony import */ var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-pwa/local-storage */ "./node_modules/@ngx-pwa/local-storage/__ivy_ngcc__/fesm2015/ngx-pwa-local-storage.js");
+
+
+// 4.1) Importa dependências 
+
+
+let NewPage = class NewPage {
+    constructor(
+    // 4.3) Injeta dependências
+    app, storage) {
+        this.app = app;
+        this.storage = storage;
+    }
+    ngOnInit() {
+        // 4.4) Obtém dados do usuário logado
+        this.storage.get('userData', { type: 'string' }).subscribe((data) => {
+            this.userData = JSON.parse(data);
+            // 4.5) Exibe caixa de alerta
+            this.app.myAlert(`Olá ${this.userData.displayName}`, `Você precisa completar seu cadastro para usar todos os recursos do aplicativo.`);
+        });
+    }
+};
+NewPage.ctorParameters = () => [
+    { type: _services_app_service__WEBPACK_IMPORTED_MODULE_2__["AppService"] },
+    { type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_3__["StorageMap"] }
+];
+NewPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-new',
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./new.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/user/new/new.page.html")).default,
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./new.page.scss */ "./src/app/user/new/new.page.scss")).default]
+    })
+], NewPage);
+
+
 
 /***/ })
 

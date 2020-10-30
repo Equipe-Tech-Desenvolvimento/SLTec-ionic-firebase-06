@@ -1,11 +1,11 @@
 (function () {
-  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
   function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+  function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
   function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
@@ -13,7 +13,232 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["common"], {
     /***/
-    "2c9M":
+    "./node_modules/@ionic/core/dist/esm/button-active-5da929d4.js":
+    /*!*********************************************************************!*\
+      !*** ./node_modules/@ionic/core/dist/esm/button-active-5da929d4.js ***!
+      \*********************************************************************/
+
+    /*! exports provided: c */
+
+    /***/
+    function node_modulesIonicCoreDistEsmButtonActive5da929d4Js(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "c", function () {
+        return createButtonActiveGesture;
+      });
+      /* harmony import */
+
+
+      var _index_92848855_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! ./index-92848855.js */
+      "./node_modules/@ionic/core/dist/esm/index-92848855.js");
+      /* harmony import */
+
+
+      var _index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! ./index-eea61379.js */
+      "./node_modules/@ionic/core/dist/esm/index-eea61379.js");
+      /* harmony import */
+
+
+      var _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./haptic-7b8ba70a.js */
+      "./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js");
+
+      var createButtonActiveGesture = function createButtonActiveGesture(el, isButton) {
+        var currentTouchedButton;
+        var initialTouchedButton;
+
+        var activateButtonAtPoint = function activateButtonAtPoint(x, y, hapticFeedbackFn) {
+          if (typeof document === 'undefined') {
+            return;
+          }
+
+          var target = document.elementFromPoint(x, y);
+
+          if (!target || !isButton(target)) {
+            clearActiveButton();
+            return;
+          }
+
+          if (target !== currentTouchedButton) {
+            clearActiveButton();
+            setActiveButton(target, hapticFeedbackFn);
+          }
+        };
+
+        var setActiveButton = function setActiveButton(button, hapticFeedbackFn) {
+          currentTouchedButton = button;
+
+          if (!initialTouchedButton) {
+            initialTouchedButton = currentTouchedButton;
+          }
+
+          var buttonToModify = currentTouchedButton;
+          Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_0__["c"])(function () {
+            return buttonToModify.classList.add('ion-activated');
+          });
+          hapticFeedbackFn();
+        };
+
+        var clearActiveButton = function clearActiveButton() {
+          var dispatchClick = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+          if (!currentTouchedButton) {
+            return;
+          }
+
+          var buttonToModify = currentTouchedButton;
+          Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_0__["c"])(function () {
+            return buttonToModify.classList.remove('ion-activated');
+          });
+          /**
+           * Clicking on one button, but releasing on another button
+           * does not dispatch a click event in browsers, so we
+           * need to do it manually here. Some browsers will
+           * dispatch a click if clicking on one button, dragging over
+           * another button, and releasing on the original button. In that
+           * case, we need to make sure we do not cause a double click there.
+           */
+
+          if (dispatchClick && initialTouchedButton !== currentTouchedButton) {
+            currentTouchedButton.click();
+          }
+
+          currentTouchedButton = undefined;
+        };
+
+        return Object(_index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__["createGesture"])({
+          el: el,
+          gestureName: 'buttonActiveDrag',
+          threshold: 0,
+          onStart: function onStart(ev) {
+            return activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["a"]);
+          },
+          onMove: function onMove(ev) {
+            return activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["b"]);
+          },
+          onEnd: function onEnd() {
+            clearActiveButton(true);
+            Object(_haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["h"])();
+            initialTouchedButton = undefined;
+          }
+        });
+      };
+      /***/
+
+    },
+
+    /***/
+    "./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js":
+    /*!**************************************************************************!*\
+      !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js ***!
+      \**************************************************************************/
+
+    /*! exports provided: a, d */
+
+    /***/
+    function node_modulesIonicCoreDistEsmFrameworkDelegateD1eb6504Js(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "a", function () {
+        return attachComponent;
+      });
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "d", function () {
+        return detachComponent;
+      });
+
+      var attachComponent = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(delegate, container, component, cssClasses, componentProps) {
+          var el;
+          return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  if (!delegate) {
+                    _context.next = 2;
+                    break;
+                  }
+
+                  return _context.abrupt("return", delegate.attachViewToDom(container, component, componentProps, cssClasses));
+
+                case 2:
+                  if (!(typeof component !== 'string' && !(component instanceof HTMLElement))) {
+                    _context.next = 4;
+                    break;
+                  }
+
+                  throw new Error('framework delegate is missing');
+
+                case 4:
+                  el = typeof component === 'string' ? container.ownerDocument && container.ownerDocument.createElement(component) : component;
+
+                  if (cssClasses) {
+                    cssClasses.forEach(function (c) {
+                      return el.classList.add(c);
+                    });
+                  }
+
+                  if (componentProps) {
+                    Object.assign(el, componentProps);
+                  }
+
+                  container.appendChild(el);
+
+                  if (!el.componentOnReady) {
+                    _context.next = 11;
+                    break;
+                  }
+
+                  _context.next = 11;
+                  return el.componentOnReady();
+
+                case 11:
+                  return _context.abrupt("return", el);
+
+                case 12:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function attachComponent(_x, _x2, _x3, _x4, _x5) {
+          return _ref.apply(this, arguments);
+        };
+      }();
+
+      var detachComponent = function detachComponent(delegate, element) {
+        if (element) {
+          if (delegate) {
+            var container = element.parentElement;
+            return delegate.removeViewFromDom(container, element);
+          }
+
+          element.remove();
+        }
+
+        return Promise.resolve();
+      };
+      /***/
+
+    },
+
+    /***/
+    "./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js":
     /*!**************************************************************!*\
       !*** ./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js ***!
       \**************************************************************/
@@ -21,7 +246,7 @@
     /*! exports provided: a, b, c, d, h */
 
     /***/
-    function c9M(module, __webpack_exports__, __webpack_require__) {
+    function node_modulesIonicCoreDistEsmHaptic7b8ba70aJs(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -187,7 +412,7 @@
     },
 
     /***/
-    "6i10":
+    "./node_modules/@ionic/core/dist/esm/spinner-configs-c78e170e.js":
     /*!***********************************************************************!*\
       !*** ./node_modules/@ionic/core/dist/esm/spinner-configs-c78e170e.js ***!
       \***********************************************************************/
@@ -195,7 +420,7 @@
     /*! exports provided: S */
 
     /***/
-    function i10(module, __webpack_exports__, __webpack_require__) {
+    function node_modulesIonicCoreDistEsmSpinnerConfigsC78e170eJs(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -318,398 +543,7 @@
     },
 
     /***/
-    "NqGI":
-    /*!**************************************************************************!*\
-      !*** ./node_modules/@ionic/core/dist/esm/framework-delegate-d1eb6504.js ***!
-      \**************************************************************************/
-
-    /*! exports provided: a, d */
-
-    /***/
-    function NqGI(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "a", function () {
-        return attachComponent;
-      });
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "d", function () {
-        return detachComponent;
-      });
-
-      var attachComponent = /*#__PURE__*/function () {
-        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(delegate, container, component, cssClasses, componentProps) {
-          var el;
-          return regeneratorRuntime.wrap(function _callee$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  if (!delegate) {
-                    _context.next = 2;
-                    break;
-                  }
-
-                  return _context.abrupt("return", delegate.attachViewToDom(container, component, componentProps, cssClasses));
-
-                case 2:
-                  if (!(typeof component !== 'string' && !(component instanceof HTMLElement))) {
-                    _context.next = 4;
-                    break;
-                  }
-
-                  throw new Error('framework delegate is missing');
-
-                case 4:
-                  el = typeof component === 'string' ? container.ownerDocument && container.ownerDocument.createElement(component) : component;
-
-                  if (cssClasses) {
-                    cssClasses.forEach(function (c) {
-                      return el.classList.add(c);
-                    });
-                  }
-
-                  if (componentProps) {
-                    Object.assign(el, componentProps);
-                  }
-
-                  container.appendChild(el);
-
-                  if (!el.componentOnReady) {
-                    _context.next = 11;
-                    break;
-                  }
-
-                  _context.next = 11;
-                  return el.componentOnReady();
-
-                case 11:
-                  return _context.abrupt("return", el);
-
-                case 12:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, _callee);
-        }));
-
-        return function attachComponent(_x, _x2, _x3, _x4, _x5) {
-          return _ref.apply(this, arguments);
-        };
-      }();
-
-      var detachComponent = function detachComponent(delegate, element) {
-        if (element) {
-          if (delegate) {
-            var container = element.parentElement;
-            return delegate.removeViewFromDom(container, element);
-          }
-
-          element.remove();
-        }
-
-        return Promise.resolve();
-      };
-      /***/
-
-    },
-
-    /***/
-    "OaWH":
-    /*!*****************************************!*\
-      !*** ./src/app/services/app.service.ts ***!
-      \*****************************************/
-
-    /*! exports provided: AppService */
-
-    /***/
-    function OaWH(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "AppService", function () {
-        return AppService;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /* harmony import */
-
-
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/router */
-      "tyNb");
-      /* harmony import */
-
-
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! @ionic/angular */
-      "TEn/");
-      /* harmony import */
-
-
-      var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! @ngx-pwa/local-storage */
-      "8YY3");
-      /**
-       * Serviços de uso geral
-       *    Aqui estão alguns serviços usados em toda ou parte do aplicativo
-       * @author Por Luferat
-       */
-      // 3.1) Importa dependências
-      // Roteamento
-      // Caixa de alerta
-      // 4.1) Importa dependências
-      // Armazenamento local
-
-
-      var AppService = /*#__PURE__*/function () {
-        function AppService( // 3.2) Injeção das dependências
-        router, // Roteamento
-        alertController, // Caixa de alerta
-        // 4.2) Injeção das dependências
-        storage) {
-          _classCallCheck(this, AppService);
-
-          this.router = router;
-          this.alertController = alertController;
-          this.storage = storage;
-        } // 3.3) Caixa de alerta para feedback (https://ionicframework.com/docs/api/alert)
-
-
-        _createClass(AppService, [{
-          key: "myAlert",
-          value: function myAlert(title, text) {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-              var alert;
-              return regeneratorRuntime.wrap(function _callee2$(_context2) {
-                while (1) {
-                  switch (_context2.prev = _context2.next) {
-                    case 0:
-                      _context2.next = 2;
-                      return this.alertController.create({
-                        header: title,
-                        message: text,
-                        buttons: [{
-                          text: 'Ok',
-                          handler: function handler() {
-                            return true;
-                          }
-                        }]
-                      });
-
-                    case 2:
-                      alert = _context2.sent;
-                      _context2.next = 5;
-                      return alert.present();
-
-                    case 5:
-                    case "end":
-                      return _context2.stop();
-                  }
-                }
-              }, _callee2, this);
-            }));
-          } // 4.3) Método que detecta a presença do perfil local
-
-        }, {
-          key: "isProfile",
-          value: function isProfile() {
-            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
-              var _this = this;
-
-              return regeneratorRuntime.wrap(function _callee3$(_context3) {
-                while (1) {
-                  switch (_context3.prev = _context3.next) {
-                    case 0:
-                      return _context3.abrupt("return", new Promise(function (resolve, reject) {
-                        // Lê o armazenamento local
-                        _this.storage.get('userProfile', {
-                          type: 'string'
-                        }).subscribe({
-                          next: function next(data) {
-                            // Se perfil, retorna 'true'
-                            if (data) resolve(true); // Se não tem perfil, retorna 'false'
-                            else resolve(false);
-                          },
-                          // Em caso de erro ao tentar acessar 'storage'
-                          error: function error(_error) {
-                            return console.error(_error);
-                          }
-                        });
-                      }));
-
-                    case 1:
-                    case "end":
-                      return _context3.stop();
-                  }
-                }
-              }, _callee3);
-            }));
-          }
-        }]);
-
-        return AppService;
-      }();
-
-      AppService.ctorParameters = function () {
-        return [{
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
-        }, {
-          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]
-        }, {
-          type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_4__["StorageMap"]
-        }];
-      };
-
-      AppService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
-        providedIn: 'root'
-      })], AppService);
-      /***/
-    },
-
-    /***/
-    "U/uv":
-    /*!*********************************************************************!*\
-      !*** ./node_modules/@ionic/core/dist/esm/button-active-5da929d4.js ***!
-      \*********************************************************************/
-
-    /*! exports provided: c */
-
-    /***/
-    function UUv(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "c", function () {
-        return createButtonActiveGesture;
-      });
-      /* harmony import */
-
-
-      var _index_92848855_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! ./index-92848855.js */
-      "sxy2");
-      /* harmony import */
-
-
-      var _index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! ./index-eea61379.js */
-      "ItpF");
-      /* harmony import */
-
-
-      var _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./haptic-7b8ba70a.js */
-      "2c9M");
-
-      var createButtonActiveGesture = function createButtonActiveGesture(el, isButton) {
-        var currentTouchedButton;
-        var initialTouchedButton;
-
-        var activateButtonAtPoint = function activateButtonAtPoint(x, y, hapticFeedbackFn) {
-          if (typeof document === 'undefined') {
-            return;
-          }
-
-          var target = document.elementFromPoint(x, y);
-
-          if (!target || !isButton(target)) {
-            clearActiveButton();
-            return;
-          }
-
-          if (target !== currentTouchedButton) {
-            clearActiveButton();
-            setActiveButton(target, hapticFeedbackFn);
-          }
-        };
-
-        var setActiveButton = function setActiveButton(button, hapticFeedbackFn) {
-          currentTouchedButton = button;
-
-          if (!initialTouchedButton) {
-            initialTouchedButton = currentTouchedButton;
-          }
-
-          var buttonToModify = currentTouchedButton;
-          Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_0__["c"])(function () {
-            return buttonToModify.classList.add('ion-activated');
-          });
-          hapticFeedbackFn();
-        };
-
-        var clearActiveButton = function clearActiveButton() {
-          var dispatchClick = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-          if (!currentTouchedButton) {
-            return;
-          }
-
-          var buttonToModify = currentTouchedButton;
-          Object(_index_92848855_js__WEBPACK_IMPORTED_MODULE_0__["c"])(function () {
-            return buttonToModify.classList.remove('ion-activated');
-          });
-          /**
-           * Clicking on one button, but releasing on another button
-           * does not dispatch a click event in browsers, so we
-           * need to do it manually here. Some browsers will
-           * dispatch a click if clicking on one button, dragging over
-           * another button, and releasing on the original button. In that
-           * case, we need to make sure we do not cause a double click there.
-           */
-
-          if (dispatchClick && initialTouchedButton !== currentTouchedButton) {
-            currentTouchedButton.click();
-          }
-
-          currentTouchedButton = undefined;
-        };
-
-        return Object(_index_eea61379_js__WEBPACK_IMPORTED_MODULE_1__["createGesture"])({
-          el: el,
-          gestureName: 'buttonActiveDrag',
-          threshold: 0,
-          onStart: function onStart(ev) {
-            return activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["a"]);
-          },
-          onMove: function onMove(ev) {
-            return activateButtonAtPoint(ev.currentX, ev.currentY, _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["b"]);
-          },
-          onEnd: function onEnd() {
-            clearActiveButton(true);
-            Object(_haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["h"])();
-            initialTouchedButton = undefined;
-          }
-        });
-      };
-      /***/
-
-    },
-
-    /***/
-    "sPtc":
+    "./node_modules/@ionic/core/dist/esm/theme-5641d27f.js":
     /*!*************************************************************!*\
       !*** ./node_modules/@ionic/core/dist/esm/theme-5641d27f.js ***!
       \*************************************************************/
@@ -717,7 +551,7 @@
     /*! exports provided: c, g, h, o */
 
     /***/
-    function sPtc(module, __webpack_exports__, __webpack_require__) {
+    function node_modulesIonicCoreDistEsmTheme5641d27fJs(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -786,21 +620,21 @@
       var SCHEME = /^[a-z][a-z0-9+\-.]*:/;
 
       var openURL = /*#__PURE__*/function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(url, ev, direction, animation) {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(url, ev, direction, animation) {
           var router;
-          return regeneratorRuntime.wrap(function _callee4$(_context4) {
+          return regeneratorRuntime.wrap(function _callee2$(_context2) {
             while (1) {
-              switch (_context4.prev = _context4.next) {
+              switch (_context2.prev = _context2.next) {
                 case 0:
                   if (!(url != null && url[0] !== '#' && !SCHEME.test(url))) {
-                    _context4.next = 5;
+                    _context2.next = 5;
                     break;
                   }
 
                   router = document.querySelector('ion-router');
 
                   if (!router) {
-                    _context4.next = 5;
+                    _context2.next = 5;
                     break;
                   }
 
@@ -808,17 +642,17 @@
                     ev.preventDefault();
                   }
 
-                  return _context4.abrupt("return", router.push(url, direction, animation));
+                  return _context2.abrupt("return", router.push(url, direction, animation));
 
                 case 5:
-                  return _context4.abrupt("return", false);
+                  return _context2.abrupt("return", false);
 
                 case 6:
                 case "end":
-                  return _context4.stop();
+                  return _context2.stop();
               }
             }
-          }, _callee4);
+          }, _callee2);
         }));
 
         return function openURL(_x6, _x7, _x8, _x9) {
@@ -827,6 +661,172 @@
       }();
       /***/
 
+    },
+
+    /***/
+    "./src/app/services/app.service.ts":
+    /*!*****************************************!*\
+      !*** ./src/app/services/app.service.ts ***!
+      \*****************************************/
+
+    /*! exports provided: AppService */
+
+    /***/
+    function srcAppServicesAppServiceTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "AppService", function () {
+        return AppService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @ngx-pwa/local-storage */
+      "./node_modules/@ngx-pwa/local-storage/__ivy_ngcc__/fesm2015/ngx-pwa-local-storage.js");
+      /**
+       * Serviços de uso geral
+       *    Aqui estão alguns serviços usados em toda ou parte do aplicativo
+       * @author Por Luferat
+       */
+      // 3.1) Importa dependências
+      // Roteamento
+      // Caixa de alerta
+      // 4.1) Importa dependências
+      // Armazenamento local
+
+
+      var AppService = /*#__PURE__*/function () {
+        function AppService( // 3.2) Injeção das dependências
+        router, // Roteamento
+        alertController, // Caixa de alerta
+        // 4.2) Injeção das dependências
+        storage) {
+          _classCallCheck(this, AppService);
+
+          this.router = router;
+          this.alertController = alertController;
+          this.storage = storage;
+        } // 3.3) Caixa de alerta para feedback (https://ionicframework.com/docs/api/alert)
+
+
+        _createClass(AppService, [{
+          key: "myAlert",
+          value: function myAlert(title, text) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+              var alert;
+              return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                while (1) {
+                  switch (_context3.prev = _context3.next) {
+                    case 0:
+                      _context3.next = 2;
+                      return this.alertController.create({
+                        header: title,
+                        message: text,
+                        buttons: [{
+                          text: 'Ok',
+                          handler: function handler() {
+                            return true;
+                          }
+                        }]
+                      });
+
+                    case 2:
+                      alert = _context3.sent;
+                      _context3.next = 5;
+                      return alert.present();
+
+                    case 5:
+                    case "end":
+                      return _context3.stop();
+                  }
+                }
+              }, _callee3, this);
+            }));
+          } // 4.3) Método que detecta a presença do perfil local
+
+        }, {
+          key: "isProfile",
+          value: function isProfile() {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+              var _this = this;
+
+              return regeneratorRuntime.wrap(function _callee4$(_context4) {
+                while (1) {
+                  switch (_context4.prev = _context4.next) {
+                    case 0:
+                      return _context4.abrupt("return", new Promise(function (resolve, reject) {
+                        // Lê o armazenamento local
+                        _this.storage.get('userProfile', {
+                          type: 'string'
+                        }).subscribe({
+                          next: function next(data) {
+                            // Se perfil, retorna 'true'
+                            if (data) resolve(true); // Se não tem perfil, retorna 'false'
+                            else resolve(false);
+                          },
+                          // Em caso de erro ao tentar acessar 'storage'
+                          error: function error(_error) {
+                            return console.error(_error);
+                          }
+                        });
+                      }));
+
+                    case 1:
+                    case "end":
+                      return _context4.stop();
+                  }
+                }
+              }, _callee4);
+            }));
+          }
+        }]);
+
+        return AppService;
+      }();
+
+      AppService.ctorParameters = function () {
+        return [{
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["AlertController"]
+        }, {
+          type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_4__["StorageMap"]
+        }];
+      };
+
+      AppService = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+      })], AppService);
+      /***/
     }
   }]);
 })();

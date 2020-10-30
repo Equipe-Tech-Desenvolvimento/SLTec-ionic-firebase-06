@@ -1,13 +1,13 @@
 (function () {
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
   function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
   function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["user-logout-logout-module"], {
     /***/
-    "CodS":
+    "./node_modules/raw-loader/dist/cjs.js!./src/app/user/logout/logout.page.html":
     /*!************************************************************************************!*\
       !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user/logout/logout.page.html ***!
       \************************************************************************************/
@@ -15,7 +15,7 @@
     /*! exports provided: default */
 
     /***/
-    function CodS(module, __webpack_exports__, __webpack_require__) {
+    function node_modulesRawLoaderDistCjsJsSrcAppUserLogoutLogoutPageHtml(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -27,7 +27,140 @@
     },
 
     /***/
-    "Mr9J":
+    "./src/app/user/logout/logout-routing.module.ts":
+    /*!******************************************************!*\
+      !*** ./src/app/user/logout/logout-routing.module.ts ***!
+      \******************************************************/
+
+    /*! exports provided: LogoutPageRoutingModule */
+
+    /***/
+    function srcAppUserLogoutLogoutRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "LogoutPageRoutingModule", function () {
+        return LogoutPageRoutingModule;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var _logout_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! ./logout.page */
+      "./src/app/user/logout/logout.page.ts");
+
+      var routes = [{
+        path: '',
+        component: _logout_page__WEBPACK_IMPORTED_MODULE_3__["LogoutPage"]
+      }];
+
+      var LogoutPageRoutingModule = function LogoutPageRoutingModule() {
+        _classCallCheck(this, LogoutPageRoutingModule);
+      };
+
+      LogoutPageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+      })], LogoutPageRoutingModule);
+      /***/
+    },
+
+    /***/
+    "./src/app/user/logout/logout.module.ts":
+    /*!**********************************************!*\
+      !*** ./src/app/user/logout/logout.module.ts ***!
+      \**********************************************/
+
+    /*! exports provided: LogoutPageModule */
+
+    /***/
+    function srcAppUserLogoutLogoutModuleTs(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "LogoutPageModule", function () {
+        return LogoutPageModule;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "./node_modules/tslib/tslib.es6.js");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/common */
+      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/forms */
+      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      /* harmony import */
+
+
+      var _logout_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! ./logout-routing.module */
+      "./src/app/user/logout/logout-routing.module.ts");
+      /* harmony import */
+
+
+      var _logout_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! ./logout.page */
+      "./src/app/user/logout/logout.page.ts");
+
+      var LogoutPageModule = function LogoutPageModule() {
+        _classCallCheck(this, LogoutPageModule);
+      };
+
+      LogoutPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _logout_routing_module__WEBPACK_IMPORTED_MODULE_5__["LogoutPageRoutingModule"]],
+        declarations: [_logout_page__WEBPACK_IMPORTED_MODULE_6__["LogoutPage"]]
+      })], LogoutPageModule);
+      /***/
+    },
+
+    /***/
+    "./src/app/user/logout/logout.page.scss":
     /*!**********************************************!*\
       !*** ./src/app/user/logout/logout.page.scss ***!
       \**********************************************/
@@ -35,7 +168,7 @@
     /*! exports provided: default */
 
     /***/
-    function Mr9J(module, __webpack_exports__, __webpack_require__) {
+    function srcAppUserLogoutLogoutPageScss(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -47,7 +180,7 @@
     },
 
     /***/
-    "WD/e":
+    "./src/app/user/logout/logout.page.ts":
     /*!********************************************!*\
       !*** ./src/app/user/logout/logout.page.ts ***!
       \********************************************/
@@ -55,7 +188,7 @@
     /*! exports provided: LogoutPage */
 
     /***/
-    function WDE(module, __webpack_exports__, __webpack_require__) {
+    function srcAppUserLogoutLogoutPageTs(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -70,49 +203,37 @@
 
       var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! tslib */
-      "mrSG");
+      "./node_modules/tslib/tslib.es6.js");
       /* harmony import */
 
 
-      var _raw_loader_logout_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! raw-loader!./logout.page.html */
-      "CodS");
-      /* harmony import */
-
-
-      var _logout_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! ./logout.page.scss */
-      "Mr9J");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
-      "fXoL");
+      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
       /* harmony import */
 
 
-      var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/fire/auth */
-      "UbJi");
+      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-auth.js");
       /* harmony import */
 
 
-      var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @ngx-pwa/local-storage */
-      "8YY3");
+      "./node_modules/@ngx-pwa/local-storage/__ivy_ngcc__/fesm2015/ngx-pwa-local-storage.js");
       /* harmony import */
 
 
-      var _angular_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @angular/router */
-      "tyNb");
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
       /* harmony import */
 
 
-      var _services_events_service__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      var _services_events_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ../../services/events.service */
-      "riPR"); // 3.1) Importa dependências
+      "./src/app/services/events.service.ts"); // 3.1) Importa dependências
       // Autenticação
       // Armazenamento local
       // Roteamento
@@ -176,154 +297,25 @@
 
       LogoutPage.ctorParameters = function () {
         return [{
-          type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_4__["AngularFireAuth"]
+          type: _angular_fire_auth__WEBPACK_IMPORTED_MODULE_2__["AngularFireAuth"]
         }, {
-          type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_5__["StorageMap"]
+          type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_3__["StorageMap"]
         }, {
-          type: _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"]
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
         }, {
-          type: _services_events_service__WEBPACK_IMPORTED_MODULE_7__["EventsService"]
+          type: _services_events_service__WEBPACK_IMPORTED_MODULE_5__["EventsService"]
         }];
       };
 
-      LogoutPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+      LogoutPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-logout',
-        template: _raw_loader_logout_page_html__WEBPACK_IMPORTED_MODULE_1__["default"],
-        styles: [_logout_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! raw-loader!./logout.page.html */
+        "./node_modules/raw-loader/dist/cjs.js!./src/app/user/logout/logout.page.html"))["default"],
+        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
+        /*! ./logout.page.scss */
+        "./src/app/user/logout/logout.page.scss"))["default"]]
       })], LogoutPage);
-      /***/
-    },
-
-    /***/
-    "fsJ+":
-    /*!**********************************************!*\
-      !*** ./src/app/user/logout/logout.module.ts ***!
-      \**********************************************/
-
-    /*! exports provided: LogoutPageModule */
-
-    /***/
-    function fsJ(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "LogoutPageModule", function () {
-        return LogoutPageModule;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /* harmony import */
-
-
-      var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/common */
-      "ofXK");
-      /* harmony import */
-
-
-      var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! @angular/forms */
-      "3Pt+");
-      /* harmony import */
-
-
-      var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-      /*! @ionic/angular */
-      "TEn/");
-      /* harmony import */
-
-
-      var _logout_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-      /*! ./logout-routing.module */
-      "iUE2");
-      /* harmony import */
-
-
-      var _logout_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
-      /*! ./logout.page */
-      "WD/e");
-
-      var LogoutPageModule = function LogoutPageModule() {
-        _classCallCheck(this, LogoutPageModule);
-      };
-
-      LogoutPageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"], _logout_routing_module__WEBPACK_IMPORTED_MODULE_5__["LogoutPageRoutingModule"]],
-        declarations: [_logout_page__WEBPACK_IMPORTED_MODULE_6__["LogoutPage"]]
-      })], LogoutPageModule);
-      /***/
-    },
-
-    /***/
-    "iUE2":
-    /*!******************************************************!*\
-      !*** ./src/app/user/logout/logout-routing.module.ts ***!
-      \******************************************************/
-
-    /*! exports provided: LogoutPageRoutingModule */
-
-    /***/
-    function iUE2(module, __webpack_exports__, __webpack_require__) {
-      "use strict";
-
-      __webpack_require__.r(__webpack_exports__);
-      /* harmony export (binding) */
-
-
-      __webpack_require__.d(__webpack_exports__, "LogoutPageRoutingModule", function () {
-        return LogoutPageRoutingModule;
-      });
-      /* harmony import */
-
-
-      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-      /*! tslib */
-      "mrSG");
-      /* harmony import */
-
-
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-      /*! @angular/core */
-      "fXoL");
-      /* harmony import */
-
-
-      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-      /*! @angular/router */
-      "tyNb");
-      /* harmony import */
-
-
-      var _logout_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-      /*! ./logout.page */
-      "WD/e");
-
-      var routes = [{
-        path: '',
-        component: _logout_page__WEBPACK_IMPORTED_MODULE_3__["LogoutPage"]
-      }];
-
-      var LogoutPageRoutingModule = function LogoutPageRoutingModule() {
-        _classCallCheck(this, LogoutPageRoutingModule);
-      };
-
-      LogoutPageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(routes)],
-        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
-      })], LogoutPageRoutingModule);
       /***/
     }
   }]);
