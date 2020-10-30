@@ -17,7 +17,7 @@ Para executar as atividades deste "branch", siga os passos abaixo:
 
     - Criar coleção "select01" no Firebase Firestore com alguns documentos
 
-```JSON
+```javascript
         {
             select01: {
                 *id: { option: "Opção 01" },
