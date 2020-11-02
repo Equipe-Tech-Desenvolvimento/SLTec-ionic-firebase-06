@@ -56,7 +56,14 @@ Instruções para executar as atividades deste 'branch':
     - Editar 'app/user/login/login.page.ts' &rarr; 6
     - Editar 'app/user/logout/logout.page.ts' &rarr; 4
 
-9) Conclusão
+9) Exibir dados do usuário nas páginas do aplicativo
+
+    Vamos exibir, para exemplo, o nome do usuário na 'home':
+
+    - Editar 'app/paes/home/home.page.ts' &rarr; 1 à 4
+    - Editar 'app/paes/home/home.page.html' &rarr; 1 à 2
+
+10) Conclusão
 
     - Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
 

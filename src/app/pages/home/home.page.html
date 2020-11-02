@@ -12,9 +12,11 @@
 
 <ion-content>
 
-  <div class="ion-padding">
+  <!-- 3.1) Verifica se tem dados do usuário -->
+  <div class="ion-padding" *ngIf="userData">
 
-    <h2>Olá!</h2>
+    <!-- 3.2) Exibe nome (displayName) do usuário -->
+    <h2>Olá {{ userData.displayName }}!</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos odio, minus, harum maiores, repudiandae
       sequi quo quos ducimus vitae qui id dolorem. Amet eligendi itaque provident pariatur assumenda rerum nostrum?</p>
     <h4>Lista de links:</h4>
