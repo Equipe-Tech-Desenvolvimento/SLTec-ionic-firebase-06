@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 // 6.2) Importa dependências
 import { AngularFirestore } from '@angular/fire/firestore';
 
+// 7.1) Importa dependências
+import { AppService } from '../../services/app.service'; // Serviços de uso geral
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -37,6 +40,9 @@ export class ProfileComponent implements OnInit {
 
     // 6.4) Injeta dependências
     public fbStore: AngularFirestore,
+
+    // 7.2) Injeta dependências
+    public app: AppService,
   ) {
 
     // 5.11) Obtém dados do usuário logado
@@ -135,7 +141,7 @@ export class ProfileComponent implements OnInit {
 
       // 6.1) Cria campo tipo 'select'
       selectStatic: [
-        'Opção 2',
+        null,
 
         // 6.9) Validando campo
         Validators.compose([
@@ -161,7 +167,38 @@ export class ProfileComponent implements OnInit {
 
   // 5.6) Método que trata envio do formulário
   profileSubmit() {
-    console.log(this.profileForm.value);
+    // console.log(this.profileForm.value);
+
+    // 7.3) Se formulário é inválido, sai sem fazer nada
+    if (this.profileForm.invalid) return false;
+
+    // 7.4) Salva no Firestore
+    this.fbStore.collection('users').doc(this.userData.uid).set(this.profileForm.value)
+      .then((docRef) => {
+
+        // 7.5) Salva no armazenamento local
+        this.storage.set('userProfile', JSON.stringify(this.profileForm.value)).subscribe(
+          () => {
+
+            // 7.6) Feedback 'sucesso'
+            this.app.myAlert(this.userData.displayName, `Seu perfil foi cadastrado com sucesso!`);
+
+            // 7.7) Limpa o formulário
+            this.profileForm.reset();
+
+            // 7.8) Vai para a raiz
+            this.router.navigate(['/']);
+          }
+        );
+      })
+      .catch(
+
+        // 7.9) Tratamento de erros
+        (error) => {
+          console.error(error);
+          this.app.myAlert(this.userData.displayName, `Ocorreu um erro ao cadastrar seu perfil. Por favor, tente mais tarde.`)
+        }
+      );
   }
 
   // 5.7) Método que valida data de nascimento
