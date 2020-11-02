@@ -132,16 +132,25 @@
 
       var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! @angular/fire/firestore */
-      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js"); // 5.1) Importa dependências
+      "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
+      /* harmony import */
+
+
+      var _services_app_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+      /*! ../../services/app.service */
+      "./src/app/services/app.service.ts"); // 5.1) Importa dependências
       // 5.8) Importa dependências
       // 6.2) Importa dependências
+      // 7.1) Importa dependências
+      // Serviços de uso geral
 
 
       var ProfileComponent = /*#__PURE__*/function () {
         function ProfileComponent( // 5.3) Injeta dependências
         formBuilder, // 5.10) Injeta dependências
         storage, router, // 6.4) Injeta dependências
-        fbStore) {
+        fbStore, // 7.2) Injeta dependências
+        app) {
           var _this = this;
 
           _classCallCheck(this, ProfileComponent);
@@ -149,7 +158,8 @@
           this.formBuilder = formBuilder;
           this.storage = storage;
           this.router = router;
-          this.fbStore = fbStore; // 5.11) Obtém dados do usuário logado
+          this.fbStore = fbStore;
+          this.app = app; // 5.11) Obtém dados do usuário logado
 
           this.storage.get('userData', {
             type: 'string'
@@ -190,7 +200,7 @@
               cellPhone: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(/^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/)])],
               whatsApp: [null, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].pattern(/^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/)])],
               // 6.1) Cria campo tipo 'select'
-              selectStatic: ['Opção 2', // 6.9) Validando campo
+              selectStatic: [null, // 6.9) Validando campo
               _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required])],
               // 6.6) Cria campo tipo 'select'
               selectDynamic: [null, // 6.10) Validando campo
@@ -203,7 +213,30 @@
         }, {
           key: "profileSubmit",
           value: function profileSubmit() {
-            console.log(this.profileForm.value);
+            var _this2 = this;
+
+            // console.log(this.profileForm.value);
+            // 7.3) Se formulário é inválido, sai sem fazer nada
+            if (this.profileForm.invalid) return false; // 7.4) Salva no Firestore
+
+            this.fbStore.collection('users').doc(this.userData.uid).set(this.profileForm.value).then(function (docRef) {
+              // 7.5) Salva no armazenamento local
+              _this2.storage.set('userProfile', JSON.stringify(_this2.profileForm.value)).subscribe(function () {
+                // 7.6) Feedback 'sucesso'
+                _this2.app.myAlert(_this2.userData.displayName, "Seu perfil foi cadastrado com sucesso!"); // 7.7) Limpa o formulário
+
+
+                _this2.profileForm.reset(); // 7.8) Vai para a raiz
+
+
+                _this2.router.navigate(['/']);
+              });
+            })["catch"]( // 7.9) Tratamento de erros
+            function (error) {
+              console.error(error);
+
+              _this2.app.myAlert(_this2.userData.displayName, "Ocorreu um erro ao cadastrar seu perfil. Por favor, tente mais tarde.");
+            });
           } // 5.7) Método que valida data de nascimento
 
         }, {
@@ -243,6 +276,8 @@
           type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]
         }, {
           type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"]
+        }, {
+          type: _services_app_service__WEBPACK_IMPORTED_MODULE_6__["AppService"]
         }];
       };
 
@@ -477,13 +512,13 @@
         _createClass(NewPage, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this2 = this;
+            var _this3 = this;
 
             // 4.4) Obtém dados do usuário logado
             this.storage.get('userData', {
               type: 'string'
             }).subscribe(function (data) {
-              _this2.userData = JSON.parse(data); // 6.1) Comentar exibição da caixa de alerta
+              _this3.userData = JSON.parse(data); // 6.1) Comentar exibição da caixa de alerta
               // // 4.5) Exibe caixa de alerta
               // this.app.myAlert(
               //   `Olá ${this.userData.displayName}`,

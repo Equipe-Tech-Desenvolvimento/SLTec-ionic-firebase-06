@@ -55,6 +55,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-pwa/local-storage */ "./node_modules/@ngx-pwa/local-storage/__ivy_ngcc__/fesm2015/ngx-pwa-local-storage.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
 /* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/fire/firestore */ "./node_modules/@angular/fire/__ivy_ngcc__/fesm2015/angular-fire-firestore.js");
+/* harmony import */ var _services_app_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../services/app.service */ "./src/app/services/app.service.ts");
 
 
 // 5.1) Importa dependências
@@ -64,6 +65,8 @@ __webpack_require__.r(__webpack_exports__);
 
 // 6.2) Importa dependências
 
+// 7.1) Importa dependências
+ // Serviços de uso geral
 let ProfileComponent = class ProfileComponent {
     constructor(
     // 5.3) Injeta dependências
@@ -71,11 +74,14 @@ let ProfileComponent = class ProfileComponent {
     // 5.10) Injeta dependências
     storage, router, 
     // 6.4) Injeta dependências
-    fbStore) {
+    fbStore, 
+    // 7.2) Injeta dependências
+    app) {
         this.formBuilder = formBuilder;
         this.storage = storage;
         this.router = router;
         this.fbStore = fbStore;
+        this.app = app;
         // 5.11) Obtém dados do usuário logado
         this.storage.get('userData', { type: 'string' }).subscribe((data) => {
             // 5.12) Se não logou, vai para a raiz
@@ -158,7 +164,7 @@ let ProfileComponent = class ProfileComponent {
             ],
             // 6.1) Cria campo tipo 'select'
             selectStatic: [
-                'Opção 2',
+                null,
                 // 6.9) Validando campo
                 _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].compose([
                     _angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required
@@ -178,7 +184,29 @@ let ProfileComponent = class ProfileComponent {
     }
     // 5.6) Método que trata envio do formulário
     profileSubmit() {
-        console.log(this.profileForm.value);
+        // console.log(this.profileForm.value);
+        // 7.3) Se formulário é inválido, sai sem fazer nada
+        if (this.profileForm.invalid)
+            return false;
+        // 7.4) Salva no Firestore
+        this.fbStore.collection('users').doc(this.userData.uid).set(this.profileForm.value)
+            .then((docRef) => {
+            // 7.5) Salva no armazenamento local
+            this.storage.set('userProfile', JSON.stringify(this.profileForm.value)).subscribe(() => {
+                // 7.6) Feedback 'sucesso'
+                this.app.myAlert(this.userData.displayName, `Seu perfil foi cadastrado com sucesso!`);
+                // 7.7) Limpa o formulário
+                this.profileForm.reset();
+                // 7.8) Vai para a raiz
+                this.router.navigate(['/']);
+            });
+        })
+            .catch(
+        // 7.9) Tratamento de erros
+        (error) => {
+            console.error(error);
+            this.app.myAlert(this.userData.displayName, `Ocorreu um erro ao cadastrar seu perfil. Por favor, tente mais tarde.`);
+        });
     }
     // 5.7) Método que valida data de nascimento
     over14Years(control) {
@@ -198,7 +226,8 @@ ProfileComponent.ctorParameters = () => [
     { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
     { type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_3__["StorageMap"] },
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"] }
+    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_5__["AngularFirestore"] },
+    { type: _services_app_service__WEBPACK_IMPORTED_MODULE_6__["AppService"] }
 ];
 ProfileComponent = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
