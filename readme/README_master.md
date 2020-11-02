@@ -27,14 +27,15 @@ O aplicativo está sendo desenvolvido na forma de "aulas", onde cada aula implem
 Cada aula fica em um "branch" separado e as instruções do "branch/aula" estão no arquivo **README.md** do "branch".  
 
 ### Lista de Branches
--  `master`  &rarr; Versão mais recente do aplicativo com os "branches" já validados, integrados. Também inclui a versão funcional do aplicativo para a Web;
--  `00_Aplicativo_Ionic_criado`  &rarr; Aplicativo Ionic recém criado;
--  `01_Ajustes_iniciais`  &rarr; Estrutura básica do aplicativo com páginas estáticas;
--  `02_Conexao_com_Firebase`  &rarr; Configuração do aplicativo no Firebase e conexão com o aplicativo híbrido;
--  `03_Autenticacao_e_guard`  &rarr; Implementa autenticação usando "Login Social" e Firebase Authentication;
--  `04_Somente_com_perfil`  &rarr; Evita que o usuário "apenas logado" acesse páginas sem que seu perfil esteja completo;
--  `05_Formulario_de_perfil`  &rarr; Criação da página de cadastro de novo perfil, acessível quando um usuário se loga pela primeira vez;
--  `06_Novos_campos`  &rarr; Criação de novos tipos de campos no formulário;
+- `master` &rarr; Versão mais recente do aplicativo com os "branches" já validados, integrados. Também inclui a versão funcional do aplicativo para a Web;
+- `00_Aplicativo_Ionic_criado` &rarr; Aplicativo Ionic recém criado;
+- `01_Ajustes_iniciais` &rarr; Estrutura básica do aplicativo com páginas estáticas;
+- `02_Conexao_com_Firebase` &rarr; Configuração do aplicativo no Firebase e conexão com o aplicativo híbrido;
+- `03_Autenticacao_e_guard` &rarr; Implementa autenticação usando "Login Social" e Firebase Authentication;
+- `04_Somente_com_perfil` &rarr; Evita que o usuário "apenas logado" acesse páginas sem que seu perfil esteja completo;
+- `05_Formulario_de_perfil` &rarr; Criação da página de cadastro de novo perfil, acessível quando um usuário se loga pela primeira vez;
+- `06_Novos_campos` &rarr; Criação de novos tipos de campos no formulário;
+- `07_Salvando_perfil` &rarr; Salva perfil já validado no Firestore e no armazenamento local.
 
 **Novos branches serão incluídos conforme novas aulas estejam prontas.*
 
