@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n\r\n    <ion-title>Início</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <!-- 3.1) Verifica se tem dados do usuário -->\r\n  <div class=\"ion-padding\" *ngIf=\"userData\">\r\n\r\n    <!-- 3.2) Exibe nome (displayName) do usuário -->\r\n    <h2>Olá {{ userData.displayName }}!</h2>\r\n    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos odio, minus, harum maiores, repudiandae\r\n      sequi quo quos ducimus vitae qui id dolorem. Amet eligendi itaque provident pariatur assumenda rerum nostrum?</p>\r\n    <h4>Lista de links:</h4>\r\n    <ul>\r\n      <li><a href=\"https://luferat.net/\" target=\"_blank\">Site do Fessô</a></li>\r\n      <li><a href=\"https://www.pi2c.tk/\">Site do Projeto</a></li>\r\n    </ul>\r\n    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam assumenda eaque consequatur impedit nisi porro?\r\n      Maxime id harum quis at itaque eos expedita consequatur cum dolore provident, tempore unde hic.</p>\r\n\r\n  </div>\r\n\r\n</ion-content>";
+      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n\r\n    <ion-title>Início</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <div class=\"ion-padding\">\r\n\r\n    <!-- 3.1) Exibe nome (displayName) do usuário se ele está logado -->\r\n    <h2>Olá<span *ngIf=\"userData\"> {{ userData.displayName }}</span>!</h2>\r\n\r\n    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos odio, minus, harum maiores, repudiandae\r\n      sequi quo quos ducimus vitae qui id dolorem. Amet eligendi itaque provident pariatur assumenda rerum nostrum?</p>\r\n    <h4>Lista de links:</h4>\r\n    <ul>\r\n      <li><a href=\"https://luferat.net/\" target=\"_blank\">Site do Fessô</a></li>\r\n      <li><a href=\"https://www.pi2c.tk/\">Site do Projeto</a></li>\r\n    </ul>\r\n    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam assumenda eaque consequatur impedit nisi porro?\r\n      Maxime id harum quis at itaque eos expedita consequatur cum dolore provident, tempore unde hic.</p>\r\n\r\n  </div>\r\n\r\n</ion-content>";
       /***/
     },
 
@@ -236,7 +236,7 @@
             this.storage.get('userData', {
               type: 'string'
             }).subscribe(function (data) {
-              return _this.userData = JSON.parse(data);
+              if (data) _this.userData = JSON.parse(data);
             });
           }
         }]);

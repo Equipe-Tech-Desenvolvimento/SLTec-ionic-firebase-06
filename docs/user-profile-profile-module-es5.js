@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n\r\n    <ion-title>Seu Perfil</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <div class=\"ion-padding\">\r\n\r\n    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur recusandae harum temporibus officiis\r\n      maiores voluptas eligendi, neque quos voluptates ex laudantium fugiat nisi consequuntur saepe pariatur odit quae\r\n      ipsam excepturi?</p>\r\n\r\n  </div>\r\n\r\n</ion-content>";
+      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n\r\n    <ion-title>Seu Perfil</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <div class=\"ion-padding\" *ngIf=\"userData && userProfile\">\r\n\r\n    <ion-card>\r\n\r\n      <ion-card-header>\r\n        <ion-card-title>Perfil do Login</ion-card-title>\r\n      </ion-card-header>\r\n      <img [src]=\"[userData.photoURL]\" [alt]=\"[userData.displayName]\">\r\n      <ion-card-content>\r\n        <h3 style=\"font-size: 1.2rem; font-weight: bold;\">{{ userData.displayName }}</h3>\r\n        <ion-grid>\r\n          <ion-row>\r\n            <ion-col>{{ userData.email }}</ion-col>\r\n            <ion-col class=\"ion-text-end\">\r\n\r\n              <!-- 8.1) Editar perfil da rede social -->\r\n              <ion-button size=\"small\" fill=\"clear\" (click)=\"editProviderProfile()\">\r\n                <ion-icon name=\"create\"></ion-icon>\r\n              </ion-button>\r\n            </ion-col>\r\n          </ion-row>\r\n        </ion-grid>\r\n      </ion-card-content>\r\n\r\n      <hr>\r\n      <ion-card-header>\r\n        <ion-card-title>Dados Pessoais</ion-card-title>\r\n      </ion-card-header>\r\n      <ion-card-content>\r\n        <ul>\r\n          <li>\r\n            <ion-text color=\"primary\">Nome:</ion-text>{{ userProfile.name }}\r\n          </li>\r\n          <li>\r\n            <ion-text color=\"primary\">CPF:</ion-text>{{ userProfile.cpf }}\r\n          </li>\r\n          <li>\r\n            <ion-text color=\"primary\">Nascimento:</ion-text>{{ userProfile.birth }}\r\n          </li>\r\n          <li>\r\n            <ion-text color=\"primary\">Gênero:</ion-text>{{ userProfile.gender }}\r\n          </li>\r\n        </ul>\r\n      </ion-card-content>\r\n\r\n      <hr>\r\n      <ion-card-header>\r\n        <ion-card-title>Dados de Contato</ion-card-title>\r\n      </ion-card-header>\r\n      <ion-card-content>\r\n        <ul>\r\n          <li>\r\n            <ion-text color=\"primary\">E-mail:</ion-text>\r\n            {{ userProfile.email }}\r\n          </li>\r\n          <li>\r\n            <ion-text color=\"primary\">Telefone Residêncial:</ion-text>\r\n            {{ userProfile.homePhone }}\r\n          </li>\r\n          <li>\r\n            <ion-text color=\"primary\">Telefone Celular:</ion-text>\r\n            {{ userProfile.cellPhone }}\r\n          </li>\r\n          <li>\r\n            <ion-text color=\"primary\">WhatsApp</ion-text>\r\n            {{ userProfile.whatsApp }}\r\n          </li>\r\n        </ul>\r\n      </ion-card-content>\r\n\r\n      <hr>\r\n      <ion-card-header>\r\n        <ion-card-title>Outras Informações</ion-card-title>\r\n      </ion-card-header>\r\n      <ion-card-content>\r\n        <ul>\r\n          <li>\r\n            <ion-text color=\"primary\">Seleção 1:</ion-text>\r\n            {{ userProfile.selectStatic }}\r\n          </li>\r\n          <li>\r\n            <ion-text color=\"primary\">Seleção 2:</ion-text>\r\n            {{ userProfile.selectDynamic }}\r\n          </li>\r\n          <li>\r\n            <ion-text color=\"primary\">Nível de Acesso:</ion-text>\r\n            {{ userProfile.type }}\r\n          </li>\r\n          <li>\r\n            <ion-text color=\"primary\">Status</ion-text>\r\n            {{ userProfile.status }}\r\n          </li>\r\n        </ul>\r\n      </ion-card-content>\r\n\r\n    </ion-card>\r\n\r\n    <ion-button expand=\"block\" class=\"ion-no-margin ion-margin-vertical\">\r\n      <ion-icon name=\"create\"></ion-icon>&nbsp;\r\n      Editar Perfil\r\n    </ion-button>\r\n\r\n  </div>\r\n\r\n</ion-content>";
       /***/
     },
 
@@ -175,7 +175,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXIvcHJvZmlsZS9wcm9maWxlLnBhZ2Uuc2NzcyJ9 */";
+      __webpack_exports__["default"] = "ion-card {\n  margin: 1rem 0 auto 0;\n}\n\nion-card img {\n  margin: auto;\n  display: block;\n  width: 100%;\n  max-width: 320px;\n}\n\nion-card ion-grid,\nion-card ion-row,\nion-card ion-col {\n  margin: 0;\n  padding: 0;\n}\n\nion-card-content ul {\n  padding: 0;\n  list-style: none;\n}\n\nion-card-content ul li {\n  margin-bottom: 0.5rem;\n}\n\nion-card-content ul li ion-text {\n  font-weight: bold;\n  display: block;\n  font-size: small;\n}\n\nion-card hr {\n  border-bottom: 1px dotted grey;\n  margin: 0;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci9wcm9maWxlL3Byb2ZpbGUucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0kscUJBQUE7QUFDSjs7QUFFQTtFQUNJLFlBQUE7RUFDQSxjQUFBO0VBQ0EsV0FBQTtFQUNBLGdCQUFBO0FBQ0o7O0FBRUE7OztFQUdJLFNBQUE7RUFDQSxVQUFBO0FBQ0o7O0FBRUE7RUFDSSxVQUFBO0VBQ0EsZ0JBQUE7QUFDSjs7QUFFQTtFQUNJLHFCQUFBO0FBQ0o7O0FBRUE7RUFDSSxpQkFBQTtFQUNBLGNBQUE7RUFDQSxnQkFBQTtBQUNKOztBQUVBO0VBQ0ksOEJBQUE7RUFDQSxTQUFBO0FBQ0oiLCJmaWxlIjoic3JjL2FwcC91c2VyL3Byb2ZpbGUvcHJvZmlsZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpb24tY2FyZCB7XHJcbiAgICBtYXJnaW46IDFyZW0gMCBhdXRvIDA7XHJcbn1cclxuXHJcbmlvbi1jYXJkIGltZyB7XHJcbiAgICBtYXJnaW4gICA6IGF1dG87XHJcbiAgICBkaXNwbGF5ICA6IGJsb2NrO1xyXG4gICAgd2lkdGggICAgOiAxMDAlO1xyXG4gICAgbWF4LXdpZHRoOiAzMjBweDtcclxufVxyXG5cclxuaW9uLWNhcmQgaW9uLWdyaWQsXHJcbmlvbi1jYXJkIGlvbi1yb3csXHJcbmlvbi1jYXJkIGlvbi1jb2wge1xyXG4gICAgbWFyZ2luIDogMDtcclxuICAgIHBhZGRpbmc6IDA7XHJcbn1cclxuXHJcbmlvbi1jYXJkLWNvbnRlbnQgdWwge1xyXG4gICAgcGFkZGluZyAgIDogMDtcclxuICAgIGxpc3Qtc3R5bGU6IG5vbmU7XHJcbn1cclxuXHJcbmlvbi1jYXJkLWNvbnRlbnQgdWwgbGkge1xyXG4gICAgbWFyZ2luLWJvdHRvbTogLjVyZW07XHJcbn1cclxuXHJcbmlvbi1jYXJkLWNvbnRlbnQgdWwgbGkgaW9uLXRleHQge1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICBkaXNwbGF5ICAgIDogYmxvY2s7XHJcbiAgICBmb250LXNpemUgIDogc21hbGw7XHJcbn1cclxuXHJcbmlvbi1jYXJkIGhyIHtcclxuICAgIGJvcmRlci1ib3R0b206IDFweCBkb3R0ZWQgZ3JleTtcclxuICAgIG1hcmdpbjogMDtcclxufSJdfQ== */";
       /***/
     },
 
@@ -221,16 +221,25 @@
 
       var src_app_services_app_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! src/app/services/app.service */
-      "./src/app/services/app.service.ts"); // 4.1) Importa dependências
+      "./src/app/services/app.service.ts");
+      /* harmony import */
+
+
+      var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @ngx-pwa/local-storage */
+      "./node_modules/@ngx-pwa/local-storage/__ivy_ngcc__/fesm2015/ngx-pwa-local-storage.js"); // 4.1) Importa dependências
+      // 8.1) Importa dependências
 
 
       var ProfilePage = /*#__PURE__*/function () {
         function ProfilePage( // 4.2) Injeta dependências
-        router, app) {
+        router, app, // 8.3) Injeta dependências
+        storage) {
           _classCallCheck(this, ProfilePage);
 
           this.router = router;
           this.app = app;
+          this.storage = storage;
         }
 
         _createClass(ProfilePage, [{
@@ -247,11 +256,55 @@
             this.app.isProfile().then(function (data) {
               // Se existe, faz as ações da página
               if (data) {
-                console.log('bla bla bla'); // Se não existe, vai para o cadastro de perfil
+                // 8.4) Obtém dados do login local e armazena em 'userData'
+                _this.storage.get('userData', {
+                  type: 'string'
+                }).subscribe(function (data) {
+                  _this.userData = JSON.parse(data); // 8.5) Obtém dados do perfil local e armazena em 'userProfile'
+
+                  _this.storage.get('userProfile', {
+                    type: 'string'
+                  }).subscribe(function (data) {
+                    _this.userProfile = JSON.parse(data);
+                  });
+                }); // Se não existe perfil, vai para o cadastro de perfil
+
               } else {
                 _this.router.navigate(['/user/new']);
               }
             });
+          } // 8.6) Ação do botão para editar perfil do provedor de login
+
+        }, {
+          key: "editProviderProfile",
+          value: function editProviderProfile() {
+            // Variável com URL do perfil, de acordo com o provedor
+            var profileURL = ''; // Seleciona o URL, de acordo com o provedor
+
+            switch (this.userData.provider) {
+              case 'google':
+                profileURL = 'https://myaccount.google.com/profile';
+                break;
+
+              case 'facebook':
+                // profileURL = '';
+                break;
+
+              case 'twitter':
+                // profileURL = '';
+                break;
+
+              case 'github':
+                // profileURL = '';
+                break;
+              // case ....
+            } // Aviso de redirecionamento
+
+
+            if (this.app.myAlert(this.userData.displayName, "Aten\xE7\xE3o! Voc\xEA ser\xE1 redirecionado para a p\xE1gina de perfil no provedor")) {
+              // Redireciona para o perfil do usuário no provedor
+              window.open(profileURL);
+            }
           }
         }]);
 
@@ -263,6 +316,8 @@
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
         }, {
           type: src_app_services_app_service__WEBPACK_IMPORTED_MODULE_3__["AppService"]
+        }, {
+          type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_4__["StorageMap"]
         }];
       };
 
