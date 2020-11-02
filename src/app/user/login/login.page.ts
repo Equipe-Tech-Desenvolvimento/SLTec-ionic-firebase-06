@@ -78,7 +78,10 @@ export class LoginPage implements OnInit {
           uid: data.user.uid,
           displayName: data.user.displayName,
           email: data.user.email,
-          photoURL: data.user.photoURL
+          photoURL: data.user.photoURL,
+
+          // 8.1) Provedor de login usado
+          provider: provider
         }
 
         // Salva no armazenamento local
