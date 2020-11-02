@@ -36,6 +36,7 @@ Cada aula fica em um "branch" separado e as instruções do "branch/aula" estão
 - `05_Formulario_de_perfil` &rarr; Criação da página de cadastro de novo perfil, acessível quando um usuário se loga pela primeira vez;
 - `06_Novos_campos` &rarr; Criação de novos tipos de campos no formulário;
 - `07_Salvando_perfil` &rarr; Salva perfil já validado no Firestore e no armazenamento local.
+- `08_Obter_perfil` &rarr; Exibe perfil do usuário logado.
 
 **Novos branches serão incluídos conforme novas aulas estejam prontas.*
 
