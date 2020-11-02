@@ -23,8 +23,9 @@ export class HomePage implements OnInit {
 
     // 3.4) Obtém dados do usuário
     this.storage.get('userData', { type: 'string' }).subscribe(
-      (data) => this.userData = JSON.parse(data)
+      (data) => {
+        if (data) this.userData = JSON.parse(data);
+      }
     );
   }
-
 }
