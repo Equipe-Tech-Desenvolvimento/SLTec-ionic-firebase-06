@@ -61,7 +61,7 @@ Instruções para executar as atividades deste 'branch':
     Vamos exibir, para exemplo, o nome do usuário na 'home':
 
     - Editar 'app/paes/home/home.page.ts' &rarr; 1 à 4
-    - Editar 'app/paes/home/home.page.html' &rarr; 1 à 2
+    - Editar 'app/paes/home/home.page.html' &rarr; 1
 
 10) Conclusão
 
