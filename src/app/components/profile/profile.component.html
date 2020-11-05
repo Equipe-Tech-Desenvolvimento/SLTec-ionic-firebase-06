@@ -4,7 +4,7 @@
   <!-- 5.2) Cumprimenta usuário logado -->
   <h2>Olá {{ userData.displayName }}!</h2>
 
-  <p>Você precisa cadastrar seu perfil para ter acesso aos recursos do aplicativo de forma pesonalizada.</p>
+  <p>{{ paragraph }}</p>
   <p class="ion-text-center"><small>
       <ion-text color="danger">Preencha todos os campos.</ion-text>
     </small></p>
@@ -143,8 +143,8 @@
             <small *ngIf="profileForm.controls.selectStatic.errors.required">* Obrigatório</small>
           </ion-text>
         </ion-label>
-        <ion-select cancelText="Cancela" formControlName="selectStatic" interface="action-sheet"
-          placeholder="Selecione"  id="selectStatic" name="selectStatic">
+        <ion-select cancelText="Cancela" formControlName="selectStatic" placeholder="Selecione" id="selectStatic"
+          name="selectStatic">
           <ion-select-option value="Opção 1">Opção 1</ion-select-option>
           <ion-select-option value="Opção 2">Opção 2</ion-select-option>
           <ion-select-option value="Opção 3">Opção 3</ion-select-option>
@@ -152,7 +152,8 @@
       </ion-item>
 
       <!-- 6.2) Lista de opções 'dinâmica', obtida do Firestore -->
-      <ion-item *ngIf="select01Data">
+      <!-- 9.1) Lista de opções 'dinâmica', obtida do Firestore (Ajuste no  nome da variável) -->
+      <ion-item *ngIf="selectDynamic">
         <ion-label for="selectDynamic" position="floating" color="primary">
           Seleção 2:
 
@@ -161,10 +162,11 @@
             <small *ngIf="profileForm.controls.selectDynamic.errors.required">* Obrigatório</small>
           </ion-text>
         </ion-label>
-        <ion-select formControlName="selectDynamic" interface="popover" placeholder="Selecione"  id="selectDynamic" name="selectDynamic">
+        <ion-select cancelText="Cancela" formControlName="selectDynamic" placeholder="Selecione" id="selectDynamic"
+          name="selectDynamic">
 
           <!-- 6.3) Lista as opções que "vieram" do Firestore -->
-          <ion-select-option *ngFor="let select of select01Data | async" value="{{ select.option }}">
+          <ion-select-option *ngFor="let select of selectDynamic" value="{{ select.option }}">
             {{ select.option }}
           </ion-select-option>
 
@@ -173,8 +175,7 @@
 
     </ion-list>
 
-    <ion-button type="submit" expand="block" class="ion-margin-vertical" [disabled]="profileForm.invalid">Cadastrar
-      perfil
+    <ion-button type="submit" expand="block" class="ion-margin-vertical" [disabled]="profileForm.invalid">{{ btnText }}
     </ion-button>
 
     <!-- <div>{{ profileForm.value | json}}</div> -->

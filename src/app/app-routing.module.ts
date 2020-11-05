@@ -79,11 +79,22 @@ const routes: Routes = [
     data: { authGuardPipe: toLogin }
   },
 
+  // 9.1) Rota para edição de perfil
+  {
+    path: 'user/edit',
+    loadChildren: () => import('./user/edit/edit.module').then(m => m.EditPageModule),
+
+    // 9.2) Só vê perfil se estiver logado
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin }
+  },
+
   // Página de 'erro 404' para rotas inexistentes. DEVE SER SEMPRE A ÚLTIMA ROTA!!!
   {
     path: '**',
     loadChildren: () => import('./pages/e404/e404.module').then(m => m.E404PageModule)
   }
+
 ];
 
 @NgModule({

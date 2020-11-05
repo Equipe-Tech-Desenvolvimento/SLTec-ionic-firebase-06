@@ -27,7 +27,16 @@ export class ProfileComponent implements OnInit {
   userData: any;
 
   // 6.3) Variável com a lista "select01"
-  select01Data: any;
+  // 9.1) Variável com a lista "select01" (Ajuste no  nome da variável)
+  selectDynamic: any;
+
+  // 9.2) Variável com perfil do usuário
+  userProfile: any;
+
+  // 9.3) Textos da View
+  paragraph = `Você precisa cadastrar seu perfil para ter acesso aos recursos do aplicativo de forma pesonalizada.`;
+  btnText = `Cadastrar perfil`;
+  redirectPage = `/`;
 
   constructor(
 
@@ -54,18 +63,29 @@ export class ProfileComponent implements OnInit {
       // 5.13) Dados do usuário logado
       this.userData = JSON.parse(data);
 
-      // 6.5) Obtém lista "select01" do Firestore de forma assíncrona
-      this.select01Data = this.fbStore.collection('select01', ref => ref.orderBy('option')).valueChanges();
-
       // 5.4) Cria formulário
       this.profileFormCreate();
+
+      // 6.5) Obtém lista "select01" do Firestore de forma assíncrona
+      // 9.4) Obtém lista "select01" do Firestore de forma assíncrona (Ajuste no  nome da variável)
+      this.fbStore.collection('select01', ref => ref.orderBy('option')).valueChanges().subscribe(
+        (data) => {
+          this.selectDynamic = data;
+
+          // 9.5) Preenche o campo automaticamente com dados do perfil se estiver editando
+          if (this.selectDynamic && this.userProfile) {
+            this.profileForm.controls['selectDynamic'].setValue(this.userProfile.selectDynamic);
+          }
+        }
+      );
     });
   }
 
   ngOnInit() { }
 
   // 5.6) Define campos do formulário e validações
-  profileFormCreate() {
+  async profileFormCreate() {
+
     this.profileForm = this.formBuilder.group({
 
       id: [
@@ -76,8 +96,11 @@ export class ProfileComponent implements OnInit {
 
       name: [
 
+        // 9.6) Valor inicial do campo
+        null,
+
         // 5.15) Preenche o nome do perfil em 'name'
-        this.userData.displayName,
+        // this.userData.displayName,
         Validators.compose([
           Validators.required,
           Validators.minLength(3)
@@ -111,7 +134,8 @@ export class ProfileComponent implements OnInit {
       email: [
 
         // 5.16) Preenche o email do perfil em 'email'
-        this.userData.email,
+        // 9.7) Valor inicial do campo
+        null,
         Validators.compose([
           Validators.required,
           Validators.email
@@ -159,8 +183,8 @@ export class ProfileComponent implements OnInit {
         ])
       ],
 
-      type: ['user'],
-      status: ['active']
+      type: ['usuário'],
+      status: ['ativo']
 
     });
   }
@@ -187,7 +211,7 @@ export class ProfileComponent implements OnInit {
             this.profileForm.reset();
 
             // 7.8) Vai para a raiz
-            this.router.navigate(['/']);
+            this.router.navigate([this.redirectPage]);
           }
         );
       })
@@ -212,5 +236,49 @@ export class ProfileComponent implements OnInit {
       if (today.getTime() - dateBirth.getTime() >= timeToTest) return null;
     }
     return { under14years: true };
+  }
+
+  // 9.8) Preenche campos do form, mas só quando a View estiver pronta
+  ngAfterViewInit() {
+
+    // Obtém dados do perfil do armazenamento local
+    this.storage.get('userProfile', { type: 'string' }).subscribe(
+      (data) => {
+
+        // Se existem dados, é porque vai editar perfil
+        if (data) {
+
+          // Obtém dados
+          this.userProfile = JSON.parse(data);
+
+          // Atualiza campos do form com dados do perfil
+          this.profileForm.controls['name'].setValue(this.userProfile.name);
+          this.profileForm.controls['birth'].setValue(this.userProfile.birth);
+          this.profileForm.controls['cpf'].setValue(this.userProfile.cpf);
+          this.profileForm.controls['gender'].setValue(this.userProfile.gender);
+          this.profileForm.controls['email'].setValue(this.userProfile.email);
+          this.profileForm.controls['homePhone'].setValue(this.userProfile.homePhone);
+          this.profileForm.controls['cellPhone'].setValue(this.userProfile.cellPhone);
+          this.profileForm.controls['whatsApp'].setValue(this.userProfile.whatsApp);
+          this.profileForm.controls['selectStatic'].setValue(this.userProfile.selectStatic);
+          this.profileForm.controls['type'].setValue(this.userProfile.type);
+          this.profileForm.controls['status'].setValue(this.userProfile.status);
+
+          // OBS: Campos dinâmicos devem ser pré-preenchidos na carga de seus valores (ver 9.4)
+
+          // Atualiza a View
+          this.paragraph = `Altere os campos abaixo com atenção, para editar seu perfil.`;
+          this.btnText = `Salvar perfil`;
+          this.redirectPage = `/user/profile`;
+
+          // Se não existem dado de perfil, é um novo perfil
+        } else {
+
+          // Preenche campos com valor do login
+          this.profileForm.controls['name'].setValue(this.userData.displayName);
+          this.profileForm.controls['email'].setValue(this.userData.email);
+        }
+      }
+    );
   }
 }
