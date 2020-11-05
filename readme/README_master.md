@@ -37,6 +37,7 @@ Cada aula fica em um "branch" separado e as instruções do "branch/aula" estão
 - `06_Novos_campos` &rarr; Criação de novos tipos de campos no formulário;
 - `07_Salvando_perfil` &rarr; Salva perfil já validado no Firestore e no armazenamento local.
 - `08_Obter_perfil` &rarr; Exibe perfil do usuário logado.
+- `09_Formulario_editar_perfil` &rarr; Permite que o usuário edite seu perfil.
 
 **Novos branches serão incluídos conforme novas aulas estejam prontas.*
 
