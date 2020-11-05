@@ -7,27 +7,27 @@
 
   (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-info-info-module"], {
     /***/
-    "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/info/info.page.html":
-    /*!*********************************************************************************!*\
-      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/info/info.page.html ***!
-      \*********************************************************************************/
+    "MhQo":
+    /*!*******************************************!*\
+      !*** ./src/app/pages/info/info.page.scss ***!
+      \*******************************************/
 
     /*! exports provided: default */
 
     /***/
-    function node_modulesRawLoaderDistCjsJsSrcAppPagesInfoInfoPageHtml(module, __webpack_exports__, __webpack_require__) {
+    function MhQo(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n\r\n    <ion-title>Informações</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <div class=\"ion-padding\">\r\n\r\n    <h3>Sobre este aplicativo</h3>\r\n    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi consequatur expedita quos deleniti, mollitia vel!\r\n      Facere, doloribus quisquam? Necessitatibus explicabo natus provident consequatur exercitationem quasi dolorum\r\n      magni non est error.</p>\r\n\r\n    <h3>Sobre o autor</h3>\r\n    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ipsum rerum dolorem, fugiat itaque, accusamus\r\n      aut illo quis, libero ipsam ad veritatis eum quae! Modi accusamus earum facere dicta totam.</p>\r\n\r\n    <h3>Sobre sua privacidade</h3>\r\n    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis soluta consequatur libero recusandae placeat\r\n      veniam blanditiis repellat sint labore dignissimos, quaerat enim ab, quas laboriosam laborum, molestiae corporis\r\n      pariatur ad!</p>\r\n\r\n  </div>\r\n\r\n</ion-content>";
+      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2luZm8vaW5mby5wYWdlLnNjc3MifQ== */";
       /***/
     },
 
     /***/
-    "./src/app/pages/info/info-routing.module.ts":
+    "ZFnD":
     /*!***************************************************!*\
       !*** ./src/app/pages/info/info-routing.module.ts ***!
       \***************************************************/
@@ -35,7 +35,7 @@
     /*! exports provided: InfoPageRoutingModule */
 
     /***/
-    function srcAppPagesInfoInfoRoutingModuleTs(module, __webpack_exports__, __webpack_require__) {
+    function ZFnD(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -50,25 +50,25 @@
 
       var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
+      "mrSG");
       /* harmony import */
 
 
       var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      "fXoL");
       /* harmony import */
 
 
       var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/router */
-      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      "tyNb");
       /* harmony import */
 
 
       var _info_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ./info.page */
-      "./src/app/pages/info/info.page.ts");
+      "vFw5");
 
       var routes = [{
         path: '',
@@ -87,7 +87,7 @@
     },
 
     /***/
-    "./src/app/pages/info/info.module.ts":
+    "hico":
     /*!*******************************************!*\
       !*** ./src/app/pages/info/info.module.ts ***!
       \*******************************************/
@@ -95,7 +95,7 @@
     /*! exports provided: InfoPageModule */
 
     /***/
-    function srcAppPagesInfoInfoModuleTs(module, __webpack_exports__, __webpack_require__) {
+    function hico(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -110,43 +110,43 @@
 
       var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
+      "mrSG");
       /* harmony import */
 
 
       var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
       /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      "fXoL");
       /* harmony import */
 
 
       var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
       /*! @angular/common */
-      "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
+      "ofXK");
       /* harmony import */
 
 
       var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/forms */
-      "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
+      "3Pt+");
       /* harmony import */
 
 
       var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! @ionic/angular */
-      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
+      "TEn/");
       /* harmony import */
 
 
       var _info_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
       /*! ./info-routing.module */
-      "./src/app/pages/info/info-routing.module.ts");
+      "ZFnD");
       /* harmony import */
 
 
       var _info_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./info.page */
-      "./src/app/pages/info/info.page.ts");
+      "vFw5");
 
       var InfoPageModule = function InfoPageModule() {
         _classCallCheck(this, InfoPageModule);
@@ -160,27 +160,27 @@
     },
 
     /***/
-    "./src/app/pages/info/info.page.scss":
-    /*!*******************************************!*\
-      !*** ./src/app/pages/info/info.page.scss ***!
-      \*******************************************/
+    "sUEW":
+    /*!*********************************************************************************!*\
+      !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/info/info.page.html ***!
+      \*********************************************************************************/
 
     /*! exports provided: default */
 
     /***/
-    function srcAppPagesInfoInfoPageScss(module, __webpack_exports__, __webpack_require__) {
+    function sUEW(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2luZm8vaW5mby5wYWdlLnNjc3MifQ== */";
+      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n\r\n    <ion-title>Informações</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <div class=\"ion-padding\">\r\n\r\n    <h3>Sobre este aplicativo</h3>\r\n    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi consequatur expedita quos deleniti, mollitia vel!\r\n      Facere, doloribus quisquam? Necessitatibus explicabo natus provident consequatur exercitationem quasi dolorum\r\n      magni non est error.</p>\r\n\r\n    <h3>Sobre o autor</h3>\r\n    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae ipsum rerum dolorem, fugiat itaque, accusamus\r\n      aut illo quis, libero ipsam ad veritatis eum quae! Modi accusamus earum facere dicta totam.</p>\r\n\r\n    <h3>Sobre sua privacidade</h3>\r\n    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quis soluta consequatur libero recusandae placeat\r\n      veniam blanditiis repellat sint labore dignissimos, quaerat enim ab, quas laboriosam laborum, molestiae corporis\r\n      pariatur ad!</p>\r\n\r\n  </div>\r\n\r\n</ion-content>";
       /***/
     },
 
     /***/
-    "./src/app/pages/info/info.page.ts":
+    "vFw5":
     /*!*****************************************!*\
       !*** ./src/app/pages/info/info.page.ts ***!
       \*****************************************/
@@ -188,7 +188,7 @@
     /*! exports provided: InfoPage */
 
     /***/
-    function srcAppPagesInfoInfoPageTs(module, __webpack_exports__, __webpack_require__) {
+    function vFw5(module, __webpack_exports__, __webpack_require__) {
       "use strict";
 
       __webpack_require__.r(__webpack_exports__);
@@ -203,13 +203,25 @@
 
       var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
       /*! tslib */
-      "./node_modules/tslib/tslib.es6.js");
+      "mrSG");
       /* harmony import */
 
 
-      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      var _raw_loader_info_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! raw-loader!./info.page.html */
+      "sUEW");
+      /* harmony import */
+
+
+      var _info_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ./info.page.scss */
+      "MhQo");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! @angular/core */
-      "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
+      "fXoL");
 
       var InfoPage = /*#__PURE__*/function () {
         function InfoPage() {
@@ -228,14 +240,10 @@
         return [];
       };
 
-      InfoPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      InfoPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
         selector: 'app-info',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! raw-loader!./info.page.html */
-        "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/info/info.page.html"))["default"],
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(
-        /*! ./info.page.scss */
-        "./src/app/pages/info/info.page.scss"))["default"]]
+        template: _raw_loader_info_page_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_info_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
       })], InfoPage);
       /***/
     }

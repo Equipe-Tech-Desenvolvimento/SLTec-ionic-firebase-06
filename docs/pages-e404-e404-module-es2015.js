@@ -1,6 +1,19 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["pages-e404-e404-module"],{
 
-/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/e404/e404.page.html":
+/***/ "+kgR":
+/*!*******************************************!*\
+  !*** ./src/app/pages/e404/e404.page.scss ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2U0MDQvZTQwNC5wYWdlLnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "3GaQ":
 /*!*********************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/e404/e404.page.html ***!
   \*********************************************************************************/
@@ -13,7 +26,43 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/app/pages/e404/e404-routing.module.ts":
+/***/ "D3fp":
+/*!*****************************************!*\
+  !*** ./src/app/pages/e404/e404.page.ts ***!
+  \*****************************************/
+/*! exports provided: E404Page */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E404Page", function() { return E404Page; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _raw_loader_e404_page_html__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! raw-loader!./e404.page.html */ "3GaQ");
+/* harmony import */ var _e404_page_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./e404.page.scss */ "+kgR");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ "fXoL");
+
+
+
+
+let E404Page = class E404Page {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+E404Page.ctorParameters = () => [];
+E404Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
+        selector: 'app-e404',
+        template: _raw_loader_e404_page_html__WEBPACK_IMPORTED_MODULE_1__["default"],
+        styles: [_e404_page_scss__WEBPACK_IMPORTED_MODULE_2__["default"]]
+    })
+], E404Page);
+
+
+
+/***/ }),
+
+/***/ "NGrQ":
 /*!***************************************************!*\
   !*** ./src/app/pages/e404/e404-routing.module.ts ***!
   \***************************************************/
@@ -23,10 +72,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E404PageRoutingModule", function() { return E404PageRoutingModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
-/* harmony import */ var _e404_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./e404.page */ "./src/app/pages/e404/e404.page.ts");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "tyNb");
+/* harmony import */ var _e404_page__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./e404.page */ "D3fp");
 
 
 
@@ -50,7 +99,7 @@ E404PageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
 
 /***/ }),
 
-/***/ "./src/app/pages/e404/e404.module.ts":
+/***/ "QPNz":
 /*!*******************************************!*\
   !*** ./src/app/pages/e404/e404.module.ts ***!
   \*******************************************/
@@ -60,13 +109,13 @@ E404PageRoutingModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E404PageModule", function() { return E404PageModule; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/__ivy_ngcc__/fesm2015/forms.js");
-/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
-/* harmony import */ var _e404_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./e404-routing.module */ "./src/app/pages/e404/e404-routing.module.ts");
-/* harmony import */ var _e404_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./e404.page */ "./src/app/pages/e404/e404.page.ts");
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "mrSG");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "fXoL");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "ofXK");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "3Pt+");
+/* harmony import */ var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ionic/angular */ "TEn/");
+/* harmony import */ var _e404_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./e404-routing.module */ "NGrQ");
+/* harmony import */ var _e404_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./e404.page */ "D3fp");
 
 
 
@@ -87,51 +136,6 @@ E404PageModule = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
         declarations: [_e404_page__WEBPACK_IMPORTED_MODULE_6__["E404Page"]]
     })
 ], E404PageModule);
-
-
-
-/***/ }),
-
-/***/ "./src/app/pages/e404/e404.page.scss":
-/*!*******************************************!*\
-  !*** ./src/app/pages/e404/e404.page.scss ***!
-  \*******************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2U0MDQvZTQwNC5wYWdlLnNjc3MifQ== */");
-
-/***/ }),
-
-/***/ "./src/app/pages/e404/e404.page.ts":
-/*!*****************************************!*\
-  !*** ./src/app/pages/e404/e404.page.ts ***!
-  \*****************************************/
-/*! exports provided: E404Page */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "E404Page", function() { return E404Page; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js");
-
-
-let E404Page = class E404Page {
-    constructor() { }
-    ngOnInit() {
-    }
-};
-E404Page.ctorParameters = () => [];
-E404Page = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'app-e404',
-        template: Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! raw-loader!./e404.page.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/e404/e404.page.html")).default,
-        styles: [Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"])(__webpack_require__(/*! ./e404.page.scss */ "./src/app/pages/e404/e404.page.scss")).default]
-    })
-], E404Page);
 
 
 
