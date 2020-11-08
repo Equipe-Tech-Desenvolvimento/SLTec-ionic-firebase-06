@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 // 3.1) Importando dependências
-import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
+import { AngularFireAuthGuard, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 
 // 3.2) Se não está logado, roteia para 'login'
 const toLogin = () => redirectUnauthorizedTo(['/user/login']);
@@ -19,7 +19,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
 
-  // 3.4) Página acessíveis com/sem login
+  // 3.4) Páginas acessíveis com/sem login
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule),
