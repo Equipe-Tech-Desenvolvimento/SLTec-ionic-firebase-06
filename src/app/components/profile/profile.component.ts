@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // 5.1) Importa dependências
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 
-// 5.8) Importa dependências
+// 5.9) Importa dependências
 import { StorageMap } from '@ngx-pwa/local-storage';
 import { Router } from '@angular/router';
 
@@ -17,7 +17,7 @@ export class ProfileComponent implements OnInit {
   // 5.2) Cria formulário
   public profileForm: FormGroup;
 
-  // 5.9) Variável com dados do usuário logado
+  // 5.10) Variável com dados do usuário logado
   userData: any;
 
   constructor(
@@ -25,18 +25,18 @@ export class ProfileComponent implements OnInit {
     // 5.3) Injeta dependências
     private formBuilder: FormBuilder,
 
-    // 5.10) Injeta dependências
+    // 5.11) Injeta dependências
     public storage: StorageMap,
     public router: Router
   ) {
 
-    // 5.11) Obtém dados do usuário logado
+    // 5.12) Obtém dados do usuário logado
     this.storage.get('userData', { type: 'string' }).subscribe((data) => {
 
-      // 5.12) Se não logou, vai para a raiz
+      // 5.13) Se não logou, vai para a raiz
       if (!data) this.router.navigate(['/']);
 
-      // 5.13) Dados do usuário logado
+      // 5.14) Dados do usuário logado
       this.userData = JSON.parse(data);
 
       // 5.4) Cria formulário
@@ -46,19 +46,19 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() { }
 
-  // 5.6) Define campos do formulário e validações
+  // 5.5) Define campos do formulário e validações
   profileFormCreate() {
     this.profileForm = this.formBuilder.group({
 
       id: [
 
-        // 5.14) Preenche o uid do perfil em 'id'
+        // 5.15) Preenche o uid do perfil em 'id'
         this.userData.uid
       ],
 
       name: [
 
-        // 5.15) Preenche o nome do perfil em 'name'
+        // 5.16) Preenche o nome do perfil em 'name'
         this.userData.displayName,
         Validators.compose([
           Validators.required,
@@ -82,7 +82,7 @@ export class ProfileComponent implements OnInit {
 
       email: [
 
-        // 5.16) Preenche o email do perfil em 'email'
+        // 5.17) Preenche o email do perfil em 'email'
         this.userData.email,
         Validators.compose([
           Validators.required,
@@ -117,12 +117,12 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  // 5.6) Método que trata envio do formulário
+  // 5.7) Método que trata envio do formulário
   profileSubmit() {
     console.log('foi');
   }
 
-  // 5.7) Método que valida data de nascimento
+  // 5.8) Método que valida data de nascimento
   over14Years(control: AbstractControl) {
     const birth = control.value;
     if (birth) {
