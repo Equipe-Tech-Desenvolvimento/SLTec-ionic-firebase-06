@@ -19,12 +19,12 @@ Para executar as atividades deste "branch", siga os passos abaixo:
 
 3) Inicie a criação do formulário de cadastro de perfil
 
-    - Edite 'app/componets/profile/profile.component.ts' &rarr; 1 à 8
+    - Edite 'app/componets/profile/profile.component.ts' &rarr; 1 à 7
     - Edite 'app/componets/profile/profile.component.html' &rarr; *
 
 4) Exibir dados do usuário logado na view
 
-    - Edite 'app/componets/profile/profile.component.ts' &rarr; 9 à 17
+    - Edite 'app/componets/profile/profile.component.ts' &rarr; 8 à 16
     - Edite 'app/componets/profile/profile.component.html' &rarr; 1 à 2
 
 5) Conclusão
