@@ -15,7 +15,7 @@ Para executar as atividades deste "branch", siga os passos abaixo:
 2) Importe o componente e o *ReactiveForms* na página de novo perfil 
 
     - Edite 'app/user/new/new.module.ts' &rarr; 1 à 3
-    - Edite 'app/user/new/new.module.html' &rarr; 1
+    - Edite 'app/user/new/new.page.html' &rarr; 1
 
 3) Inicie a criação do formulário de cadastro de perfil
 
