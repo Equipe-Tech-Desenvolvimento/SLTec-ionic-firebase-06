@@ -21,6 +21,7 @@ Para executar as atividades deste "branch", siga os passos abaixo:
 
     - Edite 'app/componets/profile/profile.component.ts' &rarr; 1 à 7
     - Edite 'app/componets/profile/profile.component.html' &rarr; *
+    - Edite 'app/componets/profile/profile.component.scss' &rarr; *
 
 4) Exibir dados do usuário logado na view
 
