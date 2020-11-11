@@ -4,7 +4,7 @@ __*Aplicativo base para projetos integradores dos cursos técnicos de desenvolvi
 
 ## Brach "10_Sistema_de_mensagens_01"
 
-Neste 'branch', vamos iniciar a criação de um sistema de troca de mensagens entre os usuários do aplicativo. Inicialmente, vamos incluir os componentes e protegê-los contra acessos indevidos.
+Neste 'branch', vamos iniciar a criação de um sistema de troca de mensagens entre os usuários do aplicativo. Inicialmente, vamos incluir os componentes e protegê-los contra acessos indevidos. Também faremos "ajustes" menores na "view" e otimizações do código.
 
 Instruções para executar as atividades deste 'branch':
 
@@ -47,3 +47,9 @@ Instruções para executar as atividades deste 'branch':
 
 	- Edite "app/pages/home/home.page.html" &rarr; 1 
 	- Edite "app/pages/home/home.page.ts" &rarr; 1 à 5
+
+7) Conclusão
+
+    - Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
+
+*EOF*
