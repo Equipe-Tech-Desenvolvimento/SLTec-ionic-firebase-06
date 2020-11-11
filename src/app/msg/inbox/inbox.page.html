@@ -15,13 +15,15 @@
 
   <div class="ion-padding">
 
-    <ion-list *ngIf="inboxList">
+    <div class="allMessages" *ngIf="allMessages?.length > 0">
 
-      <ion-item *ngFor="let msg of inboxList">
-        {{ getShowUserName(msg.from) }}
-      </ion-item>
+      <div class="message" *ngFor="let msg of allMessages">
+        <div class="msgSubject">{{ msg.subject }}</div>
+        <small>De: {{ msg.fromName }} em {{ msg.date | date: ['dd/MM/yyyy'] }} às {{ msg.date | date: ['HH:mm'] }}.</small>
+        <hr>
+      </div>
 
-    </ion-list>
+    </div>
 
   </div>
 

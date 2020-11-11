@@ -1,12 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
 // 11)
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 // 10.1) Importa dependências
 import { Router } from '@angular/router';
 import { StorageMap } from '@ngx-pwa/local-storage';
+import { Observable, Subject } from 'rxjs';
 import { AppService } from 'src/app/services/app.service';
+
+export interface Msg {
+  msgId: string;
+  date: Date;
+  from: string;
+  fromName: string;
+  subject: string;
+  message: string;
+  status: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-inbox',
@@ -20,7 +32,11 @@ export class InboxPage implements OnInit {
   userProfile: any;
 
   // 11)
-  inboxList: any;
+  public allMessages: any[any];
+
+  // 11)
+  private itemDoc: AngularFirestoreDocument<any>;
+  item: Observable<any>;
 
   constructor(
 
@@ -31,6 +47,7 @@ export class InboxPage implements OnInit {
 
     // 11)
     public fbStore: AngularFirestore,
+
   ) { }
 
   ngOnInit() { }
@@ -57,7 +74,7 @@ export class InboxPage implements OnInit {
                   this.userProfile = JSON.parse(pData);
 
                   // 11)
-                  this.listInbox();
+                  this.getAllMessages();
                 }
               );
             }
@@ -71,26 +88,39 @@ export class InboxPage implements OnInit {
   }
 
   // 11)
-  listInbox() {
+  getAllMessages() {
 
     // 11) Lê mesangens do banco de dados
-    this.fbStore.collection(`messages/${this.userData.uid}/inbox`, ref => ref.orderBy('date')).valueChanges().subscribe(
+    this.fbStore.collection(
+      `messages/${this.userData.uid}/inbox`,
+      ref => ref.orderBy('date')
+    ).valueChanges({ idField: 'msgId' }).subscribe(
       (mData) => {
-        this.inboxList = mData;
+
+        let allMessages = [];
+
+        mData.forEach(
+          (msgData: any) => {
+
+            this.itemDoc = this.fbStore.doc<any>(`users/${msgData.from}`);
+            this.itemDoc.valueChanges().subscribe(
+              (data) => {
+                msgData.fromName = data.name;
+                allMessages.push(msgData);
+              }
+            );
+          }
+        );
+        this.allMessages = allMessages;
       });
   }
 
   // 11)
-  getShowUserName(uid: string) {
+  async getUserName(uid: any) {
 
-    this.fbStore.collection('users').doc(uid).valueChanges().subscribe(
-
-      (uData) => {
-        console.log(uData);
-      }
-
-    );
 
     return uid;
+
   }
+
 }
