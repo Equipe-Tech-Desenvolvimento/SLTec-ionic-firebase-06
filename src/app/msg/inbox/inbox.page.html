@@ -13,4 +13,16 @@
 
 <ion-content>
 
+  <div class="ion-padding">
+
+    <ion-list *ngIf="inboxList">
+
+      <ion-item *ngFor="let msg of inboxList">
+        {{ getShowUserName(msg.from) }}
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+
 </ion-content>

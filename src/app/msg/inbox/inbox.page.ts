@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+// 11)
+import { AngularFirestore } from '@angular/fire/firestore';
+
 // 10.1) Importa dependências
 import { Router } from '@angular/router';
 import { StorageMap } from '@ngx-pwa/local-storage';
@@ -16,12 +19,18 @@ export class InboxPage implements OnInit {
   userData: any;
   userProfile: any;
 
+  // 11)
+  inboxList: any;
+
   constructor(
 
     // 10.2) Injeta dependências
     public router: Router,
     public app: AppService,
     public storage: StorageMap,
+
+    // 11)
+    public fbStore: AngularFirestore,
   ) { }
 
   ngOnInit() { }
@@ -46,6 +55,9 @@ export class InboxPage implements OnInit {
               this.storage.get('userProfile', { type: 'string' }).subscribe(
                 (pData) => {
                   this.userProfile = JSON.parse(pData);
+
+                  // 11)
+                  this.listInbox();
                 }
               );
             }
@@ -56,5 +68,29 @@ export class InboxPage implements OnInit {
           this.router.navigate(['/user/new']);
         }
       });
+  }
+
+  // 11)
+  listInbox() {
+
+    // 11) Lê mesangens do banco de dados
+    this.fbStore.collection(`messages/${this.userData.uid}/inbox`, ref => ref.orderBy('date')).valueChanges().subscribe(
+      (mData) => {
+        this.inboxList = mData;
+      });
+  }
+
+  // 11)
+  getShowUserName(uid: string) {
+
+    this.fbStore.collection('users').doc(uid).valueChanges().subscribe(
+
+      (uData) => {
+        console.log(uData);
+      }
+
+    );
+
+    return uid;
   }
 }
