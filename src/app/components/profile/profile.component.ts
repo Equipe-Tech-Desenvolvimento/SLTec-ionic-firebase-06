@@ -13,6 +13,9 @@ import { AngularFirestore } from '@angular/fire/firestore';
 // 7.1) Importa dependências
 import { AppService } from '../../services/app.service'; // Serviços de uso geral
 
+// 10.1) Importa dependências
+import { EventsService } from 'src/app/services/events.service';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -52,13 +55,16 @@ export class ProfileComponent implements OnInit {
 
     // 7.2) Injeta dependências
     public app: AppService,
+
+    // 10.2) Injeta dependências
+    public events: EventsService,
   ) {
 
     // 5.11) Obtém dados do usuário logado
     this.storage.get('userData', { type: 'string' }).subscribe((data) => {
 
       // 5.12) Se não logou, vai para a raiz
-      if (!data) this.router.navigate(['/']);
+      if (!data) { this.router.navigate(['/']); }
 
       // 5.13) Dados do usuário logado
       this.userData = JSON.parse(data);
@@ -69,12 +75,12 @@ export class ProfileComponent implements OnInit {
       // 6.5) Obtém lista "select01" do Firestore de forma assíncrona
       // 9.4) Obtém lista "select01" do Firestore de forma assíncrona (Ajuste no  nome da variável)
       this.fbStore.collection('select01', ref => ref.orderBy('option')).valueChanges().subscribe(
-        (data) => {
-          this.selectDynamic = data;
+        (uData) => {
+          this.selectDynamic = uData;
 
           // 9.5) Preenche o campo automaticamente com dados do perfil se estiver editando
           if (this.selectDynamic && this.userProfile) {
-            this.profileForm.controls['selectDynamic'].setValue(this.userProfile.selectDynamic);
+            this.profileForm.controls.selectDynamic.setValue(this.userProfile.selectDynamic);
           }
         }
       );
@@ -194,7 +200,7 @@ export class ProfileComponent implements OnInit {
     // console.log(this.profileForm.value);
 
     // 7.3) Se formulário é inválido, sai sem fazer nada
-    if (this.profileForm.invalid) return false;
+    if (this.profileForm.invalid) { return false; }
 
     // 7.4) Salva no Firestore
     this.fbStore.collection('users').doc(this.userData.uid).set(this.profileForm.value)
@@ -203,6 +209,10 @@ export class ProfileComponent implements OnInit {
         // 7.5) Salva no armazenamento local
         this.storage.set('userProfile', JSON.stringify(this.profileForm.value)).subscribe(
           () => {
+
+            // 10.3) Atualiza 'user*' no menu principal (app.component.ts)
+            this.events.publish('userData', this.userData);
+            this.events.publish('userProfile', this.userData);
 
             // 7.6) Feedback 'sucesso'
             this.app.myAlert(this.userData.displayName, `Seu perfil foi cadastrado com sucesso!`);
@@ -220,7 +230,7 @@ export class ProfileComponent implements OnInit {
         // 7.9) Tratamento de erros
         (error) => {
           console.error(error);
-          this.app.myAlert(this.userData.displayName, `Ocorreu um erro ao cadastrar seu perfil. Por favor, tente mais tarde.`)
+          this.app.myAlert(this.userData.displayName, `Ocorreu um erro ao cadastrar seu perfil. Por favor, tente mais tarde.`);
         }
       );
   }
@@ -233,7 +243,7 @@ export class ProfileComponent implements OnInit {
       const today = new Date();
       const dateBirth = new Date(year, month, day, 0, 0, 0);
       const timeToTest = 1000 * 60 * 60 * 24 * 365 * 14; // 14 anos em milissegundos...
-      if (today.getTime() - dateBirth.getTime() >= timeToTest) return null;
+      if (today.getTime() - dateBirth.getTime() >= timeToTest) { return null; }
     }
     return { under14years: true };
   }
@@ -252,19 +262,19 @@ export class ProfileComponent implements OnInit {
           this.userProfile = JSON.parse(data);
 
           // Atualiza campos do form com dados do perfil
-          this.profileForm.controls['name'].setValue(this.userProfile.name);
-          this.profileForm.controls['birth'].setValue(this.userProfile.birth);
-          this.profileForm.controls['cpf'].setValue(this.userProfile.cpf);
-          this.profileForm.controls['gender'].setValue(this.userProfile.gender);
-          this.profileForm.controls['email'].setValue(this.userProfile.email);
-          this.profileForm.controls['homePhone'].setValue(this.userProfile.homePhone);
-          this.profileForm.controls['cellPhone'].setValue(this.userProfile.cellPhone);
-          this.profileForm.controls['whatsApp'].setValue(this.userProfile.whatsApp);
-          this.profileForm.controls['selectStatic'].setValue(this.userProfile.selectStatic);
-          this.profileForm.controls['type'].setValue(this.userProfile.type);
-          this.profileForm.controls['status'].setValue(this.userProfile.status);
+          this.profileForm.controls.name.setValue(this.userProfile.name);
+          this.profileForm.controls.birth.setValue(this.userProfile.birth);
+          this.profileForm.controls.cpf.setValue(this.userProfile.cpf);
+          this.profileForm.controls.gender.setValue(this.userProfile.gender);
+          this.profileForm.controls.email.setValue(this.userProfile.email);
+          this.profileForm.controls.homePhone.setValue(this.userProfile.homePhone);
+          this.profileForm.controls.cellPhone.setValue(this.userProfile.cellPhone);
+          this.profileForm.controls.whatsApp.setValue(this.userProfile.whatsApp);
+          this.profileForm.controls.selectStatic.setValue(this.userProfile.selectStatic);
+          this.profileForm.controls.type.setValue(this.userProfile.type);
+          this.profileForm.controls.status.setValue(this.userProfile.status);
 
-          // OBS: Campos dinâmicos devem ser pré-preenchidos na carga de seus valores (ver 9.4)
+          // OBS: Campos dinâmicos devem ser pré-preenchidos na carga de seus valores (veja 9.4)
 
           // Atualiza a View
           this.paragraph = `Altere os campos abaixo com atenção, para editar seu perfil.`;
@@ -275,8 +285,8 @@ export class ProfileComponent implements OnInit {
         } else {
 
           // Preenche campos com valor do login
-          this.profileForm.controls['name'].setValue(this.userData.displayName);
-          this.profileForm.controls['email'].setValue(this.userData.email);
+          this.profileForm.controls.name.setValue(this.userData.displayName);
+          this.profileForm.controls.email.setValue(this.userData.email);
         }
       }
     );
