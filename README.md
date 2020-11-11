@@ -2,7 +2,7 @@
 
 __*Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.*__
 
-## Brach "08_Formulario_editar_perfil"
+## Brach "09_Formulario_editar_perfil"
 
 Neste 'branch', vamos exibir o formulário para editar o perfil do usuário, com os campos já preenhidos:
 
