@@ -42,6 +42,9 @@ export class LogoutPage implements OnInit {
                 // 3.4) Atualiza 'userData' no menu principal também (app.component.ts)
                 this.events.publish('userData', null);
 
+                // 10.1) Atualiza 'userProfile' globalmente
+                this.events.publish('userProfile', null);
+
                 // Rota para a página inicial
                 this.router.navigate(['/']);
               }),

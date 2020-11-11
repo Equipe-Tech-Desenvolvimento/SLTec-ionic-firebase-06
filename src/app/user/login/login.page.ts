@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-// 3.1) Importa dependências 
+// 3.1) Importa dependências
 import { AngularFireAuth } from '@angular/fire/auth'; // Autenticação
 import { auth } from 'firebase/app'; // Firebase CLI
 import { StorageMap } from '@ngx-pwa/local-storage'; // Armazenamento local
@@ -81,8 +81,8 @@ export class LoginPage implements OnInit {
           photoURL: data.user.photoURL,
 
           // 8.1) Provedor de login usado
-          provider: provider
-        }
+          provider
+        };
 
         // Salva no armazenamento local
         this.storage.set('userData', JSON.stringify(this.userData)).subscribe({
@@ -93,18 +93,21 @@ export class LoginPage implements OnInit {
 
             // Verifica se tem perfil no Firestore
             this.fbStore.firestore.collection('users').doc(this.userData.uid).get()
-              .then((data) => {
+              .then((uData) => {
 
                 // Se tem perfil
-                if (data.exists) {
+                if (uData.exists) {
 
                   // Obtém dados do perfil
-                  this.userProfile = data.data();
-                  this.userProfile.uid = data.id;
+                  this.userProfile = uData.data();
+                  this.userProfile.uid = uData.id;
 
                   // Grava perfil no armazenamento local
                   this.storage.set('userProfile', JSON.stringify(this.userProfile)).subscribe({
                     next: () => {
+
+                      // 10.1) Atualiza 'userProfile' no menu principal (app.component.ts)
+                      this.events.publish('userProfile', this.userData);
 
                       // Exibe alerta
                       this.app.myAlert(

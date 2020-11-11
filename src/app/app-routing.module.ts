@@ -89,12 +89,38 @@ const routes: Routes = [
     data: { authGuardPipe: toLogin }
   },
 
+
+  // 10.1) Sistema de mensagens (somente logado)
+  {
+    path: 'msg/view',
+    loadChildren: () => import('./msg/view/view.module').then(m => m.ViewPageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin }
+  },
+  {
+    path: 'msg/send',
+    loadChildren: () => import('./msg/send/send.module').then(m => m.SendPageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin }
+  },
+  {
+    path: 'msg/inbox',
+    loadChildren: () => import('./msg/inbox/inbox.module').then(m => m.InboxPageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin }
+  },
+  {
+    path: 'msg/outbox',
+    loadChildren: () => import('./msg/outbox/outbox.module').then(m => m.OutboxPageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin }
+  },
+
   // Página de 'erro 404' para rotas inexistentes. DEVE SER SEMPRE A ÚLTIMA ROTA!!!
   {
     path: '**',
     loadChildren: () => import('./pages/e404/e404.module').then(m => m.E404PageModule)
   }
-
 ];
 
 @NgModule({
