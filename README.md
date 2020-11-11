@@ -1,103 +1,146 @@
-
 # SLTec-ionic-firebase-06
+
 __*Aplicativo base para projetos integradores dos cursos técnicos de desenvolvimento de aplicativos híbridos.*__
 
-## Visão Geral
-O objetivo deste aplicativo é servir de base para os aplicativos híbridos dos projetos integradores das disciplinas de criação de aplicativos híbridos dos cursos de TI.
-  
-### Objetivos do Aplicativo
-Esse aplicativo não tem uma funcionalidade final definida. Use-o como base para desenvolver aplicativos específicos que usam as mesmas funcionalidades propostas.
+## Brach "11_Sistema_de_mensagens_02"
 
-Outra aplicação é usar partes, recursos e conceitos no seu aplicativo final.
+Neste 'branch', listar as mensagens da caixa de entrada do sistema de mensagens.
 
-### Características
-* Plataforma:
-	+ Node.js 12.19.0 LTS
-	+ Ionic Capacitor
-* Front-end:
-	+ Ionic 6.12.0
-	+ Angular 10.0.8
-* Back-end:
-	+ Social Login &rarr; Firebase Authentication 8.13.1
-	+ Database &rarr; Firebase Cloud Firestore 8.13.1
+Instruções para executar as atividades deste 'branch':
 
-## Como Funciona
-O aplicativo está sendo desenvolvido na forma de "aulas", onde cada aula implementa um conjunto de recursos inter-relacionados.  
+1) Prepare o banco de dados com dados de teste e as devidas regras de acesso:
 
-Cada aula fica em um "branch" separado e as instruções do "branch/aula" estão no arquivo **README.md** do "branch".  
+    - Acesse o console do "Cloud Firestore" e adicione a estrutra de dados abaixo:
 
-### Lista de Branches
-- `master` &rarr; Versão mais recente do aplicativo com os "branches" já validados, integrados. Também inclui a versão funcional do aplicativo para a Web;
-- `00_Aplicativo_Ionic_criado` &rarr; Aplicativo Ionic recém criado;
-- `01_Ajustes_iniciais` &rarr; Estrutura básica do aplicativo com páginas estáticas;
-- `02_Conexao_com_Firebase` &rarr; Configuração do aplicativo no Firebase e conexão com o aplicativo híbrido;
-- `03_Autenticacao_e_guard` &rarr; Implementa autenticação usando "Login Social" e Firebase Authentication;
-- `04_Somente_com_perfil` &rarr; Evita que o usuário "apenas logado" acesse páginas sem que seu perfil esteja completo;
-- `05_Formulario_de_perfil` &rarr; Criação da página de cadastro de novo perfil, acessível quando um usuário se loga pela primeira vez;
-- `06_Novos_campos` &rarr; Criação de novos tipos de campos no formulário;
-- `07_Salvando_perfil` &rarr; Salva perfil já validado no Firestore e no armazenamento local.
-- `08_Obter_perfil` &rarr; Exibe perfil do usuário logado.
-- `09_Formulario_editar_perfil` &rarr; Permite que o usuário edite seu perfil.
-- `10_Sistema_de_mensagens_01` &rarr; Preparação para implementar o sistema de mensagens.
-
-**Novos branches serão incluídos conforme novas aulas estejam prontas.*
-
-## Obtendo e Testando
-
-*Você pode ver a versão Web mais recente do aplicativo rodando no endereço https://luferat.github.io/SLTec-ionic-firebase-06/.*
-
-Para baixar o aplicativo, instalar e testar no seu PC, siga estes passos, levando em conta que você já tem algum conhecimento dos pré-requisitos como *[Node.js](https://nodejs.org/pt-br/)*, *[Git](https://git-scm.com/)*, *[Ionic](https://ionicframework.com/)*, *[Firebase](https://firebase.google.com/)*, *[Android Studio](https://developer.android.com/studio)*,  *[Xcode](https://apps.apple.com/br/app/xcode/id497799835?mt=12)*, etc:
-- Acesse o repositório "master" do aplicativo;
-- Faça um "fork" do repositório na sua conta do "GitHub.com";
-- "Clone" seu repositório em seu PC local;
-- Em um "Node.js command prompt", acesse o diretório onde clonou o aplicativo;
-- Comande `npm install` para baixar e instalar todas as dependências;
-- Após a instalação, comande `ionic serve` para compilar e rodar o aplicativo no PC local (*http://localhost:8100*).
-
-### Testando no Android ou iOS
-O aplicativo já tem suporte nativo ao [Ionic Capacitor](https://capacitorjs.com/), permitindo a execução direta em um dispositivo Android ou iOS compatível. 
-
-Para isso, encerre o aplicativo no “Node.js command prompt” e comande:
 ```
-ionic capacitor build
-ionic capacitor build android
-ionic capacitor build ios
+messages: {
+    "id_usuario_1": {
+        "inbox": {
+            "id_mensagem_1": {
+                "date": "2020-11-10 12:14:00",
+                "from": "id_usuario_2",
+                "message": "Corpo da mensagem 1",
+                "status": "Não lida",
+                "subject": "Assunto da mensagem 1"
+            },
+            "id_mensagem_2": {
+                "date": "2020-11-10 13:22:03",
+                "from": "id_usuario_2",
+                "message": "Corpo da mensagem 2",
+                "status": "Não lida",
+                "subject": "Assunto da mensagem 2"
+            },
+        },
+        "outbox": {
+            "id_mensagem_3": {
+                "date": "2020-11-10 20:56:18",
+                "to": "id_usuario_2",
+                "message": "Corpo da mensagem 3",
+                "status": "Não lida",
+                "subject": "Assunto da mensagem 3"
+            },
+            "id_mensagem_4": {
+                "date": "2020-11-11 10:08:09",
+                "to": "id_usuario_2",
+                "message": "Corpo da mensagem 4",
+                "status": "Não lida",
+                "subject": "Assunto da mensagem 4"
+            }
+        }
+    },
+    "id_usuario_2": {
+        "inbox": {
+            "id_mensagem_3": {
+                "date": "2020-11-10 20:56:18",
+                "from": "id_usuario_1",
+                "message": "Corpo da mensagem 3",
+                "status": "Não lida",
+                "subject": "Assunto da mensagem 3"
+            },
+            "id_mensagem_4": {
+                "date": "2020-11-11 10:08:09",
+                "from": "id_usuario_1",
+                "message": "Corpo da mensagem 4",
+                "status": "Não lida",
+                "subject": "Assunto da mensagem 4"
+            }
+        },
+        "outbox": {
+            "id_mensagem_1": {
+                "date": "2020-11-10 12:14:00",
+                "to": "id_usuario_1",
+                "message": "Corpo da mensagem 1",
+                "status": "Não lida",
+                "subject": "Assunto da mensagem 1"
+            },
+            "id_mensagem_2": {
+                "date": "2020-11-10 13:22:03",
+                "to": "id_usuario_1",
+                "message": "Corpo da mensagem 2",
+                "status": "Não lida",
+                "subject": "Assunto da mensagem 2"
+            },
+        }
+    },
+    }
+}
+
 ```
-A instalação no Android será feita pelo "[Android Studio](https://developer.android.com/studio)" e no iOS pelo "[Xcode](https://apps.apple.com/br/app/xcode/id497799835?mt=12)" que, em cada plataforma, deve estar previamente configurado e conectado ao dispositivo mobile.
 
-Para mais informações sobre o *Capacitor*, consulte a [documentação](https://ionicframework.com/docs/cli/commands/build).
+Onde:
+ - `id_usuario_1` &rarr; ID de login do usuário de teste 1 no Authentication
+ - `id_usuario_2` &rarr; ID de login do usuário de teste 2 no Authentication
+ - `id_mensagem_1` à `id_mensagem_4` &rarr; ID das mensagens gerados na criação da mensagem (outbox)
 
-### Publicando na Web
-Se quiser, você pode publicar a versão Web. Os procedimentos abaixo são para publicação no *[GitHub Pages](https://pages.github.com/)*:
 
-1) Prepare o repositório no GitHub.com:
-	- Acesse o repositório do aplicativo no seu GitHub.com;
-	- Clique em "Settings" para entrar nas configurações do repositório;
-	- Localize a seção "GitHub Pages";
-	- Em "Source", selecione "branch: master" &rarr; "/docs" e clique em [Save];
-	- Quando a página recarregar, retorne à seção "GitHub Pages" e **anote** o URL do aplicativo que está após "Your site is published at...";
+    - Ainda no "Cloud Firestore", edite / adicione as regras abaixo:
 
-2) Prepare o aplicativo local:
-	- Encerre o aplicativo no “Node.js command prompt”, se necessário;
-	- Troque para o "branch master" no Git;
-	- Abra o arquivo "angular.json" que está na raiz do projeto, no editor;
-	- Localize a chave ``"projects" > "app" > "architect" > "build" > "options"``;
-	- Altere o valor da chave ``"baseHref"`` para o endereço fornecido pelas configurações do repositório no GitHub Pages;
-	- Salve e feche o arquivo;
-	- Gere o "build" do aplicativo, comandando ``ionic build``;
-	- Após gerar o "build", na raiz do projeto, renomeie o diretório "www" para "docs";
+```
+rules_version = '2';
+service cloud.firestore {
+    match /databases/{database}/documents {
 
-3) Publicando:
-   - Faça o "push" do "branch master" para o repositório remoto;
-   - No navegador, acesse o endereço do GitHub Pages configurado.
+        // Lista de itens para 'select dinâmico'
+        match /select01/{select} {
+            // Só pode ser lido se um usuário está logado
+            allow read: if request.auth.uid != null;
 
-*Existem diversas formas de publicar seu aplicativo Web, esta é apenas uma delas...*
+            // Não pode ser alterado
+            allow write: if false;
+        }
 
-## Contribuindo
-Existem várias formas de contribuir, mas, a principal é fazendo um "fork", clonando no seu PC local e testando o aplicativo. Corrija bugs, otimize o código e a documentação, implemente novos recursos...
+        // Perfil de usuário
+        match /users/{userId} {
+            // Somente o proprietário pode ler e editar
+            allow update, delete: if request.auth.uid == userId;
+            allow read: if request.auth.uid != null;
 
-Melhor ainda se você der um objetivo mais específico para o aplicativo, mostrando que ele tem aplicação prática.
+            // Somente um usuário logado pode se cadastrar
+            allow create: if request.auth.uid != null;
+        }
 
-Só não esqueça de compartilhar sua evolução conosco!
+        // Mensagens
+        match /messages/{userMessages}/{messages=**} {
+            allow read: if request.auth.uid == userMessages;
+            allow write: if false;
+        }
+
+        // Quaisquer outros documentos estão bloqueados
+        match /{document} {
+            allow read: if false;
+            allow write: if false;
+        }
+    }
+}
+```
+
+2) Liste as mensagens recebidas:
+
+    - Edite "app/msg/inbox.page.ts" &rarr; 1 à 5
+    - Edite "app/msg/inbox.page.html" &rarr; 1
+
+3) Conclusão
+
+    - Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
 
 *EOF*

@@ -13,13 +13,15 @@
 
 <ion-content>
 
+  <!-- 11.1) Lista mensagens recebidas -->
   <div class="ion-padding">
 
     <div class="allMessages" *ngIf="allMessages?.length > 0">
 
       <div class="message" *ngFor="let msg of allMessages">
         <div class="msgSubject">{{ msg.subject }}</div>
-        <small>De: {{ msg.fromName }} em {{ msg.date | date: ['dd/MM/yyyy'] }} às {{ msg.date | date: ['HH:mm'] }}.</small>
+        <small>De: {{ msg.fromName }} em {{ msg.date | date: ['dd/MM/yyyy'] }} às
+          {{ msg.date | date: ['HH:mm'] }}.</small>
         <hr>
       </div>
 

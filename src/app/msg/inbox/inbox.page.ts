@@ -1,24 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
-// 11)
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-
 // 10.1) Importa dependências
 import { Router } from '@angular/router';
 import { StorageMap } from '@ngx-pwa/local-storage';
 import { Observable, Subject } from 'rxjs';
 import { AppService } from 'src/app/services/app.service';
 
-export interface Msg {
-  msgId: string;
-  date: Date;
-  from: string;
-  fromName: string;
-  subject: string;
-  message: string;
-  status: string;
-  name: string;
-}
+// 11.1) Importa as dependências
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-inbox',
@@ -31,12 +20,8 @@ export class InboxPage implements OnInit {
   userData: any;
   userProfile: any;
 
-  // 11)
+  // 11.3) Variável com todas as mensagens para a 'view'
   public allMessages: any[any];
-
-  // 11)
-  private itemDoc: AngularFirestoreDocument<any>;
-  item: Observable<any>;
 
   constructor(
 
@@ -45,7 +30,7 @@ export class InboxPage implements OnInit {
     public app: AppService,
     public storage: StorageMap,
 
-    // 11)
+    // 11.2) Injeta dependências
     public fbStore: AngularFirestore,
 
   ) { }
@@ -73,7 +58,7 @@ export class InboxPage implements OnInit {
                 (pData) => {
                   this.userProfile = JSON.parse(pData);
 
-                  // 11)
+                  // 11.4) Obtém todas as mensagens para a 'view'
                   this.getAllMessages();
                 }
               );
@@ -87,40 +72,37 @@ export class InboxPage implements OnInit {
       });
   }
 
-  // 11)
+  // 11.5) Obtém todas as mensagens para a 'view'
   getAllMessages() {
 
-    // 11) Lê mesangens do banco de dados
+    // Lê mesangens do banco de dados com base no Id do usuário logado
     this.fbStore.collection(
       `messages/${this.userData.uid}/inbox`,
       ref => ref.orderBy('date')
     ).valueChanges({ idField: 'msgId' }).subscribe(
       (mData) => {
 
+        // Variável local para as mensagens
         let allMessages = [];
 
+        // Obtém cada mensagem recebida
         mData.forEach(
           (msgData: any) => {
 
-            this.itemDoc = this.fbStore.doc<any>(`users/${msgData.from}`);
-            this.itemDoc.valueChanges().subscribe(
+            // Obtém o nome de que enviou a mensagem
+            this.fbStore.doc<any>(`users/${msgData.from}`).valueChanges().subscribe(
               (data) => {
+
+                // Lista todas as mensagens
                 msgData.fromName = data.name;
                 allMessages.push(msgData);
               }
             );
           }
         );
+
+        // Envia mensagens para a view
         this.allMessages = allMessages;
       });
   }
-
-  // 11)
-  async getUserName(uid: any) {
-
-
-    return uid;
-
-  }
-
 }
