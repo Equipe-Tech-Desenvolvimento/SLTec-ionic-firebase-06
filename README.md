@@ -39,6 +39,7 @@ Cada aula fica em um "branch" separado e as instruções do "branch/aula" estão
 - `08_Obter_perfil` &rarr; Exibe perfil do usuário logado.
 - `09_Formulario_editar_perfil` &rarr; Permite que o usuário edite seu perfil.
 - `10_Sistema_de_mensagens_01` &rarr; Preparação para implementar o sistema de mensagens.
+- `11_Sistema_de_mensagens_02` &rarr; Lista de mensagens recebidas do sistema de mensagens.
 
 **Novos branches serão incluídos conforme novas aulas estejam prontas.*
 
