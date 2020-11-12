@@ -4,7 +4,7 @@ __*Aplicativo base para projetos integradores dos cursos técnicos de desenvolvi
 
 ## Brach "11_Sistema_de_mensagens_02"
 
-Neste 'branch', listar as mensagens da caixa de entrada do sistema de mensagens.
+Neste 'branch', vamos listar as mensagens da caixa de entrada do sistema de mensagens.
 
 Instruções para executar as atividades deste 'branch':
 
