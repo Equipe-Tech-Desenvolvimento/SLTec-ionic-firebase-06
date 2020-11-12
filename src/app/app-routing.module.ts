@@ -89,10 +89,10 @@ const routes: Routes = [
     data: { authGuardPipe: toLogin }
   },
 
-
   // 10.1) Sistema de mensagens (somente logado)
   {
-    path: 'msg/view',
+    // 12.1) Rota para exibir uma mensagem única
+    path: 'msg/view/:msgBox/:msgId',
     loadChildren: () => import('./msg/view/view.module').then(m => m.ViewPageModule),
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: toLogin }

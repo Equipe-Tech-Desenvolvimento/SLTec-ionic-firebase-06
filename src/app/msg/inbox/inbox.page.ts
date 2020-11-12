@@ -7,7 +7,7 @@ import { Observable, Subject } from 'rxjs';
 import { AppService } from 'src/app/services/app.service';
 
 // 11.1) Importa as dependências
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-inbox',
