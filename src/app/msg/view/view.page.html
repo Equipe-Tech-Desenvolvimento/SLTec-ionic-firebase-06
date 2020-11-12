@@ -13,4 +13,35 @@
 
 <ion-content>
 
+  <div class="ion-padding">
+
+    <div *ngIf="viewMsg">
+
+      <small [innerHTML]="viewMsg.interlocutor"></small><br>
+      <small>Em: {{ viewMsg.date | date: ['dd/MM/yyyy'] }} às {{ viewMsg.date | date: ['HH:mm'] }}.</small>
+      <hr>
+      <h4>{{ viewMsg.subject }}</h4>
+      <p>{{ viewMsg.message }}</p>
+      <hr>
+
+      <ion-grid>
+        <ion-row>
+          <ion-col class="ion-text-left ion-no-padding">
+            <ion-button>Responder</ion-button>
+          </ion-col>
+          <ion-col class="ion-text-right ion-no-padding">
+            <ion-button>Apagar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <hr>
+      <ion-button *ngIf="msgParams.msgBox == 'inbox'" expand="block" routerLink="/msg/inbox">Caixa de entrada
+      </ion-button>
+      <ion-button *ngIf="msgParams.msgBox == 'outbox'" expand="block" routerLink="/msg/inbox">Caixa de saída
+      </ion-button>
+
+    </div>
+
+  </div>
+
 </ion-content>
