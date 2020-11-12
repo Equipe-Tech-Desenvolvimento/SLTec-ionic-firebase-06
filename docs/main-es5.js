@@ -758,7 +758,8 @@
         }
       }, // 10.1) Sistema de mensagens (somente logado)
       {
-        path: 'msg/view',
+        // 12.1) Rota para exibir uma mensagem única
+        path: 'msg/view/:msgBox/:msgId',
         loadChildren: function loadChildren() {
           return __webpack_require__.e(
           /*! import() | msg-view-view-module */

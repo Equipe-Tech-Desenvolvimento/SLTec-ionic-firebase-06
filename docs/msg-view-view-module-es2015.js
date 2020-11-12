@@ -54,6 +54,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "tyNb");
 /* harmony import */ var _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @ngx-pwa/local-storage */ "8YY3");
 /* harmony import */ var src_app_services_app_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! src/app/services/app.service */ "OaWH");
+/* harmony import */ var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/fire/firestore */ "I/3d");
 
 
 
@@ -62,15 +63,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+// 12.1) Importa dependências
+
+
 let ViewPage = class ViewPage {
     constructor(
     // 10.2) Injeta dependências
-    router, app, storage) {
+    router, app, storage, 
+    // 12.2) Injeta dependências
+    route, fbStore) {
         this.router = router;
         this.app = app;
         this.storage = storage;
+        this.route = route;
+        this.fbStore = fbStore;
     }
-    ngOnInit() { }
+    ngOnInit() {
+        // 12.4) Obtém nome da caixa (inbox / outbox) e Id da mensagem
+        this.route.params.subscribe(atributes => {
+            this.msgParams = atributes;
+        });
+    }
     // 10.4) Se tem perfil, obtém dados.
     //       Se não tem, vai para "novo perfil"
     ionViewWillEnter() {
@@ -84,6 +97,8 @@ let ViewPage = class ViewPage {
                     // Obtém dados do perfil local e armazena em 'userProfile'
                     this.storage.get('userProfile', { type: 'string' }).subscribe((pData) => {
                         this.userProfile = JSON.parse(pData);
+                        // 12.5) Obtém a mensagem única
+                        this.getMessage();
                     });
                 });
                 // Se não existe perfil, vai para o cadastro de perfil
@@ -93,11 +108,35 @@ let ViewPage = class ViewPage {
             }
         });
     }
+    // 12.6) Obtém a mensagem única
+    getMessage() {
+        // Consulta o banco de dados
+        this.fbStore.collection(`messages/${this.userData.uid}/${this.msgParams.msgBox}`).doc(this.msgParams.msgId).valueChanges().subscribe((mData) => {
+            this.viewMsg = mData;
+            if (this.msgParams.msgBox === 'inbox') {
+                this.otherUSerID = this.viewMsg.from;
+            }
+            else {
+                this.otherUSerID = this.viewMsg.to;
+            }
+            // Obtém o nome do interlocutor da mensagem
+            this.fbStore.doc(`users/${this.otherUSerID}`).valueChanges().subscribe((data) => {
+                if (this.msgParams.msgBox === 'inbox') {
+                    this.viewMsg.interlocutor = `De: <a routerLink="${this.viewMsg.from}">${data.name}</a>`;
+                }
+                else {
+                    this.viewMsg.interlocutor = `Para: <a routerLink="${this.viewMsg.to}">${data.name}</a>`;
+                }
+            });
+        });
+    }
 };
 ViewPage.ctorParameters = () => [
     { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
     { type: src_app_services_app_service__WEBPACK_IMPORTED_MODULE_6__["AppService"] },
-    { type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_5__["StorageMap"] }
+    { type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_5__["StorageMap"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"] },
+    { type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__["AngularFirestore"] }
 ];
 ViewPage = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"])([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_3__["Component"])({
@@ -222,7 +261,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <!-- 10.1) Menu e título -->\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n\r\n    <ion-title>Ler mensagem</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content>");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <!-- 10.1) Menu e título -->\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n\r\n    <ion-title>Ler mensagem</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <div class=\"ion-padding\">\r\n\r\n    <div *ngIf=\"viewMsg\">\r\n\r\n      <small [innerHTML]=\"viewMsg.interlocutor\"></small><br>\r\n      <small>Em: {{ viewMsg.date | date: ['dd/MM/yyyy'] }} às {{ viewMsg.date | date: ['HH:mm'] }}.</small>\r\n      <hr>\r\n      <h4>{{ viewMsg.subject }}</h4>\r\n      <p>{{ viewMsg.message }}</p>\r\n      <hr>\r\n\r\n      <ion-grid>\r\n        <ion-row>\r\n          <ion-col class=\"ion-text-left ion-no-padding\">\r\n            <ion-button>Responder</ion-button>\r\n          </ion-col>\r\n          <ion-col class=\"ion-text-right ion-no-padding\">\r\n            <ion-button>Apagar</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-grid>\r\n      <hr>\r\n      <ion-button *ngIf=\"msgParams.msgBox == 'inbox'\" expand=\"block\" routerLink=\"/msg/inbox\">Caixa de entrada\r\n      </ion-button>\r\n      <ion-button *ngIf=\"msgParams.msgBox == 'outbox'\" expand=\"block\" routerLink=\"/msg/inbox\">Caixa de saída\r\n      </ion-button>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n</ion-content>");
 
 /***/ }),
 

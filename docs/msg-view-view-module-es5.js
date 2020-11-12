@@ -126,49 +126,94 @@
 
       var src_app_services_app_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! src/app/services/app.service */
-      "OaWH"); // 10.1) Importa dependências
+      "OaWH");
+      /* harmony import */
+
+
+      var _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! @angular/fire/firestore */
+      "I/3d"); // 10.1) Importa dependências
+      // 12.1) Importa dependências
 
 
       var ViewPage = /*#__PURE__*/function () {
         function ViewPage( // 10.2) Injeta dependências
-        router, app, storage) {
+        router, app, storage, // 12.2) Injeta dependências
+        route, fbStore) {
           _classCallCheck(this, ViewPage);
 
           this.router = router;
           this.app = app;
           this.storage = storage;
+          this.route = route;
+          this.fbStore = fbStore;
         }
 
         _createClass(ViewPage, [{
           key: "ngOnInit",
-          value: function ngOnInit() {} // 10.4) Se tem perfil, obtém dados.
+          value: function ngOnInit() {
+            var _this = this;
+
+            // 12.4) Obtém nome da caixa (inbox / outbox) e Id da mensagem
+            this.route.params.subscribe(function (atributes) {
+              _this.msgParams = atributes;
+            });
+          } // 10.4) Se tem perfil, obtém dados.
           //       Se não tem, vai para "novo perfil"
 
         }, {
           key: "ionViewWillEnter",
           value: function ionViewWillEnter() {
-            var _this = this;
+            var _this2 = this;
 
             // Testa o perfil local (true e false)
             this.app.isProfile().then(function (data) {
               // Se existe, faz as ações da página
               if (data) {
                 // Obtém dados do login local e armazena em 'userData'
-                _this.storage.get('userData', {
+                _this2.storage.get('userData', {
                   type: 'string'
                 }).subscribe(function (uData) {
-                  _this.userData = JSON.parse(uData); // Obtém dados do perfil local e armazena em 'userProfile'
+                  _this2.userData = JSON.parse(uData); // Obtém dados do perfil local e armazena em 'userProfile'
 
-                  _this.storage.get('userProfile', {
+                  _this2.storage.get('userProfile', {
                     type: 'string'
                   }).subscribe(function (pData) {
-                    _this.userProfile = JSON.parse(pData);
+                    _this2.userProfile = JSON.parse(pData); // 12.5) Obtém a mensagem única
+
+                    _this2.getMessage();
                   });
                 }); // Se não existe perfil, vai para o cadastro de perfil
 
               } else {
-                _this.router.navigate(['/user/new']);
+                _this2.router.navigate(['/user/new']);
               }
+            });
+          } // 12.6) Obtém a mensagem única
+
+        }, {
+          key: "getMessage",
+          value: function getMessage() {
+            var _this3 = this;
+
+            // Consulta o banco de dados
+            this.fbStore.collection("messages/".concat(this.userData.uid, "/").concat(this.msgParams.msgBox)).doc(this.msgParams.msgId).valueChanges().subscribe(function (mData) {
+              _this3.viewMsg = mData;
+
+              if (_this3.msgParams.msgBox === 'inbox') {
+                _this3.otherUSerID = _this3.viewMsg.from;
+              } else {
+                _this3.otherUSerID = _this3.viewMsg.to;
+              } // Obtém o nome do interlocutor da mensagem
+
+
+              _this3.fbStore.doc("users/".concat(_this3.otherUSerID)).valueChanges().subscribe(function (data) {
+                if (_this3.msgParams.msgBox === 'inbox') {
+                  _this3.viewMsg.interlocutor = "De: <a routerLink=\"".concat(_this3.viewMsg.from, "\">").concat(data.name, "</a>");
+                } else {
+                  _this3.viewMsg.interlocutor = "Para: <a routerLink=\"".concat(_this3.viewMsg.to, "\">").concat(data.name, "</a>");
+                }
+              });
             });
           }
         }]);
@@ -183,6 +228,10 @@
           type: src_app_services_app_service__WEBPACK_IMPORTED_MODULE_6__["AppService"]
         }, {
           type: _ngx_pwa_local_storage__WEBPACK_IMPORTED_MODULE_5__["StorageMap"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["ActivatedRoute"]
+        }, {
+          type: _angular_fire_firestore__WEBPACK_IMPORTED_MODULE_7__["AngularFirestore"]
         }];
       };
 
@@ -308,7 +357,7 @@
           key: "isProfile",
           value: function isProfile() {
             return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
-              var _this2 = this;
+              var _this4 = this;
 
               return regeneratorRuntime.wrap(function _callee2$(_context2) {
                 while (1) {
@@ -316,7 +365,7 @@
                     case 0:
                       return _context2.abrupt("return", new Promise(function (resolve, reject) {
                         // Lê o armazenamento local
-                        _this2.storage.get('userProfile', {
+                        _this4.storage.get('userProfile', {
                           type: 'string'
                         }).subscribe({
                           next: function next(data) {
@@ -396,7 +445,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <!-- 10.1) Menu e título -->\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n\r\n    <ion-title>Ler mensagem</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n</ion-content>";
+      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar>\r\n\r\n    <!-- 10.1) Menu e título -->\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n\r\n    <ion-title>Ler mensagem</ion-title>\r\n\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n\r\n  <div class=\"ion-padding\">\r\n\r\n    <div *ngIf=\"viewMsg\">\r\n\r\n      <small [innerHTML]=\"viewMsg.interlocutor\"></small><br>\r\n      <small>Em: {{ viewMsg.date | date: ['dd/MM/yyyy'] }} às {{ viewMsg.date | date: ['HH:mm'] }}.</small>\r\n      <hr>\r\n      <h4>{{ viewMsg.subject }}</h4>\r\n      <p>{{ viewMsg.message }}</p>\r\n      <hr>\r\n\r\n      <ion-grid>\r\n        <ion-row>\r\n          <ion-col class=\"ion-text-left ion-no-padding\">\r\n            <ion-button>Responder</ion-button>\r\n          </ion-col>\r\n          <ion-col class=\"ion-text-right ion-no-padding\">\r\n            <ion-button>Apagar</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-grid>\r\n      <hr>\r\n      <ion-button *ngIf=\"msgParams.msgBox == 'inbox'\" expand=\"block\" routerLink=\"/msg/inbox\">Caixa de entrada\r\n      </ion-button>\r\n      <ion-button *ngIf=\"msgParams.msgBox == 'outbox'\" expand=\"block\" routerLink=\"/msg/inbox\">Caixa de saída\r\n      </ion-button>\r\n\r\n    </div>\r\n\r\n  </div>\r\n\r\n</ion-content>";
       /***/
     },
 

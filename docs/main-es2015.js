@@ -616,7 +616,8 @@ const routes = [
     },
     // 10.1) Sistema de mensagens (somente logado)
     {
-        path: 'msg/view',
+        // 12.1) Rota para exibir uma mensagem única
+        path: 'msg/view/:msgBox/:msgId',
         loadChildren: () => __webpack_require__.e(/*! import() | msg-view-view-module */ "msg-view-view-module").then(__webpack_require__.bind(null, /*! ./msg/view/view.module */ "yqK2")).then(m => m.ViewPageModule),
         canActivate: [_angular_fire_auth_guard__WEBPACK_IMPORTED_MODULE_3__["AngularFireAuthGuard"]],
         data: { authGuardPipe: toLogin }
