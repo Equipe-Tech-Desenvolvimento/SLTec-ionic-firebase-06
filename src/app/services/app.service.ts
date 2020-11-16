@@ -13,6 +13,9 @@ import { AlertController } from '@ionic/angular'; // Caixa de alerta
 // 4.1) Importa dependências
 import { StorageMap } from '@ngx-pwa/local-storage'; // Armazenamento local
 
+// 13.1) Importa dependências
+import { AngularFirestore } from '@angular/fire/firestore';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,6 +29,9 @@ export class AppService {
 
     // 4.2) Injeção das dependências
     private storage: StorageMap, // Armazenamento local
+
+    // 13.2) Injeção das dependências
+    public fbStore: AngularFirestore,
   ) { }
 
   // 3.3) Caixa de alerta para feedback (https://ionicframework.com/docs/api/alert)
@@ -35,7 +41,7 @@ export class AppService {
       message: text,
       buttons: [{
         text: 'Ok',
-        handler: () => { return true; }
+        handler: () => true
       }]
     });
     await alert.present();
@@ -52,15 +58,28 @@ export class AppService {
         next: (data) => {
 
           // Se perfil, retorna 'true'
-          if (data) resolve(true);
+          if (data) { resolve(true); }
 
           // Se não tem perfil, retorna 'false'
-          else resolve(false);
+          else { resolve(false); }
         },
 
         // Em caso de erro ao tentar acessar 'storage'
         error: (error) => console.error(error)
       });
     });
+  }
+
+  // 13.3) Apaga uma mensagem da caixa de mensagens
+  msgDelete(userId: string, msgBox: string, msgId: string) {
+
+    // Localize a caixa correta e apaga a mensagem
+    this.fbStore.collection(`messages/${userId}/${msgBox}`).doc(msgId).update({ status: 'Apagada' })
+
+      // Se a mensagem foi apagada, retorna para a listagem da caixa
+      .then(() => { this.router.navigate([`/msg/${msgBox}`]); })
+
+      // Se deu erro, exibe
+      .catch(error => { console.log(error); });
   }
 }

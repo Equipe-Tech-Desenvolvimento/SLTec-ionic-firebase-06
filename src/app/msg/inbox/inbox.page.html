@@ -22,9 +22,9 @@
 
         <!-- 12.1) Link para ver a mensagem completa -->
         <div class="msgSubject"><a routerLink="/msg/view/inbox/{{ msg.msgId }}">{{ msg.subject }}</a></div>
-        <small>De: {{ msg.fromName }} em
-          {{ msg.date | date: ['dd/MM/yyyy'] }} às
-          {{ msg.date | date: ['HH:mm'] }}.</small>
+
+        <!-- 13.1) Exibe remetente e data da mensagem -->
+        <small>De: <strong>{{ msg.fromName }}</strong> em {{ msg.date | date: ['dd/MM/yyyy, HH:mm'] }}.</small>
         <hr>
       </div>
 
