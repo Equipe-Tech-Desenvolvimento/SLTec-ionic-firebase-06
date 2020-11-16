@@ -78,12 +78,12 @@ export class InboxPage implements OnInit {
     // Lê mesangens do banco de dados com base no Id do usuário logado
     this.fbStore.collection(
       `messages/${this.userData.uid}/inbox`,
-      ref => ref.orderBy('date')
+      ref => ref.orderBy('date', 'desc')
     ).valueChanges({ idField: 'msgId' }).subscribe(
       (mData) => {
 
         // Variável local para as mensagens
-        let allMessages = [];
+        const allMessages = [];
 
         // Obtém cada mensagem recebida
         mData.forEach(
