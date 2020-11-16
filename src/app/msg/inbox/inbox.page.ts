@@ -83,7 +83,7 @@ export class InboxPage implements OnInit {
       (mData) => {
 
         // Variável local para as mensagens
-        let allMessages = [];
+        const allMessages = [];
 
         // Obtém cada mensagem recebida
         mData.forEach(
