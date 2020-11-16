@@ -37,7 +37,7 @@ Edite as regras do Cloud Firestore:
 	•••
 ```
 
-3) Conclusão
+4) Conclusão
 
     - Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
 
