@@ -21,6 +21,22 @@ Instruções para executar as atividades deste 'branch':
 	- Edite "app/services/app.service.ts" &rarr; 1 à 3
 	- Edite "app/msg/view/view.page.html" &rarr; 2
 
+3) Edite as regras do "Cloud Firestore" para permitir alterações nas mensagens
+
+Edite as regras do Cloud Firestore:
+
+```
+	•••
+
+	// Mensagens
+    match /messages/{userMessages}/{messages=**} {
+        allow read, update: if request.auth.uid == userMessages;
+        allow write: if false;
+    }
+
+	•••
+```
+
 3) Conclusão
 
     - Compile, teste as funcionalidades e depois, faça o "merge" com o branch "master".
