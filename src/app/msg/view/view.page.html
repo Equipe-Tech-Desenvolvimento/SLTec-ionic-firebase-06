@@ -21,7 +21,9 @@
       <small>Em: {{ viewMsg.date | date: ['dd/MM/yyyy'] }} às {{ viewMsg.date | date: ['HH:mm'] }}.</small>
       <hr>
       <h4>{{ viewMsg.subject }}</h4>
-      <p>{{ viewMsg.message }}</p>
+
+      <!-- 13.1) Exibe mensagem -->
+      <div>{{ viewMsg.message }}</div>
       <hr>
 
       <ion-grid>
@@ -29,9 +31,12 @@
           <ion-col class="ion-text-left ion-no-padding">
             <ion-button>Responder</ion-button>
           </ion-col>
+
+          <!-- 13.2) Botão apagar mensagem -->
           <ion-col class="ion-text-right ion-no-padding">
-            <ion-button>Apagar</ion-button>
+            <ion-button (click)="app.msgDelete(userData.uid, msgParams.msgBox, msgParams.msgId)">Apagar</ion-button>
           </ion-col>
+
         </ion-row>
       </ion-grid>
       <hr>

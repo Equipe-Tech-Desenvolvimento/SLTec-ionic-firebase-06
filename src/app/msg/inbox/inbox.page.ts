@@ -89,15 +89,19 @@ export class InboxPage implements OnInit {
         mData.forEach(
           (msgData: any) => {
 
-            // Obtém o nome de que enviou a mensagem
-            this.fbStore.doc<any>(`users/${msgData.from}`).valueChanges().subscribe(
-              (data) => {
+            // 13.1) Não exibe mensagens apagadas
+            if (msgData.status !== 'Apagada') {
 
-                // Lista todas as mensagens
-                msgData.fromName = data.name;
-                allMessages.push(msgData);
-              }
-            );
+              // Obtém o nome de que enviou a mensagem
+              this.fbStore.doc<any>(`users/${msgData.from}`).valueChanges().subscribe(
+                (data) => {
+
+                  // Lista todas as mensagens
+                  msgData.fromName = data.name;
+                  allMessages.push(msgData);
+                }
+              );
+            }
           }
         );
 

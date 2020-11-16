@@ -80,7 +80,6 @@ export class ViewPage implements OnInit {
       });
   }
 
-
   // 12.6) Obtém a mensagem única
   public getMessage() {
 
@@ -90,6 +89,10 @@ export class ViewPage implements OnInit {
     ).doc(this.msgParams.msgId).valueChanges().subscribe(
       (mData) => {
         this.viewMsg = mData;
+
+        // 13.1) Melhora visualização da mensagem
+        this.viewMsg.message = this.viewMsg.message.replace(/\\r\\n/g, '<br />');
+
         if (this.msgParams.msgBox === 'inbox') {
           this.otherUSerID = this.viewMsg.from;
         } else {
@@ -99,15 +102,16 @@ export class ViewPage implements OnInit {
         // Obtém o nome do interlocutor da mensagem
         this.fbStore.doc<any>(`users/${this.otherUSerID}`).valueChanges().subscribe(
           (data) => {
+
+            // 13.2) Formata remetente da mensagem
             if (this.msgParams.msgBox === 'inbox') {
-              this.viewMsg.interlocutor = `De: <a routerLink="${this.viewMsg.from}">${data.name}</a>`;
+              this.viewMsg.interlocutor = `De: <a href="${this.viewMsg.from}">${data.name}</a>`;
             } else {
-              this.viewMsg.interlocutor = `Para: <a routerLink="${this.viewMsg.to}">${data.name}</a>`;
+              this.viewMsg.interlocutor = `Para: <a href="${this.viewMsg.to}">${data.name}</a>`;
             }
           }
         );
       }
     );
-
   }
 }
