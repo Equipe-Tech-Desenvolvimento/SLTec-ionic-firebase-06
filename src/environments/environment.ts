@@ -7,13 +7,14 @@ export const environment = {
 
   // 2.1) Altere os dados abaixo, conforme seu aplicativo do Firebase
   firebase: {
-    apiKey: 'AIzaSyDDBcmSyAJBz0LxhDQM4EZ92hdhNQkGu2I',
-    authDomain: 'ionic-firebase-exemplo-02.firebaseapp.com',
-    databaseURL: 'https://ionic-firebase-exemplo-02.firebaseio.com',
-    projectId: 'ionic-firebase-exemplo-02',
-    storageBucket: 'ionic-firebase-exemplo-02.appspot.com',
-    messagingSenderId: '674636848625',
-    appId: '1:674636848625:web:36ed96e17e7a82b4c07850'
+    apiKey: "AIzaSyAQPzyyQbhgJXsLYCAj37JXQLsjvaCfgoU",
+    authDomain: "ecolog-dfa6c.firebaseapp.com",
+    databaseURL: "https://ecolog-dfa6c.firebaseio.com",
+    projectId: "ecolog-dfa6c",
+    storageBucket: "ecolog-dfa6c.appspot.com",
+    messagingSenderId: "766718764122",
+    appId: "1:766718764122:web:cdbf39d1317c22886f2463",
+    measurementId: "G-F3366FKDPM"
   }
 };
 
