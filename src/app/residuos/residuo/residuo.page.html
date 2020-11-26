@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+
+    <!-- 10.1) Menu e título -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Resíduos</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+
+  <ion-card>
+
+    <ion-card-content>
+      <img src="/assets/img/Lixo.jpg">
+      <div class="Texto1">
+        Aqui é aonde você escolherá os materiais que serão entregues aos catadores de materiais orgânicos.
+        
+        
+      <ion-button color="danger" expand="block" routerLink="/lixos">
+        <ion-icon name="trash-outline" slot="start"></ion-icon>
+        <ion-label>Lixos</ion-label>
+      </ion-button>
+      </div>
+    </ion-card-content>
+
+
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-content>
+      <img src="/assets/img/Rotas.jpg">
+      <div class="Texto1">
+        Aqui é onde você verá as rotas de onde serão coletados os lixos.
+    <ion-button color="danger" class="ion-margin-top" expand="block" routerLink="/rotas">
+      <ion-icon name="car-outline" slot="start"></ion-icon>
+      <ion-label>Rotas</ion-label>
+    </ion-button>
+
+     </div>
+    </ion-card-content>
+  
+
+  </ion-card>
+
+
+</ion-content>

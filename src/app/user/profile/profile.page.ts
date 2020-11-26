@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
+
+// 3.1) Importa dependências
+import { AngularFireAuth } from '@angular/fire/auth'; // Autenticação
+import { EventsService } from '../../services/events.service'; // Dispara eventos globais
+
+
 // 4.1) Importa dependências
 import { Router } from '@angular/router';
 import { AppService } from 'src/app/services/app.service';
@@ -19,6 +25,11 @@ export class ProfilePage implements OnInit {
   userProfile: any;
 
   constructor(
+
+    // 3.2) injeção de dependências
+    public fbAuth: AngularFireAuth, // Autenticação
+    public events: EventsService, // Dispara eventos globais
+
 
     // 4.2) Injeta dependências
     public router: Router,
@@ -97,4 +108,38 @@ export class ProfilePage implements OnInit {
       window.open(profileURL);
     }
   }
+
+
+// 3.3) Ação do botão [Sair]
+logout() {
+
+  // Lougout no Firebase Auth
+  this.fbAuth.signOut()
+    .then(() => {
+
+      // Apaga perfil local
+      this.storage.delete('userProfile').subscribe({
+        next: (() => {
+
+          // Apaga login local
+          this.storage.delete('userData').subscribe({
+            next: (() => {
+
+              // 3.4) Atualiza 'userData' no menu principal também (app.component.ts)
+              this.events.publish('userData', null);
+
+              // 10.1) Atualiza 'userProfile' globalmente
+              this.events.publish('userProfile', null);
+
+              // Rota para a página inicial
+              this.router.navigate(['/']);
+            }),
+            error: ((error) => { console.error(error); })
+          });
+        }),
+        error: ((error) => { console.error(error); })
+      });
+    })
+    .catch((error) => { console.error(error); });
+}
 }

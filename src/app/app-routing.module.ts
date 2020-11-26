@@ -116,11 +116,37 @@ const routes: Routes = [
     data: { authGuardPipe: toLogin }
   },
 
+  // Resíduos
+  {
+    path: 'lixos',
+    loadChildren: () => import('./residuos/lixos/lixos.module').then( m => m.LixosPageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin }
+  },
+
+  {
+    path: 'rotas',
+    loadChildren: () => import('./residuos/rotas/rotas.module').then( m => m.RotasPageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin }
+  },
+
+  {
+    path: 'residuo',
+    loadChildren: () => import('./residuos/residuo/residuo.module').then( m => m.ResiduoPageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin }
+  },
+
+
   // Página de 'erro 404' para rotas inexistentes. DEVE SER SEMPRE A ÚLTIMA ROTA!!!
   {
     path: '**',
     loadChildren: () => import('./pages/e404/e404.module').then(m => m.E404PageModule)
-  }
+  },
+ 
+
+
 ];
 
 @NgModule({
