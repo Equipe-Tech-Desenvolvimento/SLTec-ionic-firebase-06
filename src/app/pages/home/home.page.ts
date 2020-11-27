@@ -43,4 +43,9 @@ export class HomePage implements OnInit {
       this.userData = uData;
     });
   }
+
+  // 20.1) Método que abre links externos em outra guia do navegador
+  openSite(URL: any): void {
+    window.open(URL);
+  }
 }

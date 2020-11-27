@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 // 10.1) Importa dependências
 import { Router } from '@angular/router';
 import { StorageMap } from '@ngx-pwa/local-storage';
-import { Observable, Subject } from 'rxjs';
 import { AppService } from 'src/app/services/app.service';
 
 // 11.1) Importa as dependências
@@ -95,9 +94,22 @@ export class InboxPage implements OnInit {
               // Obtém o nome de que enviou a mensagem
               this.fbStore.doc<any>(`users/${msgData.from}`).valueChanges().subscribe(
                 (data) => {
-
-                  // Lista todas as mensagens
                   msgData.fromName = data.name;
+
+                  // 14) Seleciona ícone conforme status da mensagem
+                  switch (msgData.status) {
+                    case 'Não lida':
+                      msgData.statusIcon = 'mail-outline';
+                      break;
+                    case 'Lida':
+                      msgData.statusIcon = 'mail-open-outline';
+                      break;
+                    case 'Respondida':
+                      msgData.statusIcon = 'send-outline';
+                      break;
+                  }
+
+                  // Lista mensagem em "todas as mensagens"
                   allMessages.push(msgData);
                 }
               );

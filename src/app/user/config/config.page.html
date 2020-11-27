@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Configuração</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+ 
+  <ion-button expand="block" class="ion-no-margin ion-margin-vertical" routerLink="/user/edit">
+    <ion-icon name="create"></ion-icon>&nbsp;
+    Editar Perfil
+  </ion-button>
+
+  <!-- 16.1) Botão para excluir perfil -->
+  <ion-button expand="block" color="danger" class="ion-no-margin ion-margin-vertical" routerLink="/user/delete">
+    <ion-icon name="alert-circle"></ion-icon>&nbsp;
+      Apagar Conta
+  </ion-button>
+
+</ion-content>
+

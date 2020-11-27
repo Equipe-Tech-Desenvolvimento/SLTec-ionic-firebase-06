@@ -18,6 +18,12 @@ import { environment } from '../environments/environment';
 // 3.1) Importar 'Async local storage for Angular'
 import { StorageMap } from '@ngx-pwa/local-storage';
 
+// 20.1) Importa FontAwesome
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -29,7 +35,10 @@ import { StorageMap } from '@ngx-pwa/local-storage';
     // 2.2) Inicializar Firebase e API's
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+
+    // Injeta as fontes
+    FontAwesomeModule
   ],
   providers: [
     StatusBar,
@@ -41,4 +50,11 @@ import { StorageMap } from '@ngx-pwa/local-storage';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+
+  // Constroi as fontes
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas, fab, far);
+  }
+
+}

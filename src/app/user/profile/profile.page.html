@@ -49,6 +49,9 @@
             <ion-text color="primary">CPF:</ion-text>{{ userProfile.cpf }}
           </li>
           <li>
+            <ion-text color="primary">Endereço:</ion-text>{{ userProfile.address }}
+          </li>
+          <li>
             <ion-text color="primary">Nascimento:</ion-text>{{ userProfile.birth }}
           </li>
           <li>
@@ -67,22 +70,23 @@
             <ion-text color="primary">E-mail:</ion-text>
             {{ userProfile.email }}
           </li>
-          <li>
+          <!-- <li>
             <ion-text color="primary">Telefone Residêncial:</ion-text>
             {{ userProfile.homePhone }}
-          </li>
+          </li> -->
           <li>
             <ion-text color="primary">Telefone Celular:</ion-text>
             {{ userProfile.cellPhone }}
           </li>
           <li>
-            <ion-text color="primary">WhatsApp</ion-text>
+            <ion-text color="primary">WhatsApp:</ion-text>
             {{ userProfile.whatsApp }}
           </li>
+         
         </ul>
       </ion-card-content>
 
-      <hr>
+       <!-- <hr>
       <ion-card-header>
         <ion-card-title>Outras Informações</ion-card-title>
       </ion-card-header>
@@ -105,9 +109,9 @@
             {{ userProfile.status }}
           </li>
         </ul>
-      </ion-card-content>
+      </ion-card-content> -->
 
-    </ion-card>
+    </ion-card> 
 
     <!-- 9.1) Botão para editar perfil -->
    
@@ -116,9 +120,9 @@
         <ion-grid>
           <ion-row>
             <ion-col size="12">
-              <ion-button expand="block" class="ion-no-margin ion-margin-vertical" routerLink="/user/edit">
+              <ion-button expand="block" class="ion-no-margin ion-margin-vertical" routerLink="/config">
                 <ion-icon name="create"></ion-icon>&nbsp;
-                Editar Perfil
+                Configuração do Perfil
               </ion-button>
             </ion-col>
     

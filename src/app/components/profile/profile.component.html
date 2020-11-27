@@ -14,9 +14,10 @@
 
     <ion-list lines="full" id="profileList" class="ion-no-padding">
 
+     
       <div>Dados pessoais:</div>
 
-      <ion-item>
+      <ion-item >
         <ion-label for="name" position="floating" color="primary">
           Nome completo:
           <ion-text color="danger" *ngIf="profileForm.controls.name.errors">
@@ -49,6 +50,18 @@
         <ion-input type="text" id="cpf" name="cpf" formControlName="cpf" placeholder="Somente números"></ion-input>
       </ion-item>
 
+
+      <ion-item>
+        <ion-label for="address" position="floating" color="primary">
+          Endereço:
+          <ion-text color="danger" *ngIf="profileForm.controls.address.errors">
+            <small *ngIf="profileForm.controls.address.errors.required">* Obrigatório</small>
+            <small *ngIf="profileForm.controls.address.errors.minlength">* Inválido</small>
+          </ion-text>
+        </ion-label>
+        <ion-textarea type="text" id="address" name="address" formControlName="address" placeholder="Seu endereço completo" autoGrow="true"></ion-textarea>
+      </ion-item>
+      
       <!-- 6.4) Campo do tipo "radio"-->
       <ion-list>
         <ion-radio-group formControlName="gender" id="gender" name="gender">
@@ -94,7 +107,7 @@
         <ion-input type="text" id="email" name="email" formControlName="email"></ion-input>
       </ion-item>
 
-      <ion-item>
+      <!-- <ion-item>
         <ion-label for="homePhone" position="floating" color="primary">
           Tel. residencial:
           <ion-text color="danger" *ngIf="profileForm.controls.homePhone.errors">
@@ -104,7 +117,7 @@
         </ion-label>
         <ion-input type="text" id="homePhone" name="homePhone" formControlName="homePhone"
           placeholder="Exemplo: (21) 2345-6789"></ion-input>
-      </ion-item>
+      </ion-item> -->
 
       <ion-item>
         <ion-label for="cellPhone" position="floating" color="primary">
@@ -130,16 +143,18 @@
           placeholder="Exemplo: (21) 98765-4321"></ion-input>
       </ion-item>
 
-      <hr>
+      
+
+      <!-- <hr>
       <div>Opções:</div>
 
-      <!-- 6.1) Lista de opções 'estática' -->
-      <!-- 10.1) Usando <ion-select interface="popover"... -->
+       6.1) Lista de opções 'estática' 
+       10.1) Usando <ion-select interface="popover"... 
       <ion-item>
         <ion-label for="selectStatic" position="floating" color="primary">
           Seleção 1:
 
-          <!-- 6.6) Alerta de campo inválido -->
+           6.6) Alerta de campo inválido 
           <ion-text color="danger" *ngIf="profileForm.controls.selectStatic.errors">
             <small *ngIf="profileForm.controls.selectStatic.errors.required">* Obrigatório</small>
           </ion-text>
@@ -152,14 +167,14 @@
         </ion-select>
       </ion-item>
 
-      <!-- 6.2) Lista de opções 'dinâmica', obtida do Firestore -->
+       6.2) Lista de opções 'dinâmica', obtida do Firestore -->
       <!-- 9.1) Lista de opções 'dinâmica', obtida do Firestore (Ajuste no  nome da variável) -->
-      <!-- 10.2) Usando <ion-select interface="popover"... -->
+      <!-- 10.2) Usando <ion-select interface="popover"... 
       <ion-item *ngIf="selectDynamic">
         <ion-label for="selectDynamic" position="floating" color="primary">
           Seleção 2:
 
-          <!-- 6.7) Alerta de campo inválido -->
+           6.7) Alerta de campo inválido 
           <ion-text color="danger" *ngIf="profileForm.controls.selectDynamic.errors">
             <small *ngIf="profileForm.controls.selectDynamic.errors.required">* Obrigatório</small>
           </ion-text>
@@ -167,13 +182,13 @@
         <ion-select interface="popover" formControlName="selectDynamic" placeholder="Selecione" id="selectDynamic"
           name="selectDynamic">
 
-          <!-- 6.3) Lista as opções que "vieram" do Firestore -->
+           6.3) Lista as opções que "vieram" do Firestore 
           <ion-select-option *ngFor="let select of selectDynamic" value="{{ select.option }}">
             {{ select.option }}
           </ion-select-option>
 
         </ion-select>
-      </ion-item>
+      </ion-item> -->
 
     </ion-list>
 

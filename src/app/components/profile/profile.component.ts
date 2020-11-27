@@ -37,7 +37,7 @@ export class ProfileComponent implements OnInit {
   userProfile: any;
 
   // 9.3) Textos da View
-  paragraph = `Você precisa cadastrar seu perfil para ter acesso aos recursos do aplicativo de forma pesonalizada.`;
+  paragraph = `Você precisa cadastrar seu perfil para ter acesso a todos os recursos do aplicativo`;
   btnText = `Cadastrar perfil`;
   redirectPage = `/`;
 
@@ -147,13 +147,13 @@ export class ProfileComponent implements OnInit {
           Validators.email
         ])
       ],
-      homePhone: [
-        null,
-        Validators.compose([
-          Validators.required,
-          Validators.pattern(/^\(?[1-9]{2}\)? ?(?:[2-8]|8[1-9])[0-9]{3}\-?[0-9]{4}$/)
-        ])
-      ],
+      // homePhone: [
+      //   null,
+      //   Validators.compose([
+      //     Validators.required,
+      //     Validators.pattern(/^\(?[1-9]{2}\)? ?(?:[2-8]|8[1-9])[0-9]{3}\-?[0-9]{4}$/)
+      //   ])
+      // ],
       cellPhone: [
         null,
         Validators.compose([
@@ -169,31 +169,40 @@ export class ProfileComponent implements OnInit {
         ])
       ],
 
-      // 6.1) Cria campo tipo 'select'
-      selectStatic: [
+      // Novo campo endereço
+      address: [
         null,
-
-        // 6.9) Validando campo
         Validators.compose([
-          Validators.required
+          Validators.required,
+          Validators.minLength(5)
         ])
       ],
 
-      // 6.6) Cria campo tipo 'select'
-      selectDynamic: [
-        null,
+  //     // 6.1) Cria campo tipo 'select'
+  //     selectStatic: [
+  //       null,
 
-        // 6.10) Validando campo
-        Validators.compose([
-          Validators.required
-        ])
-      ],
+  //       // 6.9) Validando campo
+  //       Validators.compose([
+  //         Validators.required
+  //       ])
+  //     ],
 
-      type: ['usuário'],
-      status: ['ativo']
+  //     // 6.6) Cria campo tipo 'select'
+  //     selectDynamic: [
+  //       null,
 
-    });
-  }
+  //       // 6.10) Validando campo
+  //       Validators.compose([
+  //         Validators.required
+  //       ])
+  //     ],
+
+  //     type: ['usuário'],
+  //     status: ['ativo']
+
+     });
+   }
 
   // 5.6) Método que trata envio do formulário
   profileSubmit() {

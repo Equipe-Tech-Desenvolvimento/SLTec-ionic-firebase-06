@@ -30,21 +30,23 @@
         <ion-label>Google</ion-label>
       </ion-button>
 
-      <ion-button class="ion-margin-top" expand="block" (click)="login('facebook')">
+       <!-- 16.1) Bloqueando botões ainda sem uso -->
+       <ion-button class="ion-margin-top" expand="block" (click)="login('facebook')" disabled="true">
         <ion-icon name="logo-facebook" slot="start"></ion-icon>
         <ion-label>Facebook</ion-label>
       </ion-button>
 
-      <ion-button class="ion-margin-top" expand="block" (click)="login('twitter')">
+      <ion-button class="ion-margin-top" expand="block" (click)="login('twitter')" disabled="true">
         <ion-icon name="logo-twitter" slot="start"></ion-icon>
         <ion-label>Twitter</ion-label>
       </ion-button>
 
-      <ion-button class="ion-margin-top" expand="block" (click)="login('github')">
+      <ion-button class="ion-margin-top" expand="block" (click)="login('github')" disabled="true">
         <ion-icon name="logo-github" slot="start"></ion-icon>
         <ion-label>GitHub</ion-label>
       </ion-button>
 
+     
       <!-- ... -->
 
     </div>

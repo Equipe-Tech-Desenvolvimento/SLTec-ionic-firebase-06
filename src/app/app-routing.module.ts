@@ -137,6 +137,22 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: toLogin }
   },
+  
+  {
+    path: 'config',
+    loadChildren: () => import('./user/config/config.module').then( m => m.ConfigPageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin }
+  },
+
+  {
+    // 16.1) Rota para apagar conta
+    path: 'user/delete',
+    loadChildren: () => import('./user/delete/delete.module').then( m => m.DeletePageModule),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: toLogin }
+  },
+
 
 
   // Página de 'erro 404' para rotas inexistentes. DEVE SER SEMPRE A ÚLTIMA ROTA!!!
@@ -144,6 +160,9 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./pages/e404/e404.module').then(m => m.E404PageModule)
   },
+  
+
+
  
 
 
