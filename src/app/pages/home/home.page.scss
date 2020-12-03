@@ -12,22 +12,38 @@ ion-grid small {
 }
 
 ion-col div {
-    background   : steelblue;
+    background   : #32CD32;
     padding      : .5rem;
     border-radius: .4rem;
     cursor       : pointer;
 }
 
 ion-col div:hover {
-    background: orangered;
+    background: #FFFAFA;
 }
 
-h4 {
+.h4 {
     font-size  : 1.1rem;
     font-weight: bold;
 }
 
-h2 {
+.h2 {
  
     font-weight: bold;
 }
+
+
+.Logo1 {
+
+    padding   : .4rem 0;
+    margin-left: 80px;
+    margin-top:-10px;
+
+  }
+
+  .espacamento{
+
+  margin-top: -20px;
+
+
+  }

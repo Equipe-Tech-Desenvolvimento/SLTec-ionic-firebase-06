@@ -12,6 +12,13 @@
 
 <ion-content>
 
+
+    <div class="Logo1">
+    <img src="/assets/img/logo2Ecolog.png" alt="Logo da empresa">
+    </div>
+
+
+
   <div class="ion-padding">
 
     <h2 class="ion-no-margin">Olá<span *ngIf="userData"> {{ userData.displayName }}</span>!</h2>
@@ -19,10 +26,13 @@
     <p>Seja Bem vindo ao app da EcoLog.</p>
     <p>Este é um aplicativo de logística para descarte econômico.</p>
 
+
     <div *ngIf="!userData" class="ion-margin-bottom">
       <hr>
       <h3>Logue-se!</h3>
       <p>Para usar todos os recursos deste aplicativo, você precisa se identificar.</p>
+
+    
 
       <h4>Ações</h4>
 
@@ -62,6 +72,29 @@
       <h4>Ações</h4>
 
       <ion-grid>
+
+
+        <ion-row>
+         
+          <ion-col>
+            <div routerLink="/info">
+              <fa-icon icon="info-circle"></fa-icon>
+              <small>Sobre</small>
+            </div>
+          </ion-col>
+
+          <ion-col>
+            <div routerLink="/contacts">
+              <fa-icon icon="comments"></fa-icon>
+              <small>Contatos</small>
+            </div>
+          </ion-col>
+
+
+        </ion-row>
+
+
+
         <ion-row>
 
           <ion-col>
@@ -72,33 +105,18 @@
           </ion-col>
 
           <ion-col>
-            <div routerLink="/user/logout">
-              <fa-icon icon="sign-out-alt"></fa-icon>
-              <small>Logout</small>
+            <div routerLink="/residuo">
+              <fa-icon icon="trash"></fa-icon>
+              <small>Resíduos</small>
             </div>
           </ion-col>
 
         </ion-row>
 
-        <ion-row>
-          <ion-col>
-            <div routerLink="/contacts">
-              <fa-icon icon="comments"></fa-icon>
-              <small>Contatos</small>
-            </div>
-          </ion-col>
-
-          <ion-col>
-            <div routerLink="/info">
-              <fa-icon icon="info-circle"></fa-icon>
-              <small>Sobre</small>
-            </div>
-          </ion-col>
-        </ion-row>
 
       </ion-grid>
 
-      <h4>Mensagens</h4>
+      <!-- <h4>Mensagens</h4>
 
       <ion-grid>
         <ion-row>
@@ -127,7 +145,7 @@
             </div>
           </ion-col>
         </ion-row>
-      </ion-grid>
+      </ion-grid> -->
 
     </div>
 
@@ -143,14 +161,14 @@
 
           <ion-col>
             <div (click)="openSite('%')">
-              <fa-icon icon="chalkboard-teacher"></fa-icon>
+              <fa-icon [icon]="['fab', 'facebook']"></fa-icon>
               <small>Facebook</small>
             </div>
           </ion-col>
 
           <ion-col>
             <div (click)="openSite('%')">
-              <fa-icon icon="sitemap"></fa-icon>
+              <fa-icon [icon]="['fab', 'instagram']"></fa-icon>
               <small>Instagram</small>
             </div>
           </ion-col>
@@ -159,7 +177,7 @@
 
         <ion-row>
           <ion-col>
-            <div (click)="openSite('https://github.com/Luferat/SLTec-ionic-firebase-06')">
+            <div (click)="openSite('https://ecologstartup.com.br/')">
               <fa-icon icon="globe"></fa-icon>
               <small>Site Web</small>
             </div>
